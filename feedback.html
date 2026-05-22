@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vos souhaits pour le site — Association des Ukrainiens du SLSJ</title>
+<title>Ваші побажання до сайту — Асоціація українців СЛСЖ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +27,6 @@
     min-height: 100vh;
   }
 
-  /* ── Header ── */
   header {
     background: linear-gradient(135deg, var(--blue-deep), var(--blue));
     color: #fff;
@@ -68,14 +67,12 @@
     letter-spacing: .04em;
   }
 
-  /* ── Layout ── */
   main {
     max-width: 880px;
     margin: 0 auto;
     padding: 40px 20px 80px;
   }
 
-  /* ── Intro box ── */
   .intro-box {
     background: #fff;
     border-left: 4px solid var(--yellow);
@@ -89,7 +86,6 @@
   }
   .intro-box strong { color: var(--ink); }
 
-  /* ── Identity block ── */
   .identity-block {
     background: #fff;
     border-radius: var(--radius);
@@ -152,7 +148,6 @@
     background: #fff;
   }
 
-  /* ── Section card ── */
   .section-card {
     background: #fff;
     border-radius: var(--radius);
@@ -215,7 +210,14 @@
     color: var(--muted);
     border-left: 3px solid var(--blue);
   }
-  .content-preview strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .content-preview strong {
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
 
   .feedback-label {
     font-size: 13px;
@@ -228,7 +230,6 @@
   .sub-questions { margin-top: 16px; display: grid; gap: 14px; }
   .sub-q label { color: var(--ink); text-transform: none; font-size: 13px; letter-spacing: 0; font-weight: 500; }
 
-  /* size selector */
   .size-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
   .size-btn {
     padding: 6px 16px;
@@ -248,7 +249,6 @@
     color: #fff;
   }
 
-  /* overall rating */
   .stars { display: flex; gap: 8px; margin-top: 6px; }
   .star-btn {
     background: none; border: none; cursor: pointer;
@@ -257,7 +257,6 @@
   }
   .star-btn.lit { color: var(--yellow); }
 
-  /* ── Global feedback ── */
   .global-block {
     background: linear-gradient(135deg, #f0f4ff, #f7f3ea);
     border: 1.5px solid #dde2ef;
@@ -282,7 +281,6 @@
     border-radius: 2px;
   }
 
-  /* ── Submit ── */
   .submit-wrap {
     text-align: center;
     padding: 12px 0 8px;
@@ -310,7 +308,6 @@
     color: var(--muted);
   }
 
-  /* ── Success overlay ── */
   #success-msg {
     display: none;
     background: #e8f5e9;
@@ -323,7 +320,6 @@
   #success-msg h3 { color: #2e7d32; font-size: 22px; margin-bottom: 8px; }
   #success-msg p { color: #388e3c; font-size: 15px; }
 
-  /* ── Footer ── */
   footer {
     background: var(--blue-deep);
     color: rgba(255,255,255,.6);
@@ -337,84 +333,83 @@
 <body>
 
 <header>
-  <img src="assets/img/brand-logo-full.jpg" alt="Association des Ukrainiens du SLSJ" class="logo">
-  <h1>Vos souhaits pour notre site web</h1>
-  <p>Aidez-nous à construire un site qui vous représente vraiment.<br>
-  Quelques minutes de votre temps façonneront notre présence en ligne.</p>
-  <span class="accent">Sondage des membres — 2026</span>
+  <img src="assets/img/brand-logo-full.jpg" alt="Асоціація українців СЛСЖ" class="logo">
+  <h1>Ваші побажання до нашого сайту</h1>
+  <p>Допоможіть нам побудувати сайт, який дійсно вас представляє.<br>
+  Кілька хвилин вашого часу сформують нашу присутність в Інтернеті.</p>
+  <span class="accent">Опитування членів Асоціації — 2026</span>
 </header>
 
 <main>
 
   <div class="intro-box">
-    <strong>Comment ça fonctionne&nbsp;:</strong> Chaque section du site est présentée ci-dessous avec un aperçu du contenu actuel.
-    Cliquez sur une section pour l'ouvrir et partager vos commentaires.
-    Vos réponses seront enregistrées dans une feuille Google Sheets consultable par la direction de l'Association.
+    <strong>Як це працює:</strong> Нижче представлено кожен розділ сайту з коротким оглядом поточного вмісту.
+    Натисніть на розділ, щоб відкрити його та залишити свої коментарі.
+    Ваші відповіді будуть записані в таблицю Google Sheets, доступну керівництву Асоціації.
   </div>
 
   <form id="survey-form">
 
-    <!-- ── Identity ── -->
+    <!-- Особисті дані -->
     <div class="identity-block">
-      <h2>Vos informations</h2>
+      <h2>Ваші дані</h2>
       <div class="field-row">
         <div>
-          <label for="f-name">Prénom et nom</label>
-          <input type="text" id="f-name" name="name" placeholder="ex. Olena Kovalenko" required>
+          <label for="f-name">Ім'я та прізвище</label>
+          <input type="text" id="f-name" name="name" placeholder="напр. Олена Коваленко" required>
         </div>
         <div>
-          <label for="f-email">Courriel</label>
-          <input type="email" id="f-email" name="email" placeholder="ex. olena@example.com">
+          <label for="f-email">Електронна пошта</label>
+          <input type="email" id="f-email" name="email" placeholder="напр. olena@example.com">
         </div>
       </div>
       <div>
-        <label for="f-role">Votre lien avec l'Association</label>
+        <label for="f-role">Ваш зв'язок з Асоціацією</label>
         <select id="f-role" name="role">
-          <option value="">— Sélectionner —</option>
-          <option>Membre actif·ve</option>
-          <option>Membre fondateur·trice</option>
-          <option>Bénévole</option>
-          <option>Sympathisant·e / donateur·trice</option>
-          <option>Direction / conseil d'administration</option>
-          <option>Partenaire ou organisme allié</option>
+          <option value="">— Оберіть —</option>
+          <option>Активний член</option>
+          <option>Член-засновник</option>
+          <option>Волонтер</option>
+          <option>Прихильник / донор</option>
+          <option>Керівництво / рада директорів</option>
+          <option>Партнер або споріднена організація</option>
         </select>
       </div>
     </div>
 
-    <!-- ── Section 1 — Hero ── -->
+    <!-- Розділ 1 — Головна -->
     <div class="section-card" id="sc-1">
       <div class="section-head" onclick="toggle('sc-1')">
         <span class="section-num">01</span>
         <div class="section-title-wrap">
-          <h3>Page d'accueil — Première impression</h3>
-          <div class="section-desc">Bannière principale, titre, fond visuel, bouton d'action</div>
+          <h3>Головна сторінка — Перше враження</h3>
+          <div class="section-desc">Головний банер, заголовок, фоновий візуал, кнопка дії</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          Titre&nbsp;: «&nbsp;Ensemble, nous bâtissons le pont entre l'Ukraine et le Saguenay–Lac-Saint-Jean&nbsp;»<br>
-          Sous-titre&nbsp;: «&nbsp;Association culturelle, humanitaire et communautaire fondée en 2022&nbsp;»<br>
-          Fond&nbsp;: motif de broderie ukrainienne (vyshyvanka)<br>
-          Bouton principal&nbsp;: «&nbsp;Rejoindre l'Association&nbsp;»
+          <strong>Поточний вміст</strong>
+          Заголовок: «Разом ми будуємо міст між Україною та Саґене–Лак-Сен-Жан»<br>
+          Підзаголовок: «Культурна, гуманітарна та громадська асоціація, заснована у 2022 році»<br>
+          Фон: орнамент вишиванки<br>
+          Головна кнопка: «Стати членом Асоціації»
         </div>
-        <span class="feedback-label">Vos commentaires sur cette section&nbsp;:</span>
-        <textarea name="s1_general" rows="3" placeholder="Ce que vous aimez, ce que vous changeriez, une idée de formulation différente…"></textarea>
-
+        <span class="feedback-label">Ваші коментарі до цього розділу:</span>
+        <textarea name="s1_general" rows="3" placeholder="Що вам подобається, що б ви змінили, інший варіант формулювання…"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée pour cette section (espace visuel sur la page)&nbsp;:</label>
+            <label>Бажаний розмір цього розділу (візуальний простір на сторінці):</label>
             <div class="size-row" data-group="s1_size">
-              <button type="button" class="size-btn" data-val="S">S — Compact</button>
-              <button type="button" class="size-btn selected" data-val="M">M — Moyen</button>
-              <button type="button" class="size-btn" data-val="L">L — Grand</button>
-              <button type="button" class="size-btn" data-val="XL">XL — Plein écran</button>
+              <button type="button" class="size-btn" data-val="S">S — Компактний</button>
+              <button type="button" class="size-btn selected" data-val="M">M — Середній</button>
+              <button type="button" class="size-btn" data-val="L">L — Великий</button>
+              <button type="button" class="size-btn" data-val="XL">XL — На весь екран</button>
             </div>
             <input type="hidden" name="s1_size" value="M">
           </div>
           <div class="sub-q">
-            <label>Le titre actuel vous inspire-t-il confiance et fierté&nbsp;?</label>
+            <label>Чи надихає вас поточний заголовок на гордість і довіру?</label>
             <div class="stars" data-group="s1_title_rating">
               <button type="button" class="star-btn" data-val="1">★</button>
               <button type="button" class="star-btn" data-val="2">★</button>
@@ -428,28 +423,28 @@
       </div>
     </div>
 
-    <!-- ── Section 2 — Chiffres ── -->
+    <!-- Розділ 2 — Цифри -->
     <div class="section-card" id="sc-2">
       <div class="section-head" onclick="toggle('sc-2')">
         <span class="section-num">02</span>
         <div class="section-title-wrap">
-          <h3>Chiffres clés de l'Association</h3>
-          <div class="section-desc">Statistiques et réalisations en chiffres, avec accordéon au clic</div>
+          <h3>Ключові цифри Асоціації</h3>
+          <div class="section-desc">Статистика та досягнення, з акордеоном при кліку</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          180+ membres actifs · 35 bénévoles · 12 événements/an · 4 ans de présence
-          · $48&nbsp;000 levés · 6 directions de programme<br>
-          En cliquant sur chaque chiffre, un texte explicatif s'affiche.
+          <strong>Поточний вміст</strong>
+          180+ активних членів · 35 волонтерів · 12 подій/рік · 4 роки присутності
+          · $48&nbsp;000 зібрано · 6 напрямків програми<br>
+          При кліку на кожну цифру відображається пояснювальний текст.
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s2_general" rows="3" placeholder="Les chiffres sont-ils exacts ? Y en a-t-il à ajouter ? Le format vous convient-il ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s2_general" rows="3" placeholder="Чи точні цифри? Чи є що додати? Чи підходить вам цей формат?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s2_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -461,28 +456,28 @@
       </div>
     </div>
 
-    <!-- ── Section 3 — À propos ── -->
+    <!-- Розділ 3 — Про нас -->
     <div class="section-card" id="sc-3">
       <div class="section-head" onclick="toggle('sc-3')">
         <span class="section-num">03</span>
         <div class="section-title-wrap">
-          <h3>À propos — Notre mission</h3>
-          <div class="section-desc">Histoire, valeurs, 3 piliers fondateurs de l'Association</div>
+          <h3>Про нас — Наша місія</h3>
+          <div class="section-desc">Історія, цінності, 3 засновні стовпи Асоціації</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel — 3 piliers</strong>
-          <em>01 Unir</em> — La communauté ukrainienne du SLSJ, unie autour de valeurs communes<br>
-          <em>02 Préserver</em> — La culture, la langue et les traditions ukrainiennes au Québec<br>
-          <em>03 Agir</em> — Un soutien concret aux personnes ukrainiennes nouvellement arrivées
+          <strong>Поточний вміст — 3 стовпи</strong>
+          <em>01 Об'єднувати</em> — Українська громада СЛСЖ, згуртована навколо спільних цінностей<br>
+          <em>02 Зберігати</em> — Українську культуру, мову та традиції в Квебеку<br>
+          <em>03 Діяти</em> — Конкретна підтримка українців, які нещодавно приїхали
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s3_general" rows="3" placeholder="Les piliers vous semblent-ils justes ? Manque-t-il quelque chose dans la mission ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s3_general" rows="3" placeholder="Чи відповідають стовпи дійсності? Чи бракує чогось у місії?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s3_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -492,38 +487,38 @@
             <input type="hidden" name="s3_size" value="M">
           </div>
           <div class="sub-q">
-            <label>Un texte ou une valeur à ajouter à la mission&nbsp;?</label>
-            <textarea name="s3_add" rows="2" placeholder="ex. Mentionner l'intégration professionnelle, la défense des droits…"></textarea>
+            <label>Текст або цінність, яку варто додати до місії?</label>
+            <textarea name="s3_add" rows="2" placeholder="напр. Згадати професійну інтеграцію, захист прав…"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Section 4 — Programmes ── -->
+    <!-- Розділ 4 — Програми -->
     <div class="section-card" id="sc-4">
       <div class="section-head" onclick="toggle('sc-4')">
         <span class="section-num">04</span>
         <div class="section-title-wrap">
-          <h3>Nos 6 directions de programme</h3>
-          <div class="section-desc">Aide humanitaire, culture, intégration, jeunesse, langue, défense des droits</div>
+          <h3>Наші 6 напрямків програми</h3>
+          <div class="section-desc">Гуманітарна допомога, культура, інтеграція, молодь, мова, захист прав</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Programmes actuels</strong>
-          1. Aide humanitaire &amp; soutien aux réfugiés<br>
-          2. Préservation culturelle &amp; traditions<br>
-          3. Intégration socioprofessionnelle<br>
-          4. Jeunesse ukrainienne<br>
-          5. Langue ukrainienne<br>
-          6. Défense des droits &amp; représentation
+          <strong>Поточні програми</strong>
+          1. Гуманітарна допомога та підтримка біженців<br>
+          2. Збереження культури та традицій<br>
+          3. Соціально-професійна інтеграція<br>
+          4. Українська молодь<br>
+          5. Українська мова<br>
+          6. Захист прав та представництво
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s4_general" rows="3" placeholder="Un programme manque-t-il ? Les titres sont-ils clairs pour les nouveaux membres ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s4_general" rows="3" placeholder="Чи бракує якоїсь програми? Чи зрозумілі назви для нових членів?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s4_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -533,35 +528,35 @@
             <input type="hidden" name="s4_size" value="M">
           </div>
           <div class="sub-q">
-            <label>Un programme à ajouter ou à reformuler&nbsp;?</label>
-            <textarea name="s4_add" rows="2" placeholder="ex. Ajouter un volet santé mentale, ou renommer le programme jeunesse…"></textarea>
+            <label>Програма, яку варто додати або переформулювати?</label>
+            <textarea name="s4_add" rows="2" placeholder="напр. Додати розділ про психічне здоров'я, перейменувати молодіжну програму…"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Section 5 — Calendrier ── -->
+    <!-- Розділ 5 — Календар -->
     <div class="section-card" id="sc-5">
       <div class="section-head" onclick="toggle('sc-5')">
         <span class="section-num">05</span>
         <div class="section-title-wrap">
-          <h3>Calendrier des événements</h3>
-          <div class="section-desc">Activités annuelles, cérémonies, rassemblements, projections</div>
+          <h3>Календар подій</h3>
+          <div class="section-desc">Щорічні заходи, церемонії, зустрічі, покази фільмів</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Événements affichés</strong>
-          Koliada (jan) · Holodomor (nov) · Merci Borsch (fév) · Vyshyvanka Day (mai)
-          · Fête de l'indépendance (août) · Zbory — Grande assemblée (déc)
-          · Réunions du conseil · Projections de films · Manifestations
+          <strong>Поточні події</strong>
+          Коляда (січ) · Голодомор (лист) · Дякую Борщ (лют) · День вишиванки (трав)
+          · День незалежності (серп) · Збори — Велика асамблея (груд)
+          · Засідання ради · Покази фільмів · Маніфестації
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s5_general" rows="3" placeholder="Des événements manquent-ils ? Les dates sont-elles correctes ? Format souhaité ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s5_general" rows="3" placeholder="Чи бракує якихось подій? Чи правильні дати? Який формат бажаєте?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s5_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -571,34 +566,34 @@
             <input type="hidden" name="s5_size" value="M">
           </div>
           <div class="sub-q">
-            <label>Événements à ajouter ou à corriger&nbsp;?</label>
-            <textarea name="s5_add" rows="2" placeholder="Nom de l'événement, date approximative…"></textarea>
+            <label>Події, які варто додати або виправити?</label>
+            <textarea name="s5_add" rows="2" placeholder="Назва події, приблизна дата…"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Section 6 — Galerie ── -->
+    <!-- Розділ 6 — Галерея -->
     <div class="section-card" id="sc-6">
       <div class="section-head" onclick="toggle('sc-6')">
         <span class="section-num">06</span>
         <div class="section-title-wrap">
-          <h3>Galerie photos</h3>
-          <div class="section-desc">Mosaïque de photos des événements passés</div>
+          <h3>Фотогалерея</h3>
+          <div class="section-desc">Мозаїка фотографій минулих подій</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          Grille de 9 photos issues des événements : Borsch, Koliada, Manifestation,
-          Holodomor, Zbory, Vyshyvanka Day, projections de films.
+          <strong>Поточний вміст</strong>
+          Сітка з 9 фотографій з подій: Борщ, Коляда, Маніфестація,
+          Голодомор, Збори, День вишиванки, покази фільмів.
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s6_general" rows="3" placeholder="Des photos importantes manquent-elles ? Aimez-vous ce format grille ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s6_general" rows="3" placeholder="Чи бракує важливих фотографій? Чи подобається вам формат сітки?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s6_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -611,28 +606,28 @@
       </div>
     </div>
 
-    <!-- ── Section 7 — Adhésion ── -->
+    <!-- Розділ 7 — Членство -->
     <div class="section-card" id="sc-7">
       <div class="section-head" onclick="toggle('sc-7')">
         <span class="section-num">07</span>
         <div class="section-title-wrap">
-          <h3>Rejoindre l'Association</h3>
-          <div class="section-desc">Appel à l'adhésion, tarifs, bouton de contact</div>
+          <h3>Приєднатися до Асоціації</h3>
+          <div class="section-desc">Заклик до вступу, тарифи, кнопка зв'язку</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          Titre&nbsp;: «&nbsp;Rejoignez une communauté qui compte&nbsp;»<br>
-          Bouton&nbsp;: envoie un courriel à ukrainienssaguenay@gmail.com<br>
-          Logo du Congrès ukrainien du Canada (UCC) affiché
+          <strong>Поточний вміст</strong>
+          Заголовок: «Приєднайтесь до спільноти, яка має значення»<br>
+          Кнопка: надсилає листа на ukrainienssaguenay@gmail.com<br>
+          Логотип Конгресу українців Канади (КУК)
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s7_general" rows="3" placeholder="Le message d'appel vous convainc-t-il ? Manque-t-il des informations sur les cotisations ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s7_general" rows="3" placeholder="Чи переконує вас заклик до дії? Чи бракує інформації про членські внески?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s7_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -641,35 +636,35 @@
             <input type="hidden" name="s7_size" value="M">
           </div>
           <div class="sub-q">
-            <label>Informations à ajouter (tarif d'adhésion, avantages membres…)&nbsp;?</label>
-            <textarea name="s7_add" rows="2" placeholder="ex. Cotisation annuelle : 25 $/an, accès aux événements gratuits…"></textarea>
+            <label>Що варто додати (розмір внеску, переваги членства…)?</label>
+            <textarea name="s7_add" rows="2" placeholder="напр. Річний внесок: 25 $/рік, безкоштовний вхід на заходи…"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Section 8 — Don ── -->
+    <!-- Розділ 8 — Пожертва -->
     <div class="section-card" id="sc-8">
       <div class="section-head" onclick="toggle('sc-8')">
         <span class="section-num">08</span>
         <div class="section-title-wrap">
-          <h3>Soutenir — Faire un don</h3>
-          <div class="section-desc">Appel aux dons, impact financier, bouton de contact</div>
+          <h3>Підтримати — Зробити пожертву</h3>
+          <div class="section-desc">Заклик до пожертв, фінансовий вплив, кнопка зв'язку</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          Titre&nbsp;: «&nbsp;Votre don fait la différence&nbsp;»<br>
-          Bouton&nbsp;: envoie un courriel à ukrainienssaguenay@gmail.com<br>
-          Montant levé mis en valeur&nbsp;: $48&nbsp;000 depuis 2022
+          <strong>Поточний вміст</strong>
+          Заголовок: «Ваша пожертва має значення»<br>
+          Кнопка: надсилає листа на ukrainienssaguenay@gmail.com<br>
+          Зібрана сума: $48&nbsp;000 з 2022 року
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s8_general" rows="3" placeholder="Le message est-il convaincant ? Souhaitez-vous ajouter une page de don en ligne (PayPal, virement) ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s8_general" rows="3" placeholder="Чи переконливе повідомлення? Чи хотіли б ви додати онлайн-пожертву (PayPal, переказ)?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Taille souhaitée&nbsp;:</label>
+            <label>Бажаний розмір:</label>
             <div class="size-row" data-group="s8_size">
               <button type="button" class="size-btn" data-val="S">S</button>
               <button type="button" class="size-btn selected" data-val="M">M</button>
@@ -681,72 +676,72 @@
       </div>
     </div>
 
-    <!-- ── Section 9 — Contact ── -->
+    <!-- Розділ 9 — Контакт -->
     <div class="section-card" id="sc-9">
       <div class="section-head" onclick="toggle('sc-9')">
         <span class="section-num">09</span>
         <div class="section-title-wrap">
-          <h3>Contact &amp; coordonnées</h3>
-          <div class="section-desc">Courriel, réseaux sociaux, adresse, formulaire de contact</div>
+          <h3>Контакти та координати</h3>
+          <div class="section-desc">Електронна пошта, соціальні мережі, адреса</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          Courriel&nbsp;: ukrainienssaguenay@gmail.com<br>
-          Facebook, Instagram affichés<br>
-          Chicoutimi (Saguenay), Québec, Canada
+          <strong>Поточний вміст</strong>
+          Email: ukrainienssaguenay@gmail.com<br>
+          Facebook, Instagram<br>
+          Чикутімі (Саґене), Квебек, Канада
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s9_general" rows="3" placeholder="Manque-t-il un numéro de téléphone, une adresse physique, un lien vers un réseau social ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s9_general" rows="3" placeholder="Чи бракує номера телефону, фізичної адреси, посилання на соцмережу?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Informations de contact à ajouter&nbsp;?</label>
-            <textarea name="s9_add" rows="2" placeholder="ex. Téléphone, WhatsApp, Telegram, adresse postale…"></textarea>
+            <label>Контактні дані, які варто додати?</label>
+            <textarea name="s9_add" rows="2" placeholder="напр. Телефон, WhatsApp, Telegram, поштова адреса…"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Section 10 — Langues ── -->
+    <!-- Розділ 10 — Мови -->
     <div class="section-card" id="sc-10">
       <div class="section-head" onclick="toggle('sc-10')">
         <span class="section-num">10</span>
         <div class="section-title-wrap">
-          <h3>Langues du site</h3>
-          <div class="section-desc">Actuellement disponible en français, anglais et ukrainien</div>
+          <h3>Мови сайту</h3>
+          <div class="section-desc">Наразі доступний французькою, англійською та українською</div>
         </div>
         <span class="toggle-icon">▾</span>
       </div>
       <div class="section-body">
         <div class="content-preview">
-          <strong>Contenu actuel</strong>
-          3 langues&nbsp;: Français (FR) · English (EN) · Українська (UA)<br>
-          Sélecteur de langue visible dans le coin supérieur droit
+          <strong>Поточний вміст</strong>
+          3 мови: Français (FR) · English (EN) · Українська (UA)<br>
+          Перемикач мови у правому верхньому куті
         </div>
-        <span class="feedback-label">Vos commentaires&nbsp;:</span>
-        <textarea name="s10_general" rows="3" placeholder="Le site en 3 langues vous semble-t-il important ? Une traduction pose-t-elle problème ?"></textarea>
+        <span class="feedback-label">Ваші коментарі:</span>
+        <textarea name="s10_general" rows="3" placeholder="Чи важливий для вас сайт трьома мовами? Чи є проблеми з перекладом?"></textarea>
         <div class="sub-questions">
           <div class="sub-q">
-            <label>Quelle langue devrait être affichée par défaut&nbsp;?</label>
+            <label>Яка мова повинна відображатися за замовчуванням?</label>
             <div class="size-row" data-group="s10_lang">
-              <button type="button" class="size-btn selected" data-val="FR">Français</button>
+              <button type="button" class="size-btn" data-val="FR">Французька</button>
+              <button type="button" class="size-btn selected" data-val="UA">Українська</button>
               <button type="button" class="size-btn" data-val="EN">English</button>
-              <button type="button" class="size-btn" data-val="UA">Українська</button>
             </div>
-            <input type="hidden" name="s10_lang" value="FR">
+            <input type="hidden" name="s10_lang" value="UA">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ── Global feedback ── -->
+    <!-- Загальні враження -->
     <div class="global-block">
-      <h2>Impression générale</h2>
+      <h2>Загальне враження</h2>
 
       <div style="margin-bottom:20px">
-        <label for="f-overall">Note globale pour le site (design, contenu, clarté)&nbsp;:</label>
+        <label>Загальна оцінка сайту (дизайн, вміст, зрозумілість):</label>
         <div class="stars" data-group="overall_rating" style="margin-top:8px">
           <button type="button" class="star-btn" data-val="1">★</button>
           <button type="button" class="star-btn" data-val="2">★</button>
@@ -758,52 +753,49 @@
       </div>
 
       <div style="margin-bottom:20px">
-        <label for="f-missing">Y a-t-il une section ou une information qui manque complètement au site&nbsp;?</label>
-        <textarea id="f-missing" name="missing" rows="3" placeholder="ex. Page «&nbsp;Nos partenaires&nbsp;», témoignages de membres, vidéos, section presse…"></textarea>
+        <label for="f-missing">Чи є розділ або інформація, якої повністю бракує на сайті?</label>
+        <textarea id="f-missing" name="missing" rows="3" placeholder="напр. Сторінка «Наші партнери», відгуки членів, відео, розділ преси…"></textarea>
       </div>
 
       <div style="margin-bottom:20px">
-        <label for="f-love">Qu'est-ce que vous aimez le plus dans le site tel qu'il est&nbsp;?</label>
-        <textarea id="f-love" name="love" rows="2" placeholder="Ce qui vous touche, vous représente, vous rend fier·ère…"></textarea>
+        <label for="f-love">Що вам найбільше подобається в сайті таким, яким він є?</label>
+        <textarea id="f-love" name="love" rows="2" placeholder="Що вас зворушує, що вас представляє, що наповнює вас гордістю…"></textarea>
       </div>
 
       <div>
-        <label for="f-other">Autres commentaires, idées, suggestions libres&nbsp;:</label>
-        <textarea id="f-other" name="other" rows="4" placeholder="Tout ce qui n'a pas été couvert ci-dessus…"></textarea>
+        <label for="f-other">Інші коментарі, ідеї, вільні пропозиції:</label>
+        <textarea id="f-other" name="other" rows="4" placeholder="Все, що не було охоплено вище…"></textarea>
       </div>
     </div>
 
-    <!-- ── Submit ── -->
+    <!-- Надіслати -->
     <div class="submit-wrap">
-      <button type="submit" class="btn-submit">Envoyer mes souhaits →</button>
-      <p class="privacy-note">Vos réponses sont enregistrées de façon confidentielle et consultées uniquement par la direction de l'Association.</p>
+      <button type="submit" class="btn-submit">Надіслати мої побажання →</button>
+      <p class="privacy-note">Ваші відповіді зберігаються конфіденційно та переглядаються лише керівництвом Асоціації.</p>
     </div>
 
     <div id="success-msg">
-      <h3>Merci pour votre contribution&nbsp;!</h3>
-      <p>Vos souhaits ont été enregistrés. La direction de l'Association les étudiera avec attention.<br>
-      Ensemble, nous bâtissons un site à la hauteur de notre communauté.</p>
+      <h3>Дякуємо за ваш внесок!</h3>
+      <p>Ваші побажання записані. Керівництво Асоціації уважно їх розгляне.<br>
+      Разом ми будуємо сайт, гідний нашої громади.</p>
     </div>
 
   </form>
 </main>
 
 <footer>
-  <p>Association des Ukrainiens du Saguenay–Lac-Saint-Jean &nbsp;·&nbsp;
+  <p>Асоціація українців Саґене–Лак-Сен-Жан &nbsp;·&nbsp;
   <a href="mailto:ukrainienssaguenay@gmail.com">ukrainienssaguenay@gmail.com</a>
-  &nbsp;·&nbsp; <a href="index.html">← Retour au site</a></p>
+  &nbsp;·&nbsp; <a href="index.html">← На головну</a></p>
 </footer>
 
 <script>
-/* ── Toggle sections ── */
 function toggle(id) {
   const card = document.getElementById(id);
   card.classList.toggle('open');
 }
 
-/* ── Size buttons ── */
 document.querySelectorAll('.size-row').forEach(row => {
-  const group = row.dataset.group;
   const hidden = row.parentElement.querySelector('input[type="hidden"]');
   row.querySelectorAll('.size-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -814,9 +806,7 @@ document.querySelectorAll('.size-row').forEach(row => {
   });
 });
 
-/* ── Star ratings ── */
 document.querySelectorAll('.stars').forEach(starsEl => {
-  const group = starsEl.dataset.group;
   const hidden = starsEl.parentElement.querySelector('input[type="hidden"]');
   const btns = starsEl.querySelectorAll('.star-btn');
   btns.forEach((btn, idx) => {
@@ -835,26 +825,21 @@ document.querySelectorAll('.stars').forEach(starsEl => {
   });
 });
 
-/* ── Form submit → Google Apps Script ── */
 const SCRIPT_URL = 'REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL';
 
 document.getElementById('survey-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-
   const btn = this.querySelector('.btn-submit');
-  btn.textContent = 'Envoi en cours…';
+  btn.textContent = 'Надсилання…';
   btn.disabled = true;
 
   const data = Object.fromEntries(new FormData(this).entries());
   data.submitted_at = new Date().toISOString();
 
   if (SCRIPT_URL === 'REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL') {
-    /* ── Fallback: mailto if script URL not set ── */
-    const body = Object.entries(data)
-      .map(([k, v]) => `${k}: ${v}`)
-      .join('\n');
+    const body = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n');
     window.location.href = 'mailto:ukrainienssaguenay@gmail.com'
-      + '?subject=' + encodeURIComponent('Sondage membres — souhaits pour le site')
+      + '?subject=' + encodeURIComponent('Опитування членів — побажання до сайту')
       + '&body=' + encodeURIComponent(body);
     showSuccess();
     return;
@@ -869,9 +854,8 @@ document.getElementById('survey-form').addEventListener('submit', async function
     });
     showSuccess();
   } catch (err) {
-    btn.textContent = 'Erreur — réessayer';
+    btn.textContent = 'Помилка — спробуйте ще раз';
     btn.disabled = false;
-    console.error(err);
   }
 });
 
