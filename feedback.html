@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vos souhaits pour le site — Association des Ukrainiens du SLSJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #155bb8;
+    --blue-deep: #092f6f;
+    --yellow: #f1bd22;
+    --paper: #f7f3ea;
+    --ink: #1a1a2e;
+    --muted: #5a5a72;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(9,47,111,.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, var(--blue-deep), var(--blue));
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  header .logo {
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  header p {
+    font-size: 16px;
+    opacity: .85;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  header .accent {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--yellow);
+    color: var(--blue-deep);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: .04em;
+  }
+
+  /* ── Layout ── */
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── Intro box ── */
+  .intro-box {
+    background: #fff;
+    border-left: 4px solid var(--yellow);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .intro-box strong { color: var(--ink); }
+
+  /* ── Identity block ── */
+  .identity-block {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 28px 20px;
+    margin-bottom: 32px;
+  }
+  .identity-block h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--blue-deep);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .identity-block h2::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 4px;
+    background: var(--yellow);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  @media(max-width: 560px){ .field-row { grid-template-columns: 1fr; } }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  input[type="text"], input[type="email"], textarea, select {
+    width: 100%;
+    border: 1.5px solid #dde2ef;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: #fafafa;
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+    resize: vertical;
+  }
+  input[type="text"]:focus, input[type="email"]:focus,
+  textarea:focus, select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(21,91,184,.12);
+    background: #fff;
+  }
+
+  /* ── Section card ── */
+  .section-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px 14px;
+    border-bottom: 1px solid #eef0f7;
+    cursor: pointer;
+    user-select: none;
+  }
+  .section-head:hover { background: #f8f9ff; }
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--yellow);
+    min-width: 36px;
+    line-height: 1;
+  }
+  .section-title-wrap { flex: 1; }
+  .section-title-wrap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-deep);
+    line-height: 1.2;
+  }
+  .section-title-wrap .section-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .toggle-icon {
+    font-size: 20px;
+    color: var(--blue);
+    transition: transform .25s;
+    flex-shrink: 0;
+  }
+  .section-card.open .toggle-icon { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    padding: 20px 24px 24px;
+  }
+  .section-card.open .section-body { display: block; }
+
+  .content-preview {
+    background: #f5f7ff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+    border-left: 3px solid var(--blue);
+  }
+  .content-preview strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+
+  .feedback-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue-deep);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sub-questions { margin-top: 16px; display: grid; gap: 14px; }
+  .sub-q label { color: var(--ink); text-transform: none; font-size: 13px; letter-spacing: 0; font-weight: 500; }
+
+  /* size selector */
+  .size-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  .size-btn {
+    padding: 6px 16px;
+    border: 1.5px solid #dde2ef;
+    border-radius: 20px;
+    background: none;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: all .15s;
+  }
+  .size-btn.selected, .size-btn:hover {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: #fff;
+  }
+
+  /* overall rating */
+  .stars { display: flex; gap: 8px; margin-top: 6px; }
+  .star-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 28px; color: #dde2ef;
+    transition: color .1s;
+  }
+  .star-btn.lit { color: var(--yellow); }
+
+  /* ── Global feedback ── */
+  .global-block {
+    background: linear-gradient(135deg, #f0f4ff, #f7f3ea);
+    border: 1.5px solid #dde2ef;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+  .global-block h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--blue-deep);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .global-block h2::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 4px;
+    background: var(--yellow);
+    border-radius: 2px;
+  }
+
+  /* ── Submit ── */
+  .submit-wrap {
+    text-align: center;
+    padding: 12px 0 8px;
+  }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+    color: #fff;
+    border: none;
+    padding: 16px 52px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: .03em;
+    box-shadow: 0 6px 24px rgba(9,47,111,.25);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(9,47,111,.35); }
+  .btn-submit:active { transform: translateY(0); }
+
+  .privacy-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Success overlay ── */
+  #success-msg {
+    display: none;
+    background: #e8f5e9;
+    border: 1.5px solid #81c784;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  #success-msg h3 { color: #2e7d32; font-size: 22px; margin-bottom: 8px; }
+  #success-msg p { color: #388e3c; font-size: 15px; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--blue-deep);
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="assets/img/brand-logo-full.jpg" alt="Association des Ukrainiens du SLSJ" class="logo">
+  <h1>Vos souhaits pour notre site web</h1>
+  <p>Aidez-nous à construire un site qui vous représente vraiment.<br>
+  Quelques minutes de votre temps façonneront notre présence en ligne.</p>
+  <span class="accent">Sondage des membres — 2026</span>
+</header>
+
+<main>
+
+  <div class="intro-box">
+    <strong>Comment ça fonctionne&nbsp;:</strong> Chaque section du site est présentée ci-dessous avec un aperçu du contenu actuel.
+    Cliquez sur une section pour l'ouvrir et partager vos commentaires.
+    Vos réponses seront enregistrées dans une feuille Google Sheets consultable par la direction de l'Association.
+  </div>
+
+  <form id="survey-form">
+
+    <!-- ── Identity ── -->
+    <div class="identity-block">
+      <h2>Vos informations</h2>
+      <div class="field-row">
+        <div>
+          <label for="f-name">Prénom et nom</label>
+          <input type="text" id="f-name" name="name" placeholder="ex. Olena Kovalenko" required>
+        </div>
+        <div>
+          <label for="f-email">Courriel</label>
+          <input type="email" id="f-email" name="email" placeholder="ex. olena@example.com">
+        </div>
+      </div>
+      <div>
+        <label for="f-role">Votre lien avec l'Association</label>
+        <select id="f-role" name="role">
+          <option value="">— Sélectionner —</option>
+          <option>Membre actif·ve</option>
+          <option>Membre fondateur·trice</option>
+          <option>Bénévole</option>
+          <option>Sympathisant·e / donateur·trice</option>
+          <option>Direction / conseil d'administration</option>
+          <option>Partenaire ou organisme allié</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ── Section 1 — Hero ── -->
+    <div class="section-card" id="sc-1">
+      <div class="section-head" onclick="toggle('sc-1')">
+        <span class="section-num">01</span>
+        <div class="section-title-wrap">
+          <h3>Page d'accueil — Première impression</h3>
+          <div class="section-desc">Bannière principale, titre, fond visuel, bouton d'action</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          Titre&nbsp;: «&nbsp;Ensemble, nous bâtissons le pont entre l'Ukraine et le Saguenay–Lac-Saint-Jean&nbsp;»<br>
+          Sous-titre&nbsp;: «&nbsp;Association culturelle, humanitaire et communautaire fondée en 2022&nbsp;»<br>
+          Fond&nbsp;: motif de broderie ukrainienne (vyshyvanka)<br>
+          Bouton principal&nbsp;: «&nbsp;Rejoindre l'Association&nbsp;»
+        </div>
+        <span class="feedback-label">Vos commentaires sur cette section&nbsp;:</span>
+        <textarea name="s1_general" rows="3" placeholder="Ce que vous aimez, ce que vous changeriez, une idée de formulation différente…"></textarea>
+
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée pour cette section (espace visuel sur la page)&nbsp;:</label>
+            <div class="size-row" data-group="s1_size">
+              <button type="button" class="size-btn" data-val="S">S — Compact</button>
+              <button type="button" class="size-btn selected" data-val="M">M — Moyen</button>
+              <button type="button" class="size-btn" data-val="L">L — Grand</button>
+              <button type="button" class="size-btn" data-val="XL">XL — Plein écran</button>
+            </div>
+            <input type="hidden" name="s1_size" value="M">
+          </div>
+          <div class="sub-q">
+            <label>Le titre actuel vous inspire-t-il confiance et fierté&nbsp;?</label>
+            <div class="stars" data-group="s1_title_rating">
+              <button type="button" class="star-btn" data-val="1">★</button>
+              <button type="button" class="star-btn" data-val="2">★</button>
+              <button type="button" class="star-btn" data-val="3">★</button>
+              <button type="button" class="star-btn" data-val="4">★</button>
+              <button type="button" class="star-btn" data-val="5">★</button>
+            </div>
+            <input type="hidden" name="s1_title_rating" value="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 2 — Chiffres ── -->
+    <div class="section-card" id="sc-2">
+      <div class="section-head" onclick="toggle('sc-2')">
+        <span class="section-num">02</span>
+        <div class="section-title-wrap">
+          <h3>Chiffres clés de l'Association</h3>
+          <div class="section-desc">Statistiques et réalisations en chiffres, avec accordéon au clic</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          180+ membres actifs · 35 bénévoles · 12 événements/an · 4 ans de présence
+          · $48&nbsp;000 levés · 6 directions de programme<br>
+          En cliquant sur chaque chiffre, un texte explicatif s'affiche.
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s2_general" rows="3" placeholder="Les chiffres sont-ils exacts ? Y en a-t-il à ajouter ? Le format vous convient-il ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s2_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+            </div>
+            <input type="hidden" name="s2_size" value="M">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 3 — À propos ── -->
+    <div class="section-card" id="sc-3">
+      <div class="section-head" onclick="toggle('sc-3')">
+        <span class="section-num">03</span>
+        <div class="section-title-wrap">
+          <h3>À propos — Notre mission</h3>
+          <div class="section-desc">Histoire, valeurs, 3 piliers fondateurs de l'Association</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel — 3 piliers</strong>
+          <em>01 Unir</em> — La communauté ukrainienne du SLSJ, unie autour de valeurs communes<br>
+          <em>02 Préserver</em> — La culture, la langue et les traditions ukrainiennes au Québec<br>
+          <em>03 Agir</em> — Un soutien concret aux personnes ukrainiennes nouvellement arrivées
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s3_general" rows="3" placeholder="Les piliers vous semblent-ils justes ? Manque-t-il quelque chose dans la mission ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s3_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+              <button type="button" class="size-btn" data-val="XL">XL</button>
+            </div>
+            <input type="hidden" name="s3_size" value="M">
+          </div>
+          <div class="sub-q">
+            <label>Un texte ou une valeur à ajouter à la mission&nbsp;?</label>
+            <textarea name="s3_add" rows="2" placeholder="ex. Mentionner l'intégration professionnelle, la défense des droits…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 4 — Programmes ── -->
+    <div class="section-card" id="sc-4">
+      <div class="section-head" onclick="toggle('sc-4')">
+        <span class="section-num">04</span>
+        <div class="section-title-wrap">
+          <h3>Nos 6 directions de programme</h3>
+          <div class="section-desc">Aide humanitaire, culture, intégration, jeunesse, langue, défense des droits</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Programmes actuels</strong>
+          1. Aide humanitaire &amp; soutien aux réfugiés<br>
+          2. Préservation culturelle &amp; traditions<br>
+          3. Intégration socioprofessionnelle<br>
+          4. Jeunesse ukrainienne<br>
+          5. Langue ukrainienne<br>
+          6. Défense des droits &amp; représentation
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s4_general" rows="3" placeholder="Un programme manque-t-il ? Les titres sont-ils clairs pour les nouveaux membres ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s4_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+              <button type="button" class="size-btn" data-val="XL">XL</button>
+            </div>
+            <input type="hidden" name="s4_size" value="M">
+          </div>
+          <div class="sub-q">
+            <label>Un programme à ajouter ou à reformuler&nbsp;?</label>
+            <textarea name="s4_add" rows="2" placeholder="ex. Ajouter un volet santé mentale, ou renommer le programme jeunesse…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 5 — Calendrier ── -->
+    <div class="section-card" id="sc-5">
+      <div class="section-head" onclick="toggle('sc-5')">
+        <span class="section-num">05</span>
+        <div class="section-title-wrap">
+          <h3>Calendrier des événements</h3>
+          <div class="section-desc">Activités annuelles, cérémonies, rassemblements, projections</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Événements affichés</strong>
+          Koliada (jan) · Holodomor (nov) · Merci Borsch (fév) · Vyshyvanka Day (mai)
+          · Fête de l'indépendance (août) · Zbory — Grande assemblée (déc)
+          · Réunions du conseil · Projections de films · Manifestations
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s5_general" rows="3" placeholder="Des événements manquent-ils ? Les dates sont-elles correctes ? Format souhaité ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s5_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+              <button type="button" class="size-btn" data-val="XL">XL</button>
+            </div>
+            <input type="hidden" name="s5_size" value="M">
+          </div>
+          <div class="sub-q">
+            <label>Événements à ajouter ou à corriger&nbsp;?</label>
+            <textarea name="s5_add" rows="2" placeholder="Nom de l'événement, date approximative…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 6 — Galerie ── -->
+    <div class="section-card" id="sc-6">
+      <div class="section-head" onclick="toggle('sc-6')">
+        <span class="section-num">06</span>
+        <div class="section-title-wrap">
+          <h3>Galerie photos</h3>
+          <div class="section-desc">Mosaïque de photos des événements passés</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          Grille de 9 photos issues des événements : Borsch, Koliada, Manifestation,
+          Holodomor, Zbory, Vyshyvanka Day, projections de films.
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s6_general" rows="3" placeholder="Des photos importantes manquent-elles ? Aimez-vous ce format grille ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s6_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+              <button type="button" class="size-btn" data-val="XL">XL</button>
+            </div>
+            <input type="hidden" name="s6_size" value="M">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 7 — Adhésion ── -->
+    <div class="section-card" id="sc-7">
+      <div class="section-head" onclick="toggle('sc-7')">
+        <span class="section-num">07</span>
+        <div class="section-title-wrap">
+          <h3>Rejoindre l'Association</h3>
+          <div class="section-desc">Appel à l'adhésion, tarifs, bouton de contact</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          Titre&nbsp;: «&nbsp;Rejoignez une communauté qui compte&nbsp;»<br>
+          Bouton&nbsp;: envoie un courriel à ukrainienssaguenay@gmail.com<br>
+          Logo du Congrès ukrainien du Canada (UCC) affiché
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s7_general" rows="3" placeholder="Le message d'appel vous convainc-t-il ? Manque-t-il des informations sur les cotisations ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s7_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+            </div>
+            <input type="hidden" name="s7_size" value="M">
+          </div>
+          <div class="sub-q">
+            <label>Informations à ajouter (tarif d'adhésion, avantages membres…)&nbsp;?</label>
+            <textarea name="s7_add" rows="2" placeholder="ex. Cotisation annuelle : 25 $/an, accès aux événements gratuits…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 8 — Don ── -->
+    <div class="section-card" id="sc-8">
+      <div class="section-head" onclick="toggle('sc-8')">
+        <span class="section-num">08</span>
+        <div class="section-title-wrap">
+          <h3>Soutenir — Faire un don</h3>
+          <div class="section-desc">Appel aux dons, impact financier, bouton de contact</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          Titre&nbsp;: «&nbsp;Votre don fait la différence&nbsp;»<br>
+          Bouton&nbsp;: envoie un courriel à ukrainienssaguenay@gmail.com<br>
+          Montant levé mis en valeur&nbsp;: $48&nbsp;000 depuis 2022
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s8_general" rows="3" placeholder="Le message est-il convaincant ? Souhaitez-vous ajouter une page de don en ligne (PayPal, virement) ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Taille souhaitée&nbsp;:</label>
+            <div class="size-row" data-group="s8_size">
+              <button type="button" class="size-btn" data-val="S">S</button>
+              <button type="button" class="size-btn selected" data-val="M">M</button>
+              <button type="button" class="size-btn" data-val="L">L</button>
+            </div>
+            <input type="hidden" name="s8_size" value="M">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 9 — Contact ── -->
+    <div class="section-card" id="sc-9">
+      <div class="section-head" onclick="toggle('sc-9')">
+        <span class="section-num">09</span>
+        <div class="section-title-wrap">
+          <h3>Contact &amp; coordonnées</h3>
+          <div class="section-desc">Courriel, réseaux sociaux, adresse, formulaire de contact</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          Courriel&nbsp;: ukrainienssaguenay@gmail.com<br>
+          Facebook, Instagram affichés<br>
+          Chicoutimi (Saguenay), Québec, Canada
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s9_general" rows="3" placeholder="Manque-t-il un numéro de téléphone, une adresse physique, un lien vers un réseau social ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Informations de contact à ajouter&nbsp;?</label>
+            <textarea name="s9_add" rows="2" placeholder="ex. Téléphone, WhatsApp, Telegram, adresse postale…"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 10 — Langues ── -->
+    <div class="section-card" id="sc-10">
+      <div class="section-head" onclick="toggle('sc-10')">
+        <span class="section-num">10</span>
+        <div class="section-title-wrap">
+          <h3>Langues du site</h3>
+          <div class="section-desc">Actuellement disponible en français, anglais et ukrainien</div>
+        </div>
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="section-body">
+        <div class="content-preview">
+          <strong>Contenu actuel</strong>
+          3 langues&nbsp;: Français (FR) · English (EN) · Українська (UA)<br>
+          Sélecteur de langue visible dans le coin supérieur droit
+        </div>
+        <span class="feedback-label">Vos commentaires&nbsp;:</span>
+        <textarea name="s10_general" rows="3" placeholder="Le site en 3 langues vous semble-t-il important ? Une traduction pose-t-elle problème ?"></textarea>
+        <div class="sub-questions">
+          <div class="sub-q">
+            <label>Quelle langue devrait être affichée par défaut&nbsp;?</label>
+            <div class="size-row" data-group="s10_lang">
+              <button type="button" class="size-btn selected" data-val="FR">Français</button>
+              <button type="button" class="size-btn" data-val="EN">English</button>
+              <button type="button" class="size-btn" data-val="UA">Українська</button>
+            </div>
+            <input type="hidden" name="s10_lang" value="FR">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Global feedback ── -->
+    <div class="global-block">
+      <h2>Impression générale</h2>
+
+      <div style="margin-bottom:20px">
+        <label for="f-overall">Note globale pour le site (design, contenu, clarté)&nbsp;:</label>
+        <div class="stars" data-group="overall_rating" style="margin-top:8px">
+          <button type="button" class="star-btn" data-val="1">★</button>
+          <button type="button" class="star-btn" data-val="2">★</button>
+          <button type="button" class="star-btn" data-val="3">★</button>
+          <button type="button" class="star-btn" data-val="4">★</button>
+          <button type="button" class="star-btn" data-val="5">★</button>
+        </div>
+        <input type="hidden" name="overall_rating" value="">
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label for="f-missing">Y a-t-il une section ou une information qui manque complètement au site&nbsp;?</label>
+        <textarea id="f-missing" name="missing" rows="3" placeholder="ex. Page «&nbsp;Nos partenaires&nbsp;», témoignages de membres, vidéos, section presse…"></textarea>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label for="f-love">Qu'est-ce que vous aimez le plus dans le site tel qu'il est&nbsp;?</label>
+        <textarea id="f-love" name="love" rows="2" placeholder="Ce qui vous touche, vous représente, vous rend fier·ère…"></textarea>
+      </div>
+
+      <div>
+        <label for="f-other">Autres commentaires, idées, suggestions libres&nbsp;:</label>
+        <textarea id="f-other" name="other" rows="4" placeholder="Tout ce qui n'a pas été couvert ci-dessus…"></textarea>
+      </div>
+    </div>
+
+    <!-- ── Submit ── -->
+    <div class="submit-wrap">
+      <button type="submit" class="btn-submit">Envoyer mes souhaits →</button>
+      <p class="privacy-note">Vos réponses sont enregistrées de façon confidentielle et consultées uniquement par la direction de l'Association.</p>
+    </div>
+
+    <div id="success-msg">
+      <h3>Merci pour votre contribution&nbsp;!</h3>
+      <p>Vos souhaits ont été enregistrés. La direction de l'Association les étudiera avec attention.<br>
+      Ensemble, nous bâtissons un site à la hauteur de notre communauté.</p>
+    </div>
+
+  </form>
+</main>
+
+<footer>
+  <p>Association des Ukrainiens du Saguenay–Lac-Saint-Jean &nbsp;·&nbsp;
+  <a href="mailto:ukrainienssaguenay@gmail.com">ukrainienssaguenay@gmail.com</a>
+  &nbsp;·&nbsp; <a href="index.html">← Retour au site</a></p>
+</footer>
+
+<script>
+/* ── Toggle sections ── */
+function toggle(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+/* ── Size buttons ── */
+document.querySelectorAll('.size-row').forEach(row => {
+  const group = row.dataset.group;
+  const hidden = row.parentElement.querySelector('input[type="hidden"]');
+  row.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      row.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      if (hidden) hidden.value = btn.dataset.val;
+    });
+  });
+});
+
+/* ── Star ratings ── */
+document.querySelectorAll('.stars').forEach(starsEl => {
+  const group = starsEl.dataset.group;
+  const hidden = starsEl.parentElement.querySelector('input[type="hidden"]');
+  const btns = starsEl.querySelectorAll('.star-btn');
+  btns.forEach((btn, idx) => {
+    btn.addEventListener('mouseenter', () => {
+      btns.forEach((b, i) => b.classList.toggle('lit', i <= idx));
+    });
+    btn.addEventListener('click', () => {
+      const val = btn.dataset.val;
+      btns.forEach((b, i) => b.classList.toggle('lit', i < parseInt(val)));
+      if (hidden) hidden.value = val;
+    });
+  });
+  starsEl.addEventListener('mouseleave', () => {
+    const val = hidden ? parseInt(hidden.value) || 0 : 0;
+    btns.forEach((b, i) => b.classList.toggle('lit', i < val));
+  });
+});
+
+/* ── Form submit → Google Apps Script ── */
+const SCRIPT_URL = 'REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+document.getElementById('survey-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const btn = this.querySelector('.btn-submit');
+  btn.textContent = 'Envoi en cours…';
+  btn.disabled = true;
+
+  const data = Object.fromEntries(new FormData(this).entries());
+  data.submitted_at = new Date().toISOString();
+
+  if (SCRIPT_URL === 'REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL') {
+    /* ── Fallback: mailto if script URL not set ── */
+    const body = Object.entries(data)
+      .map(([k, v]) => `${k}: ${v}`)
+      .join('\n');
+    window.location.href = 'mailto:ukrainienssaguenay@gmail.com'
+      + '?subject=' + encodeURIComponent('Sondage membres — souhaits pour le site')
+      + '&body=' + encodeURIComponent(body);
+    showSuccess();
+    return;
+  }
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    showSuccess();
+  } catch (err) {
+    btn.textContent = 'Erreur — réessayer';
+    btn.disabled = false;
+    console.error(err);
+  }
+});
+
+function showSuccess() {
+  document.getElementById('survey-form').style.display = 'none';
+  const msg = document.getElementById('success-msg');
+  msg.style.display = 'block';
+  msg.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
