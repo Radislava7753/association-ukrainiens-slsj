@@ -1,0 +1,1560 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Association des Ukrainiens du Saguenay-Lac-Saint-Jean</title>
+  <meta name="description" content="L'Association des Ukrainiens du Saguenay–Lac-Saint-Jean : culture, intégration, entraide, représentation civique. Membre du Congrès ukrainien du Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --ink: #101418;
+      --soft-ink: #384149;
+      --muted: #65707a;
+      --line: rgba(16,20,24,.12);
+      --line-strong: rgba(16,20,24,.22);
+      --paper: #f7f3ea;
+      --white: #fffdfa;
+      --mist: #e9eef1;
+      --blue: #155bb8;
+      --blue-deep: #092f6f;
+      --yellow: #f1bd22;
+      --leaf: #2c624f;
+      --wine: #7f2331;
+      --shadow: 0 20px 70px rgba(23,35,44,.12);
+      --shadow-strong: 0 30px 100px rgba(8,23,45,.22);
+      --radius: 8px;
+      --header: 74px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{color:var(--ink);background:var(--paper);font-family:var(--sans);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased}
+    body.menu-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit;color:inherit}
+    ::selection{background:var(--blue);color:#fff}
+
+    .shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .narrow{width:min(900px,calc(100% - 40px));margin:0 auto}
+    .display{font-family:var(--serif);font-weight:600;letter-spacing:0;line-height:.95}
+    .eyebrow{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+    .section-title{max-width:800px;font-size:clamp(36px,5.2vw,72px)}
+    .section-lead{margin-top:18px;max-width:680px;color:var(--soft-ink);font-size:clamp(16px,1.9vw,20px);line-height:1.68}
+
+    /* ── LANGUAGE — critical !important fix ── */
+    .lang { display: none !important; }
+    .lang.active { display: inline !important; }
+    .lang-block { display: none !important; }
+    .lang-block.active { display: block !important; }
+    .lang-flex { display: none !important; }
+    .lang-flex.active { display: flex !important; }
+
+    /* ── TOPBAR ── */
+    .topbar{position:fixed;inset:0 0 auto;z-index:90;height:var(--header);border-bottom:1px solid rgba(255,255,255,.15);background:rgba(12,20,28,.70);color:#fff;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);transition:background .3s,color .3s,border-color .3s}
+    .topbar.scrolled{background:rgba(247,243,234,.94);color:var(--ink);border-bottom-color:var(--line)}
+    .nav{height:var(--header);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand img{width:46px;height:46px;object-fit:contain;border-radius:50%;background:rgba(255,255,255,.9);padding:4px}
+    .brand strong{display:block;font-size:13px;font-weight:800;letter-spacing:.01em;line-height:1.2}
+    .brand span{display:block;opacity:.65;font-size:10px;font-weight:700;line-height:1.2;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:12.5px;font-weight:800}
+    .nav-links a{opacity:.78;transition:opacity .15s}.nav-links a:hover{opacity:1}
+    .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .lang-switch{display:inline-flex;border:1px solid currentColor;border-radius:999px;padding:3px;opacity:.82}
+    .lang-switch button{width:34px;height:30px;border:0;border-radius:999px;background:transparent;cursor:pointer;font-size:10.5px;font-weight:900;transition:background .15s}
+    .lang-switch button.active{background:currentColor;color:var(--paper)}
+    .topbar:not(.scrolled) .lang-switch button.active{color:var(--ink)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;border:1px solid transparent;border-radius:999px;font-size:12.5px;font-weight:900;cursor:pointer;transition:transform .18s,background .18s,border-color .18s,opacity .18s}
+    .nav-cta{background:var(--yellow);color:var(--ink)}
+    .nav-cta:hover,.btn:hover{transform:translateY(-1px)}
+    .btn{min-height:52px;padding:0 24px}
+    .btn.primary{background:var(--yellow);color:var(--ink)}
+    .btn.secondary{border-color:rgba(255,255,255,.38);color:#fff}
+    .btn.ghost{border-color:var(--line-strong);color:var(--ink)}
+    .btn.blue{background:var(--blue);color:#fff}
+    .menu-toggle{display:none;width:42px;height:42px;border:1px solid currentColor;border-radius:50%;background:transparent;place-items:center;cursor:pointer}
+
+    /* ── HERO ── */
+    .hero{min-height:100vh;color:#fff;position:relative;overflow:hidden;background:#071428}
+    .hero::before{content:"";position:absolute;inset:0;background:url("assets/img/pattern-bg.jpg") center/cover;opacity:1;pointer-events:none}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,20,40,.88) 0%,rgba(9,47,111,.78) 55%,rgba(7,20,40,.72) 100%),linear-gradient(180deg,transparent 60%,#ffffff 100%)}
+    .hero-logo-corner{position:relative;z-index:2;margin-bottom:28px}
+    .hero-logo-corner img{width:160px;height:auto;object-fit:contain;border-radius:14px;display:block}
+    .hero-inner{position:relative;z-index:1;min-height:100vh;padding:clamp(110px,14vw,160px) 0 80px;display:grid;grid-template-columns:1fr;gap:48px;align-items:end;max-width:860px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(255,255,255,.26);border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);margin-bottom:20px}
+    .hero-badge::before{content:"";display:block;width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+    .hero h1{font-family:var(--serif);font-size:clamp(52px,7.6vw,110px);margin-top:16px;max-width:860px;font-weight:600;line-height:.95}
+    .hero-copy{max-width:680px;margin-top:24px;color:rgba(255,255,255,.80);font-size:clamp(17px,1.9vw,21px);line-height:1.68}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-card{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;min-height:480px;padding:24px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);background:rgba(255,255,255,.08);box-shadow:var(--shadow-strong);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .hero-brand-img{max-width:240px;width:100%;border-radius:16px;margin:0 auto;display:block;box-shadow:0 0 40px rgba(241,189,34,.22),0 8px 32px rgba(0,0,0,.28)}
+    .hero-card-body{}
+    .hero-card .seal{width:108px;height:108px;border-radius:50%;border:1px solid rgba(255,255,255,.30);display:grid;place-items:center;margin-bottom:22px;color:var(--yellow);font-family:var(--serif);font-size:40px}
+    .hero-card p{margin:0;color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.64}
+    .hero-card .card-sub{display:block;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.54)}
+
+    /* ── WAVE DIVIDER ── */
+    .wave-sep{line-height:0;overflow:hidden}
+
+    /* ── TRUST STRIP ── */
+    .trust-strip{position:relative;z-index:2;background:#fff;padding:60px 0 40px}
+    .trust-intro{text-align:center;margin-bottom:32px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);box-shadow:var(--shadow)}
+    .metric{min-height:150px;padding:24px;background:var(--white);cursor:pointer;transition:background .18s,box-shadow .18s,transform .18s}
+    .metric:hover{background:#fffbe6;box-shadow:0 0 0 2px #f1bd22,inset 0 0 24px rgba(241,189,34,.15);transform:translateY(-2px);z-index:1;position:relative}
+    .metric.expanded{background:#fffbe6;box-shadow:0 0 0 2px #f1bd22,inset 0 0 24px rgba(241,189,34,.10)}
+    .metric strong{display:block;font-family:var(--serif);font-size:38px;line-height:1;color:var(--blue-deep)}
+    .metric > span{display:block;margin-top:12px;color:var(--muted);font-size:12.5px;line-height:1.45;font-weight:700}
+    .metric-detail{max-height:0;overflow:hidden;transition:max-height .38s ease;font-size:13px;color:var(--soft-ink);line-height:1.6}
+    .metric.expanded .metric-detail{max-height:200px}
+    .metric-detail-inner{padding:10px 0 6px}
+
+    /* ── SECTIONS ── */
+    section{padding:100px 0}
+
+    /* ── ABOUT / SPLIT ── */
+    .split{display:grid;grid-template-columns:.80fr 1.20fr;gap:60px;align-items:start}
+    .sticky{position:sticky;top:110px}
+    .image-rail{display:grid;grid-template-columns:.90fr 1.10fr;gap:14px;align-items:end;margin-top:30px}
+    .image-rail img{width:100%;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .image-rail img:first-child{height:230px}.image-rail img:last-child{height:310px}
+
+    /* ── PILLARS ── */
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--line);background:var(--line);border-radius:var(--radius);overflow:hidden;margin-top:40px}
+    .pillar{background:var(--white);padding:32px 28px 36px;min-height:300px;position:relative;transition:background .3s,box-shadow .3s}
+    .pillar::before{content:'';position:absolute;inset:0;opacity:0;background:linear-gradient(135deg,rgba(21,91,184,.07) 0%,rgba(241,189,34,.10) 50%,rgba(0,100,180,.06) 100%);transition:opacity .4s}
+    .pillar:hover::before{opacity:1}
+    .pillar:hover{box-shadow:inset 0 0 0 2px rgba(241,189,34,.5),inset 0 -4px 0 0 #f1bd22}
+    .pillar .num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#155bb8 0%,#f1bd22 100%);color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em;margin-bottom:4px}
+    .pillar h3{margin:20px 0 14px;font-size:clamp(28px,3.2vw,42px);font-family:var(--serif);font-weight:600;line-height:1;background:linear-gradient(135deg,#092f6f 0%,#155bb8 50%,#c9971a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .pillar p{color:var(--soft-ink);line-height:1.68;font-size:15px}
+
+    /* ── ACCORDION ── */
+    .accordion{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow)}
+    .acc-item+.acc-item{border-top:1px solid var(--line)}
+    .acc-trigger{width:100%;display:grid;grid-template-columns:1fr 34px;gap:18px;align-items:center;min-height:78px;padding:0 22px;border:0;background:transparent;cursor:pointer;text-align:left;transition:background .15s}
+    .acc-trigger:hover{background:rgba(21,91,184,.04)}
+    .acc-trigger strong{display:block;font-size:18px;letter-spacing:0;font-weight:700}
+    .acc-trigger span{color:var(--muted);font-size:12px;font-weight:800}
+    .acc-icon{width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--blue);transition:transform .22s ease,background .15s}
+    .acc-item.open .acc-icon{transform:rotate(45deg);background:var(--blue);color:#fff;border-color:var(--blue)}
+    .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .acc-item.open .acc-panel{max-height:800px}
+    .acc-panel-inner{padding:4px 22px 24px;color:var(--soft-ink);line-height:1.74;font-size:15.5px}
+    .acc-panel-inner ul{margin:14px 0 0;padding-left:18px}
+    .acc-panel-inner li{margin:7px 0}
+    .acc-panel-inner p+p{margin-top:12px}
+
+    /* ── PROGRAMS — Accordion list ── */
+    .programs{background:#0f1820;color:#fff;position:relative;overflow:hidden;padding:100px 0}
+    .programs::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,15,24,.97),rgba(9,15,24,.80) 50%,rgba(9,15,24,.92)),url("assets/img/community-wide.webp") center/cover;opacity:.9}
+    .programs .shell{position:relative;z-index:1}
+    .programs .section-lead,.programs .eyebrow{color:rgba(255,255,255,.70)}
+    .prog-list{margin-top:44px}
+    .prog-item{border-bottom:1px solid rgba(255,255,255,.12)}
+    .prog-trigger{width:100%;display:flex;align-items:center;gap:18px;padding:22px 0;background:transparent;border:0;color:#fff;cursor:pointer;text-align:left;transition:color .15s}
+    .prog-trigger:hover{color:#f1bd22}
+    .prog-trigger strong{flex:1;font-size:18px;font-weight:700}
+    .prog-icon{font-size:24px;flex-shrink:0;width:36px}
+    .prog-arrow{font-size:20px;opacity:.5;transition:transform .22s,color .15s}
+    .prog-item.open .prog-arrow{transform:rotate(90deg);color:#f1bd22;opacity:1}
+    .prog-panel{max-height:0;overflow:hidden;transition:max-height .38s ease}
+    .prog-item.open .prog-panel{max-height:300px}
+    .prog-panel-inner{padding:4px 0 22px 54px;color:rgba(255,255,255,.76);line-height:1.74;font-size:15px}
+
+    /* ── CALENDAR ── */
+    .calendar-shell{display:grid;grid-template-columns:1.10fr .90fr;gap:26px;align-items:start;margin-top:40px}
+    .calendar-board{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow);overflow:hidden}
+    .calendar-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .calendar-toolbar h3{margin:0;font-size:22px;font-family:var(--serif);font-weight:600}
+    .month-buttons{display:flex;gap:8px}
+    .round-btn{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:transparent;cursor:pointer;font-weight:900;display:grid;place-items:center;transition:background .15s,border-color .15s}
+    .round-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .weekdays,.days{display:grid;grid-template-columns:repeat(7,1fr)}
+    .weekdays span{padding:12px 8px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10.5px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;text-align:center}
+    .day{min-height:90px;padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.42)}
+    .day:nth-child(7n){border-right:0}
+    .day.muted{opacity:.30;pointer-events:none}
+    .day-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:900}
+    .day.has-event .day-num{background:var(--blue);color:#fff}
+    .day.today .day-num{outline:2px solid var(--yellow);outline-offset:2px}
+    .event-chip{display:block;width:100%;margin-top:5px;padding:5px 7px;border:0;border-radius:5px;background:rgba(21,91,184,.10);color:var(--blue-deep);text-align:left;font-size:9.5px;line-height:1.25;font-weight:900;cursor:pointer;transition:background .15s}
+    .event-chip:hover{background:rgba(21,91,184,.20)}
+    .event-chip.culture{background:rgba(241,189,34,.20);color:#6a4800}
+    .event-chip.culture:hover{background:rgba(241,189,34,.35)}
+    .event-chip.solidarity{background:rgba(127,35,49,.10);color:var(--wine)}
+    .event-chip.solidarity:hover{background:rgba(127,35,49,.20)}
+    .event-chip.internal{background:rgba(44,98,79,.11);color:var(--leaf)}
+    .event-chip.internal:hover{background:rgba(44,98,79,.20)}
+
+    /* ── EVENT PANEL ── */
+    .event-panel{position:sticky;top:104px;border:1px solid var(--line);border-radius:var(--radius);background:var(--ink);color:#fff;box-shadow:var(--shadow-strong);overflow:hidden;min-height:500px}
+    .ep-gallery{position:relative}
+    .ep-main-img{width:100%;height:240px;object-fit:cover;display:block}
+    .ep-thumbs{display:flex;gap:6px;padding:8px;background:rgba(0,0,0,.4)}
+    .ep-thumb{width:56px;height:42px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.6;transition:opacity .15s;border:2px solid transparent;flex-shrink:0}
+    .ep-thumb.active,.ep-thumb:hover{opacity:1;border-color:var(--yellow)}
+    .ep-content{padding:22px}
+    .ep-type{font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
+    .ep-date{font-size:11.5px;font-weight:800;color:rgba(255,255,255,.55);margin-bottom:4px}
+    .ep-title{font-size:26px;font-family:var(--serif);font-weight:600;line-height:1.1;margin-bottom:14px}
+    .ep-desc{color:rgba(255,255,255,.76);line-height:1.68;font-size:14.5px}
+    .ep-local{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:rgba(255,255,255,.56)}
+    .ep-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:500px;color:rgba(255,255,255,.32);text-align:center;padding:32px;gap:12px}
+    .ep-empty svg{opacity:.22}
+
+    /* ── GALLERY ── */
+    .gallery-grid{display:grid;grid-template-columns:1.20fr .80fr;gap:16px;margin-top:44px}
+    .gallery-main{width:100%;height:580px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .gallery-stack{display:grid;gap:16px}
+    .gallery-stack img{width:100%;height:282px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* ── PARTNERS ── */
+    .partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);padding:48px 0}
+    .partner-label{text-align:center;margin-bottom:28px;font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+    .partner-row{display:flex;align-items:center;justify-content:center;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .partner{flex:1;min-height:120px;display:flex;align-items:center;justify-content:center;padding:22px;background:#fff;color:var(--soft-ink);font-weight:900;text-align:center;gap:10px}
+    .partner+.partner{border-left:1px solid var(--line)}
+    .partner img{max-height:58px;max-width:120px;object-fit:contain;margin:0 auto}
+
+    /* ── JOIN SECTION ── */
+    .join-section{background:#0a2463;color:#fff;padding:80px 0}
+    .join-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:40px}
+    .join-text p{color:rgba(255,255,255,.78);line-height:1.70;font-size:16px;margin-bottom:16px}
+    .join-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+    /* ── UCC FULL IMAGE ── */
+    .ucc-image-section{background:#fff;padding:20px 0 60px;text-align:center}
+
+    /* ── DONATE ── */
+    .donate{background:#071428;color:#fff;position:relative;overflow:hidden;padding:100px 0}
+    .donate::before{content:"";position:absolute;inset:0;opacity:.06;background:url("assets/img/pattern-bg.jpg") center/cover}
+    .donate .shell{position:relative;z-index:1}
+    .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:46px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.18);border-radius:var(--radius);overflow:hidden}
+    .donate-card{padding:30px;background:rgba(255,255,255,.07);backdrop-filter:blur(10px)}
+    .donate-card h3{font-size:18px;margin-bottom:12px;color:#fff}
+    .donate-card p{color:rgba(255,255,255,.74);line-height:1.68;font-size:14.5px}
+    .donate-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+    .donate .eyebrow{color:rgba(255,255,255,.65)}
+    .donate .section-title{color:#fff}
+    .donate .section-lead{color:rgba(255,255,255,.78);max-width:700px}
+
+    /* ── CONTACT ── */
+    .contact{background:#0d141b;color:#fff;padding:100px 0}
+    .contact-card{display:grid;grid-template-columns:1.10fr .90fr;gap:1px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.14);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-strong);margin-top:44px}
+    .contact-pane{background:rgba(255,255,255,.06);padding:40px}
+    .contact-pane h2{font-size:clamp(34px,4.5vw,60px);margin-bottom:14px;font-family:var(--serif);font-weight:600}
+    .contact-pane p{color:rgba(255,255,255,.74);line-height:1.70;font-size:16px}
+    .contact-list{margin-top:26px;display:grid;gap:0}
+    .contact-list a,.contact-list span{display:block;padding:14px 0;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.82);font-weight:800;font-size:15px}
+    .contact-list a:hover{color:#fff}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+    /* ── FOOTER ── */
+    footer{padding:30px 0;background:#0d141b;color:rgba(255,255,255,.48);border-top:1px solid rgba(255,255,255,.08);font-size:12.5px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+
+    /* ── MOBILE MENU ── */
+    .mobile-panel{position:fixed;inset:var(--header) 0 auto;display:none;padding:22px 20px 30px;background:rgba(247,243,234,.98);color:var(--ink);border-bottom:1px solid var(--line);z-index:80;backdrop-filter:blur(16px)}
+    .mobile-panel.open{display:grid;gap:16px}
+    .mobile-panel a{font-size:22px;font-weight:800}
+    .mobile-panel .lang-switch{margin-top:8px;border-color:var(--ink)}
+    .mobile-panel .lang-switch button.active{background:var(--ink);color:var(--paper)}
+
+    /* ── ENTRANCE ANIMATIONS ── */
+    .animate-in{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .animate-in.visible{opacity:1;transform:none}
+    .animate-in.delay-1{transition-delay:.12s}
+    .animate-in.delay-2{transition-delay:.24s}
+    .animate-in.delay-3{transition-delay:.36s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:980px){
+      .nav-links,.nav-cta{display:none}
+      .menu-toggle{display:inline-grid}
+      .hero-inner,.split,.calendar-shell,.contact-card,.gallery-grid,.join-inner{grid-template-columns:1fr}
+      .hero-card{min-height:260px}
+      .trust-grid,.pillars,.partner-row{grid-template-columns:1fr 1fr}
+      .donate-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .trust-grid,.partner-row{grid-template-columns:1fr}
+      .pillars{grid-template-columns:1fr}
+      .day{min-height:60px}
+      .event-chip{font-size:8px;padding:3px 5px}
+      .ep-thumbs{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="topbar" id="topbar">
+  <div class="shell nav">
+    <a class="brand" href="#">
+      <img src="assets/img/logo-emblem.webp" alt="Logo">
+      <div>
+        <strong><span class="lang fr active">Association des Ukrainiens</span><span class="lang ua">Асоціація українців</span><span class="lang en">Ukrainian Association</span></strong>
+        <span>Saguenay–Lac-Saint-Jean</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#about"><span class="lang fr active">À propos</span><span class="lang ua">Про нас</span><span class="lang en">About</span></a>
+      <a href="#activities"><span class="lang fr active">Activités</span><span class="lang ua">Діяльність</span><span class="lang en">Activities</span></a>
+      <a href="#calendar"><span class="lang fr active">Calendrier</span><span class="lang ua">Календар</span><span class="lang en">Calendar</span></a>
+      <a href="#gallery"><span class="lang fr active">Galerie</span><span class="lang ua">Галерея</span><span class="lang en">Gallery</span></a>
+      <a href="#contact"><span class="lang fr active">Contact</span><span class="lang ua">Контакт</span><span class="lang en">Contact</span></a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Langue / Мова / Language">
+        <button onclick="setLang('fr')" class="active" data-lang="fr" aria-pressed="true">FR</button>
+        <button onclick="setLang('ua')" data-lang="ua" aria-pressed="false">UA</button>
+        <button onclick="setLang('en')" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="mailto:ukrainienssaguenay@gmail.com?subject=Don" class="nav-cta"><span class="lang fr active">Soutenir</span><span class="lang ua">Підтримати</span><span class="lang en">Support</span></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+      <svg width="18" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 1h18M0 7h18M0 13h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile panel -->
+<div class="mobile-panel" id="mobilePanel" role="navigation">
+  <a href="#about" onclick="closeMenu()"><span class="lang fr active">À propos</span><span class="lang ua">Про нас</span><span class="lang en">About</span></a>
+  <a href="#activities" onclick="closeMenu()"><span class="lang fr active">Activités</span><span class="lang ua">Діяльність</span><span class="lang en">Activities</span></a>
+  <a href="#calendar" onclick="closeMenu()"><span class="lang fr active">Calendrier</span><span class="lang ua">Календар</span><span class="lang en">Calendar</span></a>
+  <a href="#gallery" onclick="closeMenu()"><span class="lang fr active">Galerie</span><span class="lang ua">Галерея</span><span class="lang en">Gallery</span></a>
+  <a href="#donate" onclick="closeMenu()"><span class="lang fr active">Soutenir</span><span class="lang ua">Підтримати</span><span class="lang en">Support</span></a>
+  <a href="#contact" onclick="closeMenu()"><span class="lang fr active">Contact</span><span class="lang ua">Контакт</span><span class="lang en">Contact</span></a>
+  <div class="lang-switch">
+    <button onclick="setLang('fr')" class="active" data-lang="fr">FR</button>
+    <button onclick="setLang('ua')" data-lang="ua">UA</button>
+    <button onclick="setLang('en')" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" aria-label="Introduction">
+  <div class="shell hero-inner">
+    <div>
+      <div class="hero-logo-corner">
+        <img src="assets/img/brand-logo-full.jpg" alt="Association des Ukrainiens du Saguenay-Lac-Saint-Jean">
+      </div>
+      <p class="hero-badge"><span class="lang fr active">Membre du Congrès ukrainien du Canada</span><span class="lang ua">Член Конгресу українців Канади</span><span class="lang en">Member of the Ukrainian Canadian Congress</span></p>
+      <h1 class="display">
+        <span class="lang fr active">Unir.<br>Présenter.<br>Aider.</span>
+        <span class="lang ua">Об'єднувати.<br>Презентувати.<br>Допомагати.</span>
+        <span class="lang en">Unite.<br>Present.<br>Help.</span>
+      </h1>
+      <p class="hero-copy lang fr active">La communauté ukrainienne du Saguenay–Lac-Saint-Jean. Enracinée ici. Vivante. Active. Reconnue.</p>
+      <p class="hero-copy lang ua">Українська спільнота Saguenay–Lac-Saint-Jean. Укорінена тут. Жива. Активна. Визнана.</p>
+      <p class="hero-copy lang en">The Ukrainian community of Saguenay–Lac-Saint-Jean. Rooted here. Living. Active. Recognized.</p>
+      <div class="hero-actions">
+        <a href="#about" class="btn primary"><span class="lang fr active">Découvrir l'Association</span><span class="lang ua">Про Асоціацію</span><span class="lang en">Discover the Association</span></a>
+        <a href="mailto:ukrainienssaguenay@gmail.com?subject=Don" class="btn secondary"><span class="lang fr active">Soutenir notre mission</span><span class="lang ua">Підтримати місію</span><span class="lang en">Support our mission</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: Hero → Trust strip (white) -->
+<div class="wave-sep" style="--wave-fill:#ffffff;--wave-bg:#071428">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ TRUST STRIP ══════════ -->
+<div class="trust-strip">
+  <div class="shell">
+    <div class="trust-intro animate-in">
+      <p class="eyebrow"><span class="lang fr active">Notre identité</span><span class="lang ua">Наша ідентичність</span><span class="lang en">Our identity</span></p>
+      <h2 class="display" style="font-size:clamp(28px,4vw,52px);color:var(--blue-deep)">
+        <span class="lang fr active">Qui nous sommes, en quelques chiffres.</span>
+        <span class="lang ua">Хто ми — у кількох цифрах.</span>
+        <span class="lang en">Who we are, in a few numbers.</span>
+      </h2>
+    </div>
+    <div class="trust-grid">
+      <div class="metric animate-in delay-1" onclick="toggleMetric(this)">
+        <strong>12.01.2026</strong>
+        <span class="lang fr active">Enregistrement officiel au Québec</span>
+        <span class="lang ua">Офіційна реєстрація в Квебеку</span>
+        <span class="lang en">Official registration in Québec</span>
+        <div class="metric-detail">
+          <div class="metric-detail-inner">
+            <span class="lang fr active">L'Association a été officiellement enregistrée conformément aux lois du Québec. Personne morale sans but lucratif.</span>
+            <span class="lang ua">Асоціацію офіційно зареєстровано відповідно до законодавства Квебеку. Некомерційна юридична особа.</span>
+            <span class="lang en">The Association was officially registered under the laws of Québec. Non-profit legal entity.</span>
+          </div>
+        </div>
+      </div>
+      <div class="metric animate-in delay-1" onclick="toggleMetric(this)">
+        <strong>CUC</strong>
+        <span class="lang fr active">Membre du Congrès ukrainien du Canada — réseau national</span>
+        <span class="lang ua">Член Конгресу українців Канади — національна мережа</span>
+        <span class="lang en">Member of the Ukrainian Canadian Congress — national network</span>
+        <div class="metric-detail">
+          <div class="metric-detail-inner">
+            <span class="lang fr active">Affiliée au Congrès ukrainien du Canada — réseau national qui représente toutes les communautés ukrainiennes du pays.</span>
+            <span class="lang ua">Афільована з Конгресом українців Канади — національною мережею, що представляє всі українські спільноти країни.</span>
+            <span class="lang en">Affiliated with the Ukrainian Canadian Congress — the national network representing all Ukrainian communities across the country.</span>
+          </div>
+        </div>
+      </div>
+      <div class="metric animate-in delay-2" onclick="toggleMetric(this)">
+        <strong>6</strong>
+        <span class="lang fr active">Domaines d'action : culture, éducation, intégration, plaidoyer, communauté, partenariats</span>
+        <span class="lang ua">Напрямки: культура, освіта, інтеграція, адвокація, спільнота, партнерства</span>
+        <span class="lang en">Areas of work: culture, education, integration, advocacy, community, partnerships</span>
+        <div class="metric-detail">
+          <div class="metric-detail-inner">
+            <span class="lang fr active">Culture et mémoire · Éducation · Intégration · Représentation et plaidoyer · Communauté et entraide · Partenariats</span>
+            <span class="lang ua">Культура і пам'ять · Освіта · Інтеграція · Представництво · Спільнота · Партнерства</span>
+            <span class="lang en">Culture &amp; Memory · Education · Integration · Representation &amp; Advocacy · Community · Partnerships</span>
+          </div>
+        </div>
+      </div>
+      <div class="metric animate-in delay-2" onclick="toggleMetric(this)">
+        <strong>SLSJ</strong>
+        <span class="lang fr active">Présence active au Saguenay–Lac-Saint-Jean, reconnue par la communauté locale</span>
+        <span class="lang ua">Активна присутність у регіоні, визнана місцевою спільнотою</span>
+        <span class="lang en">Active presence in the Saguenay–Lac-Saint-Jean region, recognized locally</span>
+        <div class="metric-detail">
+          <div class="metric-detail-inner">
+            <span class="lang fr active">Présence active à Saguenay et au Lac-Saint-Jean. Reconnue par les institutions locales, les élus et la population.</span>
+            <span class="lang ua">Активна присутність у Saguenay та Lac-Saint-Jean. Визнана місцевими інституціями, депутатами та населенням.</span>
+            <span class="lang en">Active presence in Saguenay and Lac-Saint-Jean. Recognized by local institutions, elected officials and the population.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave: Trust strip (white) → About (paper #f9f4e8) -->
+<div class="wave-sep" style="--wave-fill:#f9f4e8;--wave-bg:#ffffff">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" style="background:#f9f4e8">
+  <div class="shell split">
+    <div class="sticky">
+      <p class="eyebrow animate-in"><span class="lang fr active">À propos</span><span class="lang ua">Про нас</span><span class="lang en">About</span></p>
+      <h2 class="section-title display lang fr active animate-in">Une communauté qui choisit de s'enraciner.</h2>
+      <h2 class="section-title display lang ua animate-in">Спільнота, що обирає укорінення.</h2>
+      <h2 class="section-title display lang en animate-in">A community that chooses to take root.</h2>
+      <p class="section-lead lang fr active animate-in delay-1">Fondée par des familles ukrainiennes installées au Saguenay–Lac-Saint-Jean, l'Association est née d'une gratitude profonde envers la région qui les a accueillies — et d'un désir de participer activement à la vie locale.</p>
+      <p class="section-lead lang ua animate-in delay-1">Заснована українськими сім'ями, що оселилися у Saguenay–Lac-Saint-Jean, Асоціація виникла з глибокої вдячності до регіону, який їх прийняв, — і з бажання активно брати участь у місцевому житті.</p>
+      <p class="section-lead lang en animate-in delay-1">Founded by Ukrainian families settled in Saguenay–Lac-Saint-Jean, the Association was born from deep gratitude toward the region that welcomed them — and from a desire to actively participate in local life.</p>
+      <div style="margin-top:30px;display:grid;gap:14px" class="animate-in delay-2">
+        <a href="#activities" class="btn ghost" style="width:fit-content"><span class="lang fr active">Nos activités →</span><span class="lang ua">Наша діяльність →</span><span class="lang en">Our activities →</span></a>
+        <a href="mailto:ukrainienssaguenay@gmail.com?subject=Don" class="btn blue" style="width:fit-content"><span class="lang fr active">Soutenir →</span><span class="lang ua">Підтримати →</span><span class="lang en">Support →</span></a>
+      </div>
+    </div>
+    <div>
+      <p class="lang fr active animate-in" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px">Au cours des trois dernières années, de nombreuses familles ukrainiennes sont arrivées au Saguenay–Lac-Saint-Jean fuyant la guerre. Elles ont trouvé ici un accueil chaleureux, une communauté bienveillante, un nouveau départ. Aujourd'hui, elles sont bien intégrées — elles travaillent, leurs enfants vont à l'école, elles contribuent à l'économie régionale.</p>
+      <p class="lang ua animate-in" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px">Впродовж останніх трьох років багато українських родин прибули до Saguenay–Lac-Saint-Jean, рятуючись від війни. Тут вони знайшли теплий прийом, доброзичливу спільноту, новий початок. Сьогодні вони добре інтегровані — працюють, їхні діти ходять до школи, вони вносять свій вклад в економіку регіону.</p>
+      <p class="lang en animate-in" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px">Over the past three years, many Ukrainian families arrived in Saguenay–Lac-Saint-Jean fleeing the war. They found here a warm welcome, a caring community, a new beginning. Today, they are well integrated — working, their children attending school, contributing to the regional economy.</p>
+      <p class="lang fr active animate-in delay-1" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px;margin-top:18px">L'Association n'est pas une simple organisation culturelle. C'est un cercle de personnes qui se soutiennent mutuellement, qui construisent ensemble une vie ukrainienne à Saguenay, et qui représentent leur communauté auprès des autorités locales et des institutions québécoises. <strong>Nous ne sommes pas simplement ici — nous participons.</strong></p>
+      <p class="lang ua animate-in delay-1" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px;margin-top:18px">Асоціація — це не просто культурна організація. Це коло людей, які підтримують одне одного, разом будують українське життя в Saguenay і представляють свою спільноту перед місцевими органами влади та квебекськими інституціями. <strong>Ми не просто тут — ми беремо участь.</strong></p>
+      <p class="lang en animate-in delay-1" style="color:var(--soft-ink);line-height:1.74;font-size:16.5px;margin-top:18px">The Association is not a simple cultural organization. It is a circle of people who support each other, who together build a Ukrainian life in Saguenay, and who represent their community to local authorities and Quebec institutions. <strong>We are not just here — we participate.</strong></p>
+      <div class="image-rail animate-in delay-2">
+        <img src="assets/img/meeting-room.jpg" alt="Réunion de l'Association">
+        <img src="assets/img/great-gathering.jpg" alt="Grande assemblée ukrainienne, décembre 2025">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PILLARS / MISSION ══════════ -->
+<div style="background:#f9f4e8;padding:0 0 80px">
+  <div class="shell">
+    <div class="pillars">
+      <div class="pillar animate-in">
+        <div class="num">01</div>
+        <h3><span class="lang fr active">Unir</span><span class="lang ua">Об'єднувати</span><span class="lang en">Unite</span></h3>
+        <p class="lang fr active">Rassembler les Ukrainiens de la région, créer des liens, soutenir les familles dans les moments difficiles comme dans les moments de fête.</p>
+        <p class="lang ua">Об'єднувати українців регіону, створювати зв'язки, підтримувати сім'ї у складні моменти і під час свят.</p>
+        <p class="lang en">Bringing Ukrainians of the region together, creating connections, supporting families in difficult moments and in celebration.</p>
+      </div>
+      <div class="pillar animate-in delay-1">
+        <div class="num">02</div>
+        <h3><span class="lang fr active">Présenter</span><span class="lang ua">Презентувати</span><span class="lang en">Present</span></h3>
+        <p class="lang fr active">Faire connaître la culture, l'histoire et les traditions ukrainiennes à la population de Saguenay–Lac-Saint-Jean — pas comme une curiosité, mais comme une culture vivante et riche.</p>
+        <p class="lang ua">Знайомити населення Saguenay–Lac-Saint-Jean з українською культурою, історією та традиціями — не як із цікавинкою, а як із живою і багатою культурою.</p>
+        <p class="lang en">Sharing Ukrainian culture, history and traditions with the people of Saguenay–Lac-Saint-Jean — not as a curiosity, but as a living and rich culture.</p>
+      </div>
+      <div class="pillar animate-in delay-2">
+        <div class="num">03</div>
+        <h3><span class="lang fr active">Aider</span><span class="lang ua">Допомагати</span><span class="lang en">Help</span></h3>
+        <p class="lang fr active">Soutenir l'intégration des familles ukrainiennes, défendre leurs droits auprès des autorités, et rester un lien vivant entre la communauté et les institutions locales.</p>
+        <p class="lang ua">Підтримувати інтеграцію українських сімей, захищати їхні права перед органами влади, залишатися живим зв'язком між спільнотою та місцевими інституціями.</p>
+        <p class="lang en">Supporting the integration of Ukrainian families, defending their rights before authorities, and remaining a living link between the community and local institutions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave: About/paper → Programs (dark navy #071428) -->
+<div class="wave-sep" style="--wave-fill:#071428;--wave-bg:#f9f4e8">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ PROGRAMS / DIRECTIONS — Accordion list ══════════ -->
+<section class="programs" id="activities">
+  <div class="shell">
+    <p class="eyebrow animate-in"><span class="lang fr active">Nos domaines d'action</span><span class="lang ua">Наші напрямки роботи</span><span class="lang en">Our areas of work</span></p>
+    <h2 class="section-title display animate-in delay-1" style="color:#fff">
+      <span class="lang fr active">Ce que nous construisons ensemble.</span>
+      <span class="lang ua">Що ми будуємо разом.</span>
+      <span class="lang en">What we build together.</span>
+    </h2>
+    <p class="section-lead lang fr active animate-in delay-2">Six domaines d'action qui font de l'Association un acteur concret dans la vie du Saguenay–Lac-Saint-Jean.</p>
+    <p class="section-lead lang ua animate-in delay-2">Шість напрямків роботи, які роблять Асоціацію конкретним учасником життя Saguenay–Lac-Saint-Jean.</p>
+    <p class="section-lead lang en animate-in delay-2">Six areas of work that make the Association a concrete actor in the life of Saguenay–Lac-Saint-Jean.</p>
+
+    <div class="prog-list">
+      <!-- 1 -->
+      <div class="prog-item animate-in">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">🎭</span>
+          <strong><span class="lang fr active">Culture et mémoire</span><span class="lang ua">Культура і пам'ять</span><span class="lang en">Culture &amp; Memory</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Koliada, Merci Borsch, Journée de la Vyshyvanka, Pâques, cérémonie du Holodomor, projections de films. Des événements ouverts à toute la communauté du Saguenay.</span>
+            <span class="lang ua">Коляда, Merci Borsch, День вишиванки, Великдень, урочистість пам'яті Голодомору, кінопокази. Заходи, відкриті для всієї спільноти Saguenay.</span>
+            <span class="lang en">Koliada, Merci Borsch, Vyshyvanka Day, Easter, Holodomor memorial, film screenings. Events open to the entire Saguenay community.</span>
+          </div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="prog-item animate-in delay-1">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">📚</span>
+          <strong><span class="lang fr active">Éducation et enfants</span><span class="lang ua">Освіта і діти</span><span class="lang en">Education &amp; Children</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Cours réguliers de langue ukrainienne pour les enfants. Un espace où la culture reste vivante, joyeuse et accessible pour les jeunes qui grandissent loin de leur pays.</span>
+            <span class="lang ua">Регулярні уроки української мови для дітей. Простір, де культура залишається живою, радісною і доступною для молодих, що ростуть далеко від батьківщини.</span>
+            <span class="lang en">Regular Ukrainian language classes for children. A space where culture stays alive, joyful and accessible for young people growing up far from their homeland.</span>
+          </div>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="prog-item animate-in delay-2">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">🤝</span>
+          <strong><span class="lang fr active">Intégration et résilience</span><span class="lang ua">Інтеграція і стійкість</span><span class="lang en">Integration &amp; Resilience</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Pratique du français, randonnées et sorties en groupe pour découvrir la région, soutien aux nouveaux arrivants, cercles de résilience communautaire.</span>
+            <span class="lang ua">Практика французької мови, походи і поїздки для знайомства з регіоном, підтримка новоприбулих, кола стійкості спільноти.</span>
+            <span class="lang en">French practice, group outings to discover the region, support for newcomers, community resilience circles.</span>
+          </div>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="prog-item animate-in">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">🏛</span>
+          <strong><span class="lang fr active">Représentation et plaidoyer</span><span class="lang ua">Представництво та адвокація</span><span class="lang en">Representation &amp; Advocacy</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Représentation de la communauté ukrainienne auprès des politiciens locaux. Défense de l'accès aux programmes d'immigration, reconnaissance des diplômes, renouvellement des permis.</span>
+            <span class="lang ua">Представлення інтересів громади перед місцевими політиками. Захист доступу до імміграційних програм, визнання дипломів, продовження дозволів на роботу.</span>
+            <span class="lang en">Representation of the Ukrainian community before local politicians. Advocating for access to immigration programs, diploma recognition, work permit renewals.</span>
+          </div>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="prog-item animate-in delay-1">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">🌻</span>
+          <strong><span class="lang fr active">Communauté et entraide</span><span class="lang ua">Спільнота та взаємодопомога</span><span class="lang en">Community &amp; Mutual Aid</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Rencontres régulières, soutien aux familles, nouveaux liens sociaux, réseau d'entraide. Être entouré — même loin de chez soi.</span>
+            <span class="lang ua">Регулярні зустрічі, підтримка сімей, нові соціальні зв'язки, мережа взаємодопомоги. Бути оточеним — навіть далеко від дому.</span>
+            <span class="lang en">Regular gatherings, family support, new social bonds, mutual aid network. Being surrounded — even far from home.</span>
+          </div>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="prog-item animate-in delay-2">
+        <button class="prog-trigger" onclick="toggleProg(this)">
+          <span class="prog-icon">🌐</span>
+          <strong><span class="lang fr active">Partenariats</span><span class="lang ua">Партнерства</span><span class="lang en">Partnerships</span></strong>
+          <span class="prog-arrow">›</span>
+        </button>
+        <div class="prog-panel">
+          <div class="prog-panel-inner">
+            <span class="lang fr active">Collaboration avec des organisations ukrainiennes, québécoises et internationales. Liens avec le CUC, les institutions municipales, les groupes culturels locaux.</span>
+            <span class="lang ua">Співпраця з українськими, квебекськими та міжнародними організаціями. Зв'язки з КУК, муніципальними інституціями, місцевими культурними групами.</span>
+            <span class="lang en">Collaboration with Ukrainian, Quebec and international organizations. Ties with the UCC, municipal institutions, local cultural groups.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: Programs (dark navy) → Accordion (white) -->
+<div class="wave-sep" style="--wave-fill:#ffffff;--wave-bg:#071428">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ ACCORDIONS ══════════ -->
+<section id="structure" style="background:#ffffff">
+  <div class="narrow">
+    <p class="eyebrow animate-in"><span class="lang fr active">En détail</span><span class="lang ua">Детально</span><span class="lang en">In detail</span></p>
+    <h2 class="section-title display lang fr active animate-in">Qui nous sommes. Comment nous travaillons.</h2>
+    <h2 class="section-title display lang ua animate-in">Хто ми. Як ми працюємо.</h2>
+    <h2 class="section-title display lang en animate-in">Who we are. How we work.</h2>
+    <div class="accordion" style="margin-top:42px">
+
+      <div class="acc-item animate-in">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Mission et fondement juridique</strong><strong class="lang ua">Місія і юридична основа</strong><strong class="lang en">Mission and legal foundation</strong>
+            <span class="lang fr active">Organisation sans but lucratif — Québec</span><span class="lang ua">Некомерційна організація — Квебек</span><span class="lang en">Non-profit organization — Québec</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">Constituée conformément aux lois du Québec, l'Association des Ukrainiens du Saguenay–Lac-Saint-Jean est une personne morale sans but lucratif, enregistrée officiellement le 12 janvier 2026. Elle fait partie du Congrès ukrainien du Canada (CUC), organisation nationale qui représente l'ensemble des communautés ukrainiennes du pays et est affiliée au Congrès mondial ukrainien. Sa mission se résume en trois mots : <strong>Unir. Présenter. Aider.</strong></p>
+          <p class="lang ua">Створена відповідно до законодавства Квебеку, Асоціація українців Saguenay–Lac-Saint-Jean є некомерційною юридичною особою, офіційно зареєстрованою 12 січня 2026 року. Вона входить до Конгресу українців Канади (КУК) — національної організації, що представляє всі українські спільноти країни і є частиною Світового конгресу українців. Її місія у трьох словах: <strong>Об'єднувати. Презентувати. Допомагати.</strong></p>
+          <p class="lang en">Incorporated under the laws of Québec, the Association of Ukrainians of Saguenay–Lac-Saint-Jean is a non-profit legal entity, officially registered on January 12, 2026. It is a member of the Ukrainian Canadian Congress (UCC), a national organization representing all Ukrainian communities in Canada and affiliated with the World Congress of Ukrainians. Its mission: <strong>Unite. Present. Help.</strong></p>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Adhésion</strong><strong class="lang ua">Членство</strong><strong class="lang en">Membership</strong>
+            <span class="lang fr active">Rejoindre la communauté</span><span class="lang ua">Приєднатися до спільноти</span><span class="lang en">Join the community</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">Toute personne qui partage les objectifs de l'Association peut en devenir membre. L'adhésion est obtenue après la soumission d'un formulaire dûment rempli et le paiement de la cotisation annuelle.</p>
+          <p class="lang ua">Будь-яка особа, що поділяє цілі Асоціації, може стати її членом. Членство набувається після подання належно заповненої анкети та сплати річного членського внеску.</p>
+          <p class="lang en">Any person who shares the objectives of the Association may become a member. Membership is obtained after submitting a duly completed form and paying the annual fee.</p>
+          <p class="lang fr active" style="margin-top:14px">En devenant membre, vous pouvez :</p>
+          <p class="lang ua" style="margin-top:14px">Ставши членом, ви зможете:</p>
+          <p class="lang en" style="margin-top:14px">As a member, you can:</p>
+          <ul>
+            <li class="lang fr active">Participer aux activités et aux assemblées de l'Association</li>
+            <li class="lang ua">Брати участь у діяльності та зборах Асоціації</li>
+            <li class="lang en">Participate in the Association's activities and assemblies</li>
+            <li class="lang fr active">Voter lors des assemblées générales</li>
+            <li class="lang ua">Голосувати на Загальних зборах</li>
+            <li class="lang en">Vote at General Assemblies</li>
+            <li class="lang fr active">Être élu au conseil d'administration</li>
+            <li class="lang ua">Бути обраним до правління</li>
+            <li class="lang en">Be elected to the board of directors</li>
+            <li class="lang fr active">Recevoir toutes les informations sur les activités et la santé financière de l'Association</li>
+            <li class="lang ua">Отримувати інформацію про діяльність та фінансовий стан Асоціації</li>
+            <li class="lang en">Receive all information on the Association's activities and financial health</li>
+            <li class="lang fr active">Trouver des amis et du soutien dans la communauté ukrainienne de la région</li>
+            <li class="lang ua">Знайти друзів і підтримку в українській спільноті регіону</li>
+            <li class="lang en">Find friends and support in the region's Ukrainian community</li>
+            <li class="lang fr active">Pratiquer le français avec des locuteurs natifs et découvrir la région en groupe</li>
+            <li class="lang ua">Практикувати французьку з носіями мови та відкривати регіон у групових поїздках</li>
+            <li class="lang en">Practice French with native speakers and discover the region in group outings</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Intégration des familles ukrainiennes</strong><strong class="lang ua">Інтеграція українських сімей</strong><strong class="lang en">Integration of Ukrainian families</strong>
+            <span class="lang fr active">Soutien concret au quotidien</span><span class="lang ua">Конкретна підтримка щодня</span><span class="lang en">Concrete everyday support</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association a été fondée avec une immense gratitude envers les résidents du Saguenay–Lac-Saint-Jean. En trois ans, beaucoup de familles ukrainiennes ont pu recommencer leur vie ici grâce à l'accueil, à la solidarité et à la générosité de la communauté locale. Aujourd'hui, ces familles sont bien intégrées — elles travaillent, leurs enfants vont à l'école, elles participent à la vie régionale.</p>
+          <p class="lang ua">Асоціацію засновано з величезною вдячністю до жителів Saguenay–Lac-Saint-Jean. За три роки багато українських сімей змогли розпочати тут нове життя завдяки прийому, солідарності та щедрості місцевої громади. Сьогодні ці сім'ї добре інтегровані — вони працюють, їхні діти ходять до школи, вони беруть участь у регіональному житті.</p>
+          <p class="lang en">The Association was founded with immense gratitude toward the residents of Saguenay–Lac-Saint-Jean. Over three years, many Ukrainian families were able to restart their lives here thanks to the welcome, solidarity and generosity of the local community. Today, these families are well integrated — working, their children in school, participating in regional life.</p>
+          <p class="lang fr active" style="margin-top:12px">L'Association soutient ce parcours d'intégration par des activités pratiques : pratique du français, sorties en groupe pour découvrir la région, soutien informationnel pour les nouveaux arrivants, accompagnement dans les démarches administratives, et rencontres communautaires régulières pour ne pas être seul.</p>
+          <p class="lang ua" style="margin-top:12px">Асоціація підтримує цей шлях інтеграції через практичні заходи: практику французької мови, групові поїздки для знайомства з регіоном, інформаційну підтримку новоприбулих, допомогу в адміністративних справах та регулярні зустрічі спільноти, щоб не бути наодинці.</p>
+          <p class="lang en" style="margin-top:12px">The Association supports this integration journey through practical activities: French practice, group outings to discover the region, informational support for newcomers, assistance with administrative procedures, and regular community gatherings so no one is alone.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Éducation et enfants</strong><strong class="lang ua">Освіта і діти</strong><strong class="lang en">Education and children</strong>
+            <span class="lang fr active">Langue ukrainienne pour les jeunes générations</span><span class="lang ua">Українська мова для молодих поколінь</span><span class="lang en">Ukrainian language for young generations</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association organise des cours réguliers de langue ukrainienne pour les enfants. Ces rencontres ne sont pas de simples leçons : elles sont un espace où la culture ukrainienne reste vivante et joyeuse pour les jeunes qui grandissent loin de leur pays. Chansons, histoires, jeux, fêtes traditionnelles — les enfants y découvrent leurs racines tout en se faisant des amis. Pour les parents, c'est la certitude que leurs enfants grandiront avec le sentiment d'appartenir à deux cultures.</p>
+          <p class="lang ua">Асоціація організовує регулярні уроки української мови для дітей. Ці зустрічі — не просто уроки: вони є простором, де українська культура залишається живою і радісною для молодих, що ростуть далеко від батьківщини. Пісні, казки, ігри, народні свята — діти відкривають своє коріння, водночас заводячи друзів. Для батьків це впевненість, що їхні діти виростуть з відчуттям приналежності до двох культур.</p>
+          <p class="lang en">The Association organizes regular Ukrainian language classes for children. These gatherings are not mere lessons — they are a space where Ukrainian culture stays alive and joyful for young people growing up far from their homeland. Songs, stories, games, traditional celebrations — children discover their roots while making friends. For parents, it is the assurance that their children will grow up feeling they belong to two cultures.</p>
+          <p class="lang fr active" style="margin-top:12px">La vice-présidente à l'éducation, Olha Hlavatska, coordonne ces activités et collabore avec des établissements d'enseignement, des bibliothèques et des centres culturels de la région.</p>
+          <p class="lang ua" style="margin-top:12px">Заступниця голови з питань освіти Ольга Главацька координує ці заходи та співпрацює з навчальними закладами, бібліотеками та культурними центрами регіону.</p>
+          <p class="lang en" style="margin-top:12px">Vice-president for education Olha Hlavatska coordinates these activities and collaborates with educational institutions, libraries and cultural centers in the region.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Culture et traditions</strong><strong class="lang ua">Культура і традиції</strong><strong class="lang en">Culture and traditions</strong>
+            <span class="lang fr active">Une culture vivante, ouverte à tous</span><span class="lang ua">Жива культура, відкрита для всіх</span><span class="lang en">A living culture, open to all</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">La culture ukrainienne est riche, ancienne et résistante. L'Association la présente à Saguenay à travers des événements ouverts à toute la communauté :</p>
+          <p class="lang ua">Українська культура — багата, давня і стійка. Асоціація представляє її у Saguenay через заходи, відкриті для всієї спільноти:</p>
+          <p class="lang en">Ukrainian culture is rich, ancient and resilient. The Association presents it in Saguenay through events open to the whole community:</p>
+          <ul>
+            <li class="lang fr active"><strong>Koliada</strong> — la tradition des chants de Noël ukrainiens, où des groupes vont de maison en maison pour offrir leurs vœux et partager la joie des fêtes</li>
+            <li class="lang ua"><strong>Коляда</strong> — традиція українських різдвяних пісень, коли групи ходять по домівках з побажаннями і радістю свята</li>
+            <li class="lang en"><strong>Koliada</strong> — the tradition of Ukrainian Christmas carols, where groups go from home to home with good wishes and holiday joy</li>
+            <li class="lang fr active"><strong>Pâques</strong> — ateliers de pysanky (œufs peints), partage du kulich, bénédiction des paniers pascaux</li>
+            <li class="lang ua"><strong>Великдень</strong> — майстер-класи з писанкарства, паски, освячення кошиків</li>
+            <li class="lang en"><strong>Easter</strong> — pysanka (painted egg) workshops, kulich sharing, blessing of Easter baskets</li>
+            <li class="lang fr active"><strong>Journée de la Vyshyvanka</strong> — la chemise brodée ukrainienne comme symbole d'identité, de transmission et de continuité entre les générations</li>
+            <li class="lang ua"><strong>День вишиванки</strong> — вишита сорочка як символ ідентичності, передачі і зв'язку між поколіннями</li>
+            <li class="lang en"><strong>Vyshyvanka Day</strong> — the embroidered Ukrainian shirt as a symbol of identity, transmission and continuity between generations</li>
+            <li class="lang fr active"><strong>Merci Borsch</strong> — un événement pour remercier Saguenay autour du borsch traditionnel, reconnu par l'UNESCO comme patrimoine culturel immatériel de l'humanité</li>
+            <li class="lang ua"><strong>Merci Borsch</strong> — захід на подяку Saguenay навколо традиційного борщу, визнаного ЮНЕСКО нематеріальною культурною спадщиною людства</li>
+            <li class="lang en"><strong>Merci Borsch</strong> — an event to thank Saguenay over traditional borsch, recognized by UNESCO as an intangible cultural heritage of humanity</li>
+            <li class="lang fr active"><strong>Cérémonie du Holodomor</strong> — hommage aux victimes de la grande famine ukrainienne de 1932-1933, projections de films, discussions pour la communauté québécoise</li>
+            <li class="lang ua"><strong>Голодомор</strong> — вшанування жертв великого голоду 1932-1933 рр., кінопокази, дискусії для квебекської аудиторії</li>
+            <li class="lang en"><strong>Holodomor</strong> — tribute to victims of the great Ukrainian famine of 1932-1933, film screenings, discussions for the Quebec community</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Représentation et plaidoyer</strong><strong class="lang ua">Представництво та адвокація</strong><strong class="lang en">Representation and advocacy</strong>
+            <span class="lang fr active">Voix ukrainienne auprès des institutions</span><span class="lang ua">Український голос перед інституціями</span><span class="lang en">Ukrainian voice before institutions</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association représente de façon structurée la communauté ukrainienne auprès des politiciens et des instances gouvernementales de la région. Elle travaille à établir un dialogue constructif avec les autorités municipales, les élus provinciaux et les institutions fédérales.</p>
+          <p class="lang ua">Асоціація структуровано представляє інтереси української громади перед політиками та державними органами регіону. Вона прагне встановити конструктивний діалог з муніципальними органами влади, провінційними депутатами та федеральними інституціями.</p>
+          <p class="lang en">The Association represents the Ukrainian community in a structured way before politicians and government bodies of the region. It works to establish a constructive dialogue with municipal authorities, provincial elected officials and federal institutions.</p>
+          <p class="lang fr active" style="margin-top:12px">Dossiers actuellement défendus :</p>
+          <p class="lang ua" style="margin-top:12px">Актуальні питання, які відстоює Асоціація:</p>
+          <p class="lang en" style="margin-top:12px">Currently advocated issues:</p>
+          <ul>
+            <li class="lang fr active">Voie d'accès à la résidence permanente pour les Ukrainiens arrivés sous le programme CUAET</li>
+            <li class="lang ua">Шлях до постійного проживання для українців, що прибули за програмою CUAET</li>
+            <li class="lang en">Pathway to permanent residence for Ukrainians who arrived under the CUAET program</li>
+            <li class="lang fr active">Reconnaissance des diplômes et des qualifications professionnelles</li>
+            <li class="lang ua">Визнання дипломів та професійних кваліфікацій</li>
+            <li class="lang en">Recognition of diplomas and professional qualifications</li>
+            <li class="lang fr active">Renouvellement et sécurisation des permis de travail</li>
+            <li class="lang ua">Продовження та захист дозволів на роботу</li>
+            <li class="lang en">Renewal and securing of work permits</li>
+            <li class="lang fr active">Financement municipal pour les activités culturelles et d'intégration</li>
+            <li class="lang ua">Муніципальне фінансування культурної та інтеграційної діяльності</li>
+            <li class="lang en">Municipal funding for cultural and integration activities</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Dossier immigration</strong><strong class="lang ua">Імміграційне питання</strong><strong class="lang en">Immigration issue</strong>
+            <span class="lang fr active">Résidence permanente pour les Ukrainiens</span><span class="lang ua">Постійне проживання для українців</span><span class="lang en">Permanent residence for Ukrainians</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">Les Ukrainiens arrivés au Canada depuis février 2022 dans le cadre du programme CUAET (Canada Ukraine Authorization for Emergency Travel) vivent dans une situation d'incertitude. Bien intégrés, ils travaillent, paient des impôts et contribuent à l'économie canadienne — mais ils demeurent sous un statut temporaire.</p>
+          <p class="lang ua">Українці, що прибули до Канади з лютого 2022 року за програмою CUAET, живуть в умовах невизначеності. Добре інтегровані, вони працюють, сплачують податки та вносять свій внесок в канадську економіку — але залишаються на тимчасовому статусі.</p>
+          <p class="lang en">Ukrainians who arrived in Canada since February 2022 under the CUAET program live in uncertainty. Well integrated, they work, pay taxes and contribute to the Canadian economy — but remain under temporary status.</p>
+          <p class="lang fr active" style="margin-top:12px">L'Association, en lien avec le Congrès ukrainien du Canada, milite pour la création d'une politique publique temporaire (TPP) offrant un parcours vers la résidence permanente à ces personnes. Selon des sondages récents, <strong>69 % des Canadiens soutiennent cette démarche</strong>, et 81 % préfèrent que les Ukrainiens puissent rester à long terme.</p>
+          <p class="lang ua" style="margin-top:12px">Асоціація у співпраці з Конгресом українців Канади виступає за створення тимчасової державної політики (TPP), що відкриє шлях до постійного проживання для цих людей. За останніми опитуваннями, <strong>69% канадців підтримують цей крок</strong>, а 81% вважають за краще, щоб українці могли залишитися надовго.</p>
+          <p class="lang en" style="margin-top:12px">The Association, in collaboration with the Ukrainian Canadian Congress, advocates for the creation of a Temporary Public Policy (TPP) offering a pathway to permanent residence for these individuals. According to recent polls, <strong>69% of Canadians support this</strong>, and 81% prefer Ukrainians to be able to stay long-term.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Gouvernance</strong><strong class="lang ua">Управління</strong><strong class="lang en">Governance</strong>
+            <span class="lang fr active">Conseil d'administration élu</span><span class="lang ua">Обрана рада директорів</span><span class="lang en">Elected board of directors</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association est dirigée par un Conseil d'administration composé d'un nombre impair de membres, élus lors de l'Assemblée générale annuelle pour un mandat d'un an. Le Conseil élit en son sein :</p>
+          <p class="lang ua">Асоціацією керує Правління, що складається з непарної кількості членів, обраних на Загальних зборах строком на один рік. Правління обирає зі свого складу:</p>
+          <p class="lang en">The Association is governed by a Board of Directors composed of an odd number of members, elected at the Annual General Assembly for a one-year term. The Board elects from among its members:</p>
+          <ul>
+            <li class="lang fr active"><strong>Présidente</strong> — Yulia Pavlenko</li>
+            <li class="lang ua"><strong>Голова</strong> — Юлія Павленко</li>
+            <li class="lang en"><strong>President</strong> — Yulia Pavlenko</li>
+            <li class="lang fr active"><strong>Vice-présidente à l'éducation</strong> — Olha Hlavatska</li>
+            <li class="lang ua"><strong>Заступниця голови з питань освіти</strong> — Ольга Главацька</li>
+            <li class="lang en"><strong>Vice-president for education</strong> — Olha Hlavatska</li>
+            <li class="lang fr active"><strong>Vice-présidente pour la région du Lac-Saint-Jean</strong> — Iryna Girard</li>
+            <li class="lang ua"><strong>Заступниця голови для регіону Лак-Сен-Жан</strong> — Ірина Жірар</li>
+            <li class="lang en"><strong>Vice-president for the Lac-Saint-Jean region</strong> — Iryna Girard</li>
+            <li class="lang fr active"><strong>Trésorière</strong> — Viktoria Sahaidachna</li>
+            <li class="lang ua"><strong>Скарбниця</strong> — Вікторія Сагайдачна</li>
+            <li class="lang en"><strong>Treasurer</strong> — Viktoria Sahaidachna</li>
+            <li class="lang fr active"><strong>Vice-président à la jeunesse et aux sports</strong> — Dmytro Samoylenko</li>
+            <li class="lang ua"><strong>Заступник голови з питань молоді та спорту</strong> — Дмитро Самойленко</li>
+            <li class="lang en"><strong>Vice-president for youth and sports</strong> — Dmytro Samoylenko</li>
+            <li class="lang fr active"><strong>Membre du conseil</strong> — Oleksandra Kraievska</li>
+            <li class="lang ua"><strong>Член правління</strong> — Олександра Краєвська</li>
+            <li class="lang en"><strong>Board member</strong> — Oleksandra Kraievska</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in delay-1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Financement et transparence</strong><strong class="lang ua">Фінансування і прозорість</strong><strong class="lang en">Funding and transparency</strong>
+            <span class="lang fr active">Revenus exclusivement pour la mission</span><span class="lang ua">Доходи виключно для місії</span><span class="lang en">Revenue exclusively for the mission</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association est financée par les cotisations annuelles de ses membres, des subventions et aides financières, des dons et événements de bienfaisance, et des revenus tirés de sa participation à des événements publics. <strong>Tous les revenus sont utilisés exclusivement pour la réalisation de la mission de l'Association. Aucun bénéfice n'est distribué aux membres.</strong></p>
+          <p class="lang ua">Асоціація фінансується з річних членських внесків, грантів та фінансової підтримки, пожертв і благодійних заходів, а також доходів від участі у публічних заходах. <strong>Всі доходи використовуються виключно для досягнення місії Асоціації. Жодні прибутки не розподіляються між членами.</strong></p>
+          <p class="lang en">The Association is funded by annual membership fees, grants and financial support, donations and charity events, and revenues from public events. <strong>All revenues are used exclusively for the Association's mission. No profits are distributed to members.</strong></p>
+          <p class="lang fr active" style="margin-top:12px">La gestion financière est assurée conjointement par la Présidente et la Trésorière, qui préparent les rapports financiers pour le Conseil et l'Assemblée annuelle.</p>
+          <p class="lang ua" style="margin-top:12px">Фінансове управління здійснюється спільно Головою та Скарбником, які готують фінансові звіти для Правління та Щорічних зборів.</p>
+          <p class="lang en" style="margin-top:12px">Financial management is handled jointly by the President and Treasurer, who prepare financial reports for the Board and the Annual Assembly.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item animate-in">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div>
+            <strong class="lang fr active">Bénévolat</strong><strong class="lang ua">Волонтерство</strong><strong class="lang en">Volunteering</strong>
+            <span class="lang fr active">Rejoindre l'équipe</span><span class="lang ua">Приєднатися до команди</span><span class="lang en">Join the team</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-panel"><div class="acc-panel-inner">
+          <p class="lang fr active">L'Association est portée par le bénévolat. Chaque événement, chaque cours, chaque réunion est rendu possible par des personnes qui donnent de leur temps et de leur énergie. Que vous souhaitiez organiser, enseigner, communiquer, photographier, cuisiner ou chanter des koliadky — votre contribution est précieuse et bienvenue.</p>
+          <p class="lang ua">Асоціація тримається на волонтерстві. Кожен захід, кожен урок, кожна зустріч — це можливо завдяки людям, які віддають свій час і енергію. Чи хочете ви організовувати, навчати, комунікувати, фотографувати, готувати або співати колядки — ваш внесок є цінним і бажаним.</p>
+          <p class="lang en">The Association is driven by volunteering. Every event, every class, every meeting is made possible by people who give their time and energy. Whether you want to organize, teach, communicate, photograph, cook or sing koliadky — your contribution is precious and welcome.</p>
+          <p style="margin-top:14px">
+            <a href="mailto:ukrainienssaguenay@gmail.com?subject=Bénévolat" style="color:var(--blue);font-weight:800">ukrainienssaguenay@gmail.com</a>
+          </p>
+        </div></div>
+      </div>
+
+    </div><!-- /accordion -->
+  </div>
+</section>
+
+<!-- Wave: Accordion (white) → Calendar (paper #f9f4e8) -->
+<div class="wave-sep" style="--wave-fill:#f9f4e8;--wave-bg:#ffffff">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ CALENDAR ══════════ -->
+<section id="calendar" style="background:#f9f4e8">
+  <div class="shell">
+    <p class="eyebrow animate-in"><span class="lang fr active">Calendrier des événements</span><span class="lang ua">Календар подій</span><span class="lang en">Events calendar</span></p>
+    <h2 class="section-title display lang fr active animate-in">Ce que nous vivons ensemble.</h2>
+    <h2 class="section-title display lang ua animate-in">Що ми переживаємо разом.</h2>
+    <h2 class="section-title display lang en animate-in">What we experience together.</h2>
+    <p class="section-lead lang fr active animate-in delay-1">Cliquez sur une date marquée pour découvrir l'événement.</p>
+    <p class="section-lead lang ua animate-in delay-1">Натисніть на позначену дату, щоб дізнатися про подію.</p>
+    <p class="section-lead lang en animate-in delay-1">Click on a marked date to discover the event.</p>
+    <div class="calendar-shell">
+      <!-- Calendar board -->
+      <div class="calendar-board animate-in">
+        <div class="calendar-toolbar">
+          <div class="month-buttons">
+            <button class="round-btn" id="prevMonth" aria-label="Mois précédent" onclick="changeMonth(-1)">&#8592;</button>
+            <button class="round-btn" id="nextMonth" aria-label="Mois suivant" onclick="changeMonth(1)">&#8594;</button>
+          </div>
+          <h3 id="calMonthLabel"></h3>
+          <div style="font-size:12px;color:var(--muted);text-align:right;line-height:1.5">
+            <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:rgba(21,91,184,.15);margin-right:4px"></span><span class="lang fr active">Réunion</span><span class="lang ua">Збори</span><span class="lang en">Meeting</span><br>
+            <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:rgba(241,189,34,.25);margin-right:4px"></span><span class="lang fr active">Culture</span><span class="lang ua">Культура</span><span class="lang en">Culture</span><br>
+            <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:rgba(127,35,49,.12);margin-right:4px"></span><span class="lang fr active">Solidarité</span><span class="lang ua">Солідарність</span><span class="lang en">Solidarity</span>
+          </div>
+        </div>
+        <div class="weekdays" id="calWeekdays"></div>
+        <div class="days" id="calDays"></div>
+      </div>
+      <!-- Event panel -->
+      <div class="event-panel animate-in delay-1" id="eventPanel">
+        <div class="ep-empty" id="epEmpty">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="32" rx="3" stroke="white" stroke-width="2"/><path d="M16 6v8M32 6v8M6 20h36" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          <p class="lang fr active" style="font-size:14px">Sélectionnez un événement dans le calendrier</p>
+          <p class="lang ua" style="font-size:14px">Оберіть подію в календарі</p>
+          <p class="lang en" style="font-size:14px">Select an event from the calendar</p>
+        </div>
+        <div id="epContent" style="display:none">
+          <div class="ep-gallery">
+            <img id="epMainImg" class="ep-main-img" src="" alt="">
+            <div class="ep-thumbs" id="epThumbs"></div>
+          </div>
+          <div class="ep-content">
+            <div class="ep-type" id="epType"></div>
+            <div class="ep-date" id="epDate"></div>
+            <h3 class="ep-title" id="epTitle"></h3>
+            <p class="ep-desc" id="epDesc"></p>
+            <p class="ep-local" id="epLocal"></p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /calendar-shell -->
+    <!-- Legend chips -->
+    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span class="event-chip" style="width:auto;cursor:default"><span class="lang fr active">Réunion du conseil</span><span class="lang ua">Засідання правління</span><span class="lang en">Board meeting</span></span>
+      <span class="event-chip culture" style="width:auto;cursor:default"><span class="lang fr active">Événement culturel</span><span class="lang ua">Культурний захід</span><span class="lang en">Cultural event</span></span>
+      <span class="event-chip solidarity" style="width:auto;cursor:default"><span class="lang fr active">Solidarité / mémoire</span><span class="lang ua">Солідарність / пам'ять</span><span class="lang en">Solidarity / memory</span></span>
+      <span class="event-chip internal" style="width:auto;cursor:default"><span class="lang fr active">Éducation</span><span class="lang ua">Освіта</span><span class="lang en">Education</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: Calendar (paper) → Gallery (white) -->
+<div class="wave-sep" style="--wave-fill:#ffffff;--wave-bg:#f9f4e8">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section id="gallery" style="padding-top:60px;background:#ffffff">
+  <div class="shell">
+    <p class="eyebrow animate-in"><span class="lang fr active">Galerie</span><span class="lang ua">Галерея</span><span class="lang en">Gallery</span></p>
+    <h2 class="section-title display lang fr active animate-in">Moments réels. Visages réels.</h2>
+    <h2 class="section-title display lang ua animate-in">Справжні моменти. Справжні обличчя.</h2>
+    <h2 class="section-title display lang en animate-in">Real moments. Real faces.</h2>
+    <div class="gallery-grid">
+      <img class="gallery-main animate-in" src="assets/img/borsch-hall.jpg" alt="Merci Borsch — Bibliothèque de Jonquière, 28 février 2026">
+      <div class="gallery-stack">
+        <img class="animate-in delay-1" src="assets/img/vyshyvanka-group.jpg" alt="Journée de la Vyshyvanka — Association des Ukrainiens du Saguenay-LSJ">
+        <img class="animate-in delay-2" src="assets/img/holodomor-candles.jpg" alt="Cérémonie du souvenir — Holodomor 2025">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px">
+      <img class="animate-in" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)" src="assets/img/manifestation-people.jpg" alt="Manifestation de solidarité avec l'Ukraine">
+      <img class="animate-in delay-1" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)" src="assets/img/borsch-kiosk.jpg" alt="Kiosque culturel — Merci Borsch">
+      <img class="animate-in delay-2" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)" src="assets/img/great-gathering.jpg" alt="Grande assemblée ukrainienne — décembre 2025">
+      <img class="animate-in delay-3" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)" src="assets/img/borsch-desserts.jpg" alt="Vente de douceurs ukrainiennes — Merci Borsch">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PARTNERS ══════════ -->
+<div class="partners">
+  <div class="shell">
+    <p class="partner-label lang fr active">Affiliations et partenaires institutionnels</p>
+    <p class="partner-label lang ua">Партнери та інституційна приналежність</p>
+    <p class="partner-label lang en">Affiliations and institutional partners</p>
+    <div class="partner-row">
+      <div class="partner">
+        <img src="assets/img/logo-emblem.webp" alt="Association des Ukrainiens du Saguenay-LSJ">
+        <span style="font-size:12px;color:var(--soft-ink)">ASUK SLSJ</span>
+      </div>
+      <div class="partner">
+        <img src="assets/img/ucc-quebec.webp" alt="Congrès des Ukrainiens Canadiens — Québec">
+      </div>
+      <div class="partner">
+        <img src="assets/img/flag-ukraine.webp" alt="Ukraine" style="max-height:36px">
+        <img src="assets/img/flag-quebec.webp" alt="Québec" style="max-height:36px">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave: Gallery/white → Join (Ukrainian blue #0a2463) -->
+<div class="wave-sep" style="--wave-fill:#0a2463;--wave-bg:#ffffff">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ JOIN SECTION ══════════ -->
+<section class="join-section" id="join">
+  <div class="shell">
+    <p class="eyebrow animate-in" style="color:rgba(255,255,255,.65)"><span class="lang fr active">Rejoindre l'Association</span><span class="lang ua">Приєднатися до Асоціації</span><span class="lang en">Join the Association</span></p>
+    <h2 class="section-title display animate-in delay-1" style="color:#fff;max-width:860px">
+      <span class="lang fr active">Vous voulez rester proche de la communauté ukrainienne ?</span>
+      <span class="lang ua">Хочете залишатися частиною української спільноти?</span>
+      <span class="lang en">Want to stay close to the Ukrainian community?</span>
+    </h2>
+    <div class="join-inner">
+      <div class="join-text animate-in">
+        <p class="lang fr active">Nous avons créé un espace où les Ukrainiens de la région peuvent trouver du soutien, des liens et le sentiment d'être chez soi — même loin de leur pays.</p>
+        <p class="lang ua">Ми створили простір, де українці регіону можуть знайти підтримку, зв'язки і відчуття дому — навіть далеко від батьківщини.</p>
+        <p class="lang en">We created a space where Ukrainians of the region can find support, connections and the feeling of home — even far from their country.</p>
+        <p class="lang fr active">En devenant membre, vous participez aux activités, votez aux assemblées, et contribuez à la vie de la communauté ukrainienne du Saguenay–Lac-Saint-Jean.</p>
+        <p class="lang ua">Ставши членом, ви берете участь у заходах, голосуєте на зборах і сприяєте життю української спільноти Saguenay–Lac-Saint-Jean.</p>
+        <p class="lang en">By becoming a member, you participate in activities, vote at assemblies, and contribute to the life of the Ukrainian community of Saguenay–Lac-Saint-Jean.</p>
+        <div class="join-actions">
+          <a href="mailto:ukrainienssaguenay@gmail.com?subject=Adhésion%20à%20l'Association" class="btn primary">
+            <span class="lang fr active">Vступити →</span>
+            <span class="lang ua">Вступити →</span>
+            <span class="lang en">Join →</span>
+          </a>
+          <a href="mailto:ukrainienssaguenay@gmail.com?subject=Bénévolat" class="btn secondary">
+            <span class="lang fr active">Bénévolat</span>
+            <span class="lang ua">Волонтерство</span>
+            <span class="lang en">Volunteer</span>
+          </a>
+        </div>
+      </div>
+      <div class="animate-in delay-2" style="text-align:center">
+        <img src="assets/img/ucc-member.jpg"
+             alt="Officiellement membres du Congrès des Ukrainiens Canadiens"
+             style="max-width:100%;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.28);display:block;margin:0 auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: Join (Ukrainian blue) → Donate (deep navy #071428) -->
+<div class="wave-sep" style="--wave-fill:#071428;--wave-bg:#0a2463">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ DONATE ══════════ -->
+<section class="donate" id="donate">
+  <div class="shell">
+    <p class="eyebrow animate-in"><span class="lang fr active">Soutenir notre mission</span><span class="lang ua">Підтримати нашу місію</span><span class="lang en">Support our mission</span></p>
+    <h2 class="section-title display animate-in delay-1" style="color:#fff;max-width:860px">
+      <span class="lang fr active">Votre soutien construit une communauté.</span>
+      <span class="lang ua">Ваша підтримка будує спільноту.</span>
+      <span class="lang en">Your support builds a community.</span>
+    </h2>
+    <p class="section-lead lang fr active animate-in delay-2">L'Association des Ukrainiens du Saguenay–Lac-Saint-Jean est portée par le bénévolat et financée par des dons, des cotisations et des subventions. Chaque contribution permet de maintenir et développer nos activités — les cours de langue ukrainienne pour les enfants, les événements culturels ouverts à toute la région, et le travail de représentation auprès des institutions.</p>
+    <p class="section-lead lang ua animate-in delay-2">Асоціація українців Saguenay–Lac-Saint-Jean тримається на волонтерстві та фінансується пожертвами, внесками і грантами. Кожен внесок допомагає підтримувати і розвивати нашу діяльність — уроки української мови для дітей, культурні заходи для всього регіону та роботу з представництва перед інституціями.</p>
+    <p class="section-lead lang en animate-in delay-2">The Association of Ukrainians of Saguenay–Lac-Saint-Jean is carried by volunteers and funded by donations, memberships and grants. Each contribution helps maintain and grow our activities — Ukrainian language classes for children, cultural events open to the whole region, and representation work before institutions.</p>
+    <div class="donate-grid">
+      <div class="donate-card animate-in">
+        <h3 class="lang fr active">🌻 Cours de langue ukrainienne</h3>
+        <h3 class="lang ua">🌻 Уроки української мови</h3>
+        <h3 class="lang en">🌻 Ukrainian language classes</h3>
+        <p class="lang fr active">Des rencontres mensuelles pour que les enfants ukrainiens gardent leur langue et leur culture, même loin de chez eux. Matériel pédagogique, espace, organisation — tout est porté par nos bénévoles. Votre don les soutient directement.</p>
+        <p class="lang ua">Щомісячні зустрічі, щоб діти зберегли свою мову і культуру навіть далеко від дому. Навчальні матеріали, простір, організація — все це тримається на наших волонтерах. Ваша пожертва підтримує їх безпосередньо.</p>
+        <p class="lang en">Monthly gatherings so Ukrainian children keep their language and culture, even far from home. Teaching materials, space, organization — all carried by our volunteers. Your donation supports them directly.</p>
+      </div>
+      <div class="donate-card animate-in delay-1">
+        <h3 class="lang fr active">🍲 Événements culturels publics</h3>
+        <h3 class="lang ua">🍲 Публічні культурні заходи</h3>
+        <h3 class="lang en">🍲 Public cultural events</h3>
+        <p class="lang fr active">Merci Borsch, Koliada, Journée de la Vyshyvanka, cérémonies du Holodomor — ces événements sont gratuits pour le public. Ils coûtent de l'argent : location de salles, matériel, ingrédients. Votre don permet de les maintenir accessibles à tous.</p>
+        <p class="lang ua">Merci Borsch, Коляда, День вишиванки, урочистості Голодомору — ці заходи є безкоштовними для публіки. Вони коштують грошей: оренда залів, матеріали, інгредієнти. Ваша пожертва дозволяє зберегти їх доступними для всіх.</p>
+        <p class="lang en">Merci Borsch, Koliada, Vyshyvanka Day, Holodomor ceremonies — these events are free for the public. They cost money: hall rentals, materials, ingredients. Your donation keeps them accessible to all.</p>
+      </div>
+      <div class="donate-card animate-in delay-1">
+        <h3 class="lang fr active">🏛 Représentation et plaidoyer</h3>
+        <h3 class="lang ua">🏛 Представництво та адвокація</h3>
+        <h3 class="lang en">🏛 Representation and advocacy</h3>
+        <p class="lang fr active">Réunions avec des élus, participation au Congrès ukrainien du Canada, coordination avec le gouvernement du Québec sur les enjeux d'immigration — ce travail nécessite des ressources et du temps.</p>
+        <p class="lang ua">Зустрічі з депутатами, участь у Конгресі українців Канади, координація з урядом Квебеку з питань імміграції — ця робота потребує ресурсів і часу.</p>
+        <p class="lang en">Meetings with elected officials, participation in the Ukrainian Canadian Congress, coordination with the Quebec government on immigration issues — this work requires resources and time.</p>
+      </div>
+      <div class="donate-card animate-in delay-2">
+        <h3 class="lang fr active">🌲 Activités d'intégration et résilience</h3>
+        <h3 class="lang ua">🌲 Інтеграційні заходи та стійкість</h3>
+        <h3 class="lang en">🌲 Integration activities and resilience</h3>
+        <p class="lang fr active">Randonnées sur le Sentier Le Fjord, descente en kayak sur la rivière Saguenay, cercles de soutien communautaire — des expériences qui aident les familles à s'enraciner dans leur nouvelle région.</p>
+        <p class="lang ua">Походи по Sentier Le Fjord, сплав на каяках по річці Saguenay, кола громадської підтримки — досвід, що допомагає сім'ям вкорінюватися у своєму новому регіоні.</p>
+        <p class="lang en">Hikes on the Sentier Le Fjord, kayaking on the Saguenay River, community support circles — experiences that help families take root in their new region.</p>
+      </div>
+    </div>
+    <div class="donate-cta animate-in">
+      <a href="mailto:ukrainienssaguenay@gmail.com?subject=Don%20à%20l'Association" class="btn primary" style="font-size:15px;min-height:56px">
+        <span class="lang fr active">Faire un don →</span>
+        <span class="lang ua">Зробити пожертву →</span>
+        <span class="lang en">Make a donation →</span>
+      </a>
+      <a href="mailto:ukrainienssaguenay@gmail.com?subject=Adhésion%20à%20l'Association" class="btn secondary">
+        <span class="lang fr active">Devenir membre</span>
+        <span class="lang ua">Стати членом</span>
+        <span class="lang en">Become a member</span>
+      </a>
+      <a href="tel:4183761569" class="btn secondary">418-376-1569</a>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: Donate (deep navy) → Contact (very dark #0d141b) -->
+<div class="wave-sep" style="--wave-fill:#0d141b;--wave-bg:#071428">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;background:var(--wave-bg)">
+    <path d="M0,30 C400,60 1040,0 1440,30 L1440,60 H0Z" fill="var(--wave-fill)"/>
+  </svg>
+</div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="contact">
+  <div class="shell">
+    <p class="eyebrow animate-in" style="color:rgba(255,255,255,.55)">Contact</p>
+    <div class="contact-card">
+      <div class="contact-pane">
+        <h2 class="display lang fr active">Parlons.</h2>
+        <h2 class="display lang ua">Поговоримо.</h2>
+        <h2 class="display lang en">Let's talk.</h2>
+        <p class="lang fr active">Pour adhérer, faire un don, proposer un partenariat, inviter l'Association à un événement ou simplement en savoir plus — écrivez-nous ou appelez-nous.</p>
+        <p class="lang ua">Щоб вступити, пожертвувати, запропонувати партнерство, запросити Асоціацію на захід або просто дізнатися більше — напишіть або зателефонуйте.</p>
+        <p class="lang en">To join, donate, propose a partnership, invite the Association to an event or simply learn more — write or call us.</p>
+        <div class="contact-list">
+          <a href="mailto:ukrainienssaguenay@gmail.com">ukrainienssaguenay@gmail.com</a>
+          <a href="tel:4183761569">418-376-1569</a>
+          <span>2439 Ch De La Réserve, Chicoutimi, Québec, Canada, G7J 0E2</span>
+        </div>
+      </div>
+      <div class="contact-pane" style="background:rgba(255,255,255,.04)">
+        <h3 style="font-size:20px;color:#fff;margin-bottom:16px;font-family:var(--serif);font-weight:600">
+          <span class="lang fr active">Rejoindre l'Association</span>
+          <span class="lang ua">Приєднатися до Асоціації</span>
+          <span class="lang en">Join the Association</span>
+        </h3>
+        <p class="lang fr active" style="color:rgba(255,255,255,.70);line-height:1.70;font-size:15px">Vous voulez rester proche de la communauté ukrainienne, même loin de chez vous ? Nous avons créé un espace où les Ukrainiens de la région peuvent trouver du soutien, des liens et le sentiment d'être chez soi.</p>
+        <p class="lang ua" style="color:rgba(255,255,255,.70);line-height:1.70;font-size:15px">Хочете залишатися частиною української спільноти, навіть далеко від дому? Ми створили простір, де українці регіону можуть знайти підтримку, зв'язки і відчуття дому.</p>
+        <p class="lang en" style="color:rgba(255,255,255,.70);line-height:1.70;font-size:15px">Want to stay close to the Ukrainian community, even far from home? We created a space where Ukrainians of the region can find support, connections and the feeling of home.</p>
+        <div class="contact-actions">
+          <a href="mailto:ukrainienssaguenay@gmail.com?subject=Adhésion%20à%20l'Association" class="btn primary">
+            <span class="lang fr active">Adhérer →</span>
+            <span class="lang ua">Вступити →</span>
+            <span class="lang en">Join →</span>
+          </a>
+          <a href="mailto:ukrainienssaguenay@gmail.com?subject=Bénévolat" class="btn secondary">
+            <span class="lang fr active">Bénévolat</span>
+            <span class="lang ua">Волонтерство</span>
+            <span class="lang en">Volunteer</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="shell footer-inner">
+    <span>© 2026 Association des Ukrainiens du Saguenay–Lac-Saint-Jean — Organisme sans but lucratif, enregistré au Québec</span>
+    <span>ukrainienssaguenay@gmail.com &nbsp;·&nbsp; 418-376-1569</span>
+  </div>
+</footer>
+
+<!-- ══════════ JAVASCRIPT ══════════ -->
+<script>
+// ── Language ──
+let currentLang = 'fr';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang').forEach(el => {
+    el.classList.toggle('active', el.classList.contains(lang));
+  });
+  document.querySelectorAll('.lang-block').forEach(el => {
+    el.classList.toggle('active', el.classList.contains(lang));
+  });
+  document.querySelectorAll('.lang-flex').forEach(el => {
+    el.classList.toggle('active', el.classList.contains(lang));
+  });
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+    btn.setAttribute('aria-pressed', btn.dataset.lang === lang);
+  });
+  document.documentElement.lang = lang === 'ua' ? 'uk' : lang === 'fr' ? 'fr-CA' : 'en-CA';
+  if (currentEvent) showEvent(currentEvent);
+  renderCalendar();
+}
+
+// ── Topbar scroll ──
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', () => {
+  topbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Mobile menu ──
+const mobilePanel = document.getElementById('mobilePanel');
+const menuToggle = document.getElementById('menuToggle');
+function closeMenu() {
+  mobilePanel.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}
+menuToggle.addEventListener('click', () => {
+  const open = mobilePanel.classList.toggle('open');
+  document.body.classList.toggle('menu-open', open);
+  menuToggle.setAttribute('aria-expanded', open);
+});
+
+// ── Accordion ──
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  const panel = item.querySelector('.acc-panel');
+  const isOpen = item.classList.contains('open');
+  item.classList.toggle('open', !isOpen);
+  panel.style.maxHeight = !isOpen ? panel.scrollHeight + 'px' : '0';
+}
+
+// ── Programs accordion ──
+function toggleProg(btn) {
+  const item = btn.closest('.prog-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.prog-item').forEach(p => p.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── Metric expand ──
+function toggleMetric(el) {
+  const wasOpen = el.classList.contains('expanded');
+  document.querySelectorAll('.metric').forEach(m => m.classList.remove('expanded'));
+  if (!wasOpen) el.classList.add('expanded');
+}
+
+// ── Calendar data ──
+const EVENTS = {};
+function addEvent(dateStr, type, fr, ua, en, photos) {
+  if (!EVENTS[dateStr]) EVENTS[dateStr] = [];
+  EVENTS[dateStr].push({ type, fr, ua, en, photos });
+}
+
+const IMG = 'assets/img/';
+
+// Board meeting photo rotation
+const boardPhotos = [IMG+'meeting-room.jpg',IMG+'zbory-hall.jpg',IMG+'meeting-members.jpg',IMG+'registration-doc.jpg',IMG+'brand-logo-full.jpg',IMG+'ucc-member.jpg'];
+let _bi = 0;
+function bp() { return [boardPhotos[_bi++ % boardPhotos.length]]; }
+
+// November 2025
+addEvent('2025-11-22', 'solidarity',
+  { title: 'Cérémonie du souvenir — Holodomor', desc: 'Le 22 novembre, la communauté ukrainienne s\'est réunie pour honorer la mémoire des victimes du Holodomor — la grande famine organisée contre le peuple ukrainien en 1932-1933. Des bougies ont été allumées, une minute de silence observée. Un cours pour les enfants a précédé la cérémonie. Rappeler cette page de l\'histoire à Saguenay, c\'est aussi défendre la vérité.', local: 'Saguenay, novembre 2025' },
+  { title: 'Церемонія пам\'яті — Голодомор', desc: 'Українська громада зібралася, щоб вшанувати пам\'ять жертв Голодомору — великого голоду, організованого проти українського народу в 1932-1933 роках. Запалено свічки, дотримано хвилини мовчання. Урок для дітей передував церемонії. Нагадати цю сторінку історії у Saguenay — означає також захищати правду.', local: 'Saguenay, листопад 2025' },
+  { title: 'Memorial Ceremony — Holodomor', desc: 'The Ukrainian community gathered to honor the memory of the victims of the Holodomor — the great famine organized against the Ukrainian people in 1932-1933. Candles were lit, a moment of silence observed. A lesson for children preceded the ceremony. Reminding Saguenay of this page of history is also defending the truth.', local: 'Saguenay, November 2025' },
+  [IMG+'holodomor-candles.jpg',IMG+'holodomor-01.png',IMG+'holodomor-02.png',IMG+'holodomor-04.jpg']
+);
+addEvent('2025-11-29', 'internal',
+  { title: 'Réunion du conseil d\'administration', desc: 'Réunion de travail du conseil d\'administration de l\'Association : préparation des événements de décembre, organisation de la grande assemblée, questions d\'adhésion, liens avec le Congrès ukrainien du Canada, et planification pour 2026.', local: 'Saguenay, novembre 2025' },
+  { title: 'Засідання ради директорів', desc: 'Робоче засідання ради директорів Асоціації: підготовка грудневих заходів, організація великих зборів, питання членства, зв\'язки з Конгресом українців Канади та планування на 2026 рік.', local: 'Saguenay, листопад 2025' },
+  { title: 'Board of directors meeting', desc: 'Working meeting of the Association\'s board: preparation of December events, organization of the great gathering, membership questions, links with the Ukrainian Canadian Congress, and planning for 2026.', local: 'Saguenay, November 2025' },
+  bp()
+);
+
+// December 2025
+addEvent('2025-12-20', 'culture',
+  { title: 'Grande assemblée ukrainienne', desc: 'La grande assemblée a réuni la communauté ukrainienne du Saguenay–Lac-Saint-Jean pour la première fois dans un format officiel. L\'Association y a présenté sa mission, ses objectifs et son programme. Pour beaucoup, cette soirée a marqué le vrai début — celui d\'une organisation ancrée dans la région, reconnue et visible.', local: 'Saguenay, 20 décembre 2025' },
+  { title: 'Великі збори українців', desc: 'Великі збори зібрали українську спільноту Saguenay–Lac-Saint-Jean вперше в офіційному форматі. Асоціація представила свою місію, цілі та програму. Для багатьох цей вечір став справжнім початком — організації, укоріненої в регіоні, визнаної і помітної.', local: 'Saguenay, 20 грудня 2025' },
+  { title: 'Great Ukrainian gathering', desc: 'The great gathering brought the Ukrainian community of Saguenay–Lac-Saint-Jean together for the first time in an official format. The Association presented its mission, objectives and program. For many, this evening marked the true beginning — of an organization rooted in the region, recognized and visible.', local: 'Saguenay, December 20, 2025' },
+  [IMG+'zbory-stage.jpg',IMG+'zbory-hall.jpg',IMG+'great-gathering.jpg',IMG+'zbory-group.png']
+);
+addEvent('2025-12-28', 'culture',
+  { title: 'Koliada — chants de Noël ukrainiens', desc: 'La Koliada est une tradition de Noël ukrainienne : des groupes vont de maison en maison pour chanter, offrir leurs vœux et partager la joie des fêtes. Les chanteurs souhaitent la paix, l\'abondance et le bonheur pour l\'année à venir. Les familles hôtes peuvent offrir des douceurs ou une petite contribution. La Koliada est l\'occasion de vendre des pâtisseries ukrainiennes traditionnelles (pyrizhki à 5–15 $) pour soutenir la communauté.', local: 'Saguenay, 28 décembre 2025' },
+  { title: 'Коляда — українські різдвяні пісні', desc: 'Коляда — українська різдвяна традиція: групи ходять від хати до хати, щоб співати, передавати вітання та ділитися радістю свята. Колядники бажають миру, достатку і щастя на прийдешній рік. Сім\'ї-господарі можуть пригостити солодощами або невеликим внеском. Коляда — це також нагода продавати традиційні пиріжки (5–15 $) на підтримку громади.', local: 'Saguenay, 28 грудня 2025' },
+  { title: 'Koliada — Ukrainian Christmas carols', desc: 'Koliada is a Ukrainian Christmas tradition: groups go from home to home to sing, offer their wishes and share holiday joy. The carolers wish peace, abundance and happiness for the new year. Host families may offer sweets or a small contribution. Koliada is also an opportunity to sell traditional Ukrainian pyrizhki (5–15 $) to support the community.', local: 'Saguenay, December 28, 2025' },
+  [IMG+'koliada-2026-a.jpg',IMG+'koliada-2026-b.jpg',IMG+'koliada-2026-c.jpg',IMG+'koliada-2026-d.jpg']
+);
+
+// January 2026
+addEvent('2026-01-10', 'internal',
+  { title: 'Réunion du conseil d\'administration', desc: 'Réunion de travail : suivi des décisions du mois de décembre, préparation de l\'événement Merci Borsch, questions de financement, communication avec les nouvelles familles ukrainiennes, adhésions et planification des cours de langue.', local: 'Saguenay, 10 janvier 2026' },
+  { title: 'Засідання правління', desc: 'Робоче засідання: виконання рішень грудня, підготовка до заходу Merci Borsch, питання фінансування, комунікація з новими українськими сім\'ями, членство та планування мовних курсів.', local: 'Saguenay, 10 січня 2026' },
+  { title: 'Board meeting', desc: 'Working meeting: follow-up on December decisions, preparation of the Merci Borsch event, funding questions, communication with new Ukrainian families, memberships and language course planning.', local: 'Saguenay, January 10, 2026' },
+  bp()
+);
+addEvent('2026-01-24', 'internal',
+  { title: 'Cours de langue ukrainienne', desc: 'Rencontre mensuelle de cours de langue ukrainienne pour les enfants de la communauté. Chansons, histoires, jeux et activités culturelles — un espace où les jeunes Ukrainiens de la région gardent un lien vivant avec leur langue et leurs traditions.', local: 'Saguenay, 24 janvier 2026' },
+  { title: 'Урок української мови', desc: 'Щомісячний урок української мови для дітей громади. Пісні, казки, ігри та культурні заходи — простір, де молоді українці регіону зберігають живий зв\'язок зі своєю мовою та традиціями.', local: 'Saguenay, 24 січня 2026' },
+  { title: 'Ukrainian language class', desc: 'Monthly Ukrainian language class for community children. Songs, stories, games and cultural activities — a space where young Ukrainians of the region keep a living connection with their language and traditions.', local: 'Saguenay, January 24, 2026' },
+  [IMG+'meeting-members.jpg',IMG+'borsch-kiosk.jpg']
+);
+
+// February 2026
+addEvent('2026-02-14', 'internal',
+  { title: 'Réunion du conseil d\'administration', desc: 'Réunion de travail : finalisation de la préparation de Merci Borsch, coordination des bénévoles, communication avec la Bibliothèque de Jonquière, questions d\'immigration et préparation de l\'assemblée annuelle.', local: 'Saguenay, 14 février 2026' },
+  { title: 'Засідання правління', desc: 'Робоче засідання: фіналізація підготовки Merci Borsch, координація волонтерів, комунікація з Бібліотекою Жонк\'єр, питання імміграції та підготовка до річних зборів.', local: 'Saguenay, 14 лютого 2026' },
+  { title: 'Board meeting', desc: 'Working meeting: finalizing Merci Borsch preparation, volunteer coordination, communication with the Jonquière Library, immigration issues and annual assembly preparation.', local: 'Saguenay, February 14, 2026' },
+  bp()
+);
+addEvent('2026-02-22', 'solidarity',
+  { title: 'Manifestation de solidarité avec l\'Ukraine', desc: 'Le 22 février, à la quatrième année depuis le début de la guerre, des Ukrainiens et des Saguenéens se sont rassemblés pour rappeler que le conflit continue. Soutenir l\'Ukraine, ce n\'est pas un choix politique — c\'est défendre la paix, le droit international et la protection des civils. L\'hymne national de l\'Ukraine a retenti, une minute de silence a été observée en mémoire de toutes les victimes.', local: 'Saguenay, 22 février 2026' },
+  { title: 'Маніфестація солідарності з Україною', desc: '22 лютого, на четвертий рік від початку війни, українці та жителі Сагне зібралися, щоб нагадати, що конфлікт продовжується. Підтримувати Україну — не політичний вибір: це захист миру, міжнародного права та цивільних осіб. Прозвучав державний гімн України, хвилина мовчання вшанувала пам\'ять всіх жертв.', local: 'Saguenay, 22 лютого 2026' },
+  { title: 'Solidarity rally with Ukraine', desc: 'On February 22, in the fourth year since the start of the war, Ukrainians and Saguenay residents gathered to remind everyone that the conflict continues. Supporting Ukraine is not a political choice — it is defending peace, international law and the protection of civilians. Ukraine\'s national anthem rang out, a moment of silence honored all victims.', local: 'Saguenay, February 22, 2026' },
+  [IMG+'manif-crowd.jpg',IMG+'manif-flags.jpg',IMG+'manif-street.jpg',IMG+'manif-banner.jpg']
+);
+addEvent('2026-02-28', 'culture',
+  { title: 'Merci Borsch — Thank You Saguenay', desc: 'Le 28 février, à la Bibliothèque de Jonquière, l\'Association a organisé son premier grand événement public. Entre 100 et 200 personnes se sont réunies pour une dégustation gratuite du borsch ukrainien traditionnel, préparé avec amour par Inna, Yulia, Viktoriia et Halyna. Des kiosques culturels présentaient vêtements, symboles et traditions ukrainiennes. Un kiosque « Lego Borsch » expliquait la recette. Des fonds ont été remis à Dereck Blouin-Perry, paramédic québécois en mission humanitaire sur le front en Ukraine. En 2022, l\'UNESCO a reconnu le borsch comme patrimoine culturel immatériel de l\'humanité.', local: 'Bibliothèque de Jonquière, 28 février 2026, 13h–16h' },
+  { title: 'Merci Borsch — Дякуємо, Saguenay', desc: '28 лютого в Бібліотеці Жонк\'єр Асоціація організувала свій перший великий публічний захід. Від 100 до 200 осіб зібралися на безкоштовну дегустацію традиційного українського борщу, приготованого з любов\'ю Інною, Юлею, Вікторією та Галиною. Культурні кіоски представляли одяг, символи та традиції України. Кіоск «Lego Borsch» пояснював рецепт. Кошти було передано Дереку Блуен-Перрі, квебекському парамедику на гуманітарній місії на фронті в Україні. У 2022 році ЮНЕСКО визнала борщ нематеріальною культурною спадщиною людства.', local: 'Бібліотека Жонк\'єр, 28 лютого 2026, 13:00–16:00' },
+  { title: 'Merci Borsch — Thank You Saguenay', desc: 'On February 28, at the Jonquière Library, the Association organized its first major public event. Between 100 and 200 people gathered for a free tasting of traditional Ukrainian borsch, lovingly prepared by Inna, Yulia, Viktoriia and Halyna. Cultural kiosks presented Ukrainian clothing, symbols and traditions. A "Lego Borsch" kiosk explained the recipe. Funds were donated to Dereck Blouin-Perry, a Quebec paramedic on humanitarian mission at the front in Ukraine. In 2022, UNESCO recognized borsch as an intangible cultural heritage of humanity.', local: 'Jonquière Library, February 28, 2026, 1pm–4pm' },
+  [IMG+'borsch-event-01.jpg',IMG+'borsch-hall.jpg',IMG+'borsch-event-04.jpg',IMG+'borsch-event-05.jpg',IMG+'borsch-kiosk.jpg',IMG+'borsch-stage.jpg',IMG+'borsch-speaker.jpg',IMG+'borsch-desserts.jpg',IMG+'borsch-ingredients.jpg']
+);
+
+// March 2026
+addEvent('2026-03-14', 'internal',
+  { title: 'Réunion du conseil d\'administration', desc: 'Réunion de travail : bilan du Merci Borsch, préparation du renouvellement des permis de travail pour les membres, contacts avec les institutions gouvernementales pour obtenir un financement, nouvelles nominations au conseil.', local: 'Saguenay, 14 mars 2026' },
+  { title: 'Засідання правління', desc: 'Робоче засідання: підсумки Merci Borsch, підготовка до подовження дозволів на роботу для членів, контакти з державними органами для отримання фінансування, нові призначення до правління.', local: 'Saguenay, 14 березня 2026' },
+  { title: 'Board meeting', desc: 'Working meeting: review of Merci Borsch, preparation for members\' work permit renewals, contacts with government institutions for funding, new board appointments.', local: 'Saguenay, March 14, 2026' },
+  bp()
+);
+addEvent('2026-03-28', 'internal',
+  { title: 'Cours de langue ukrainienne', desc: 'Rencontre mensuelle de cours de langue ukrainienne pour les enfants. Approche de Pâques — les enfants découvrent les traditions ukrainiennes du printemps : pysanky, chants, histoires. Un espace de joie et d\'appartenance.', local: 'Saguenay, 28 mars 2026' },
+  { title: 'Урок української мови', desc: 'Щомісячний урок. Наближення Великодня — діти знайомляться з українськими весняними традиціями: писанки, пісні, казки. Простір радості і приналежності.', local: 'Saguenay, 28 березня 2026' },
+  { title: 'Ukrainian language class', desc: 'Monthly class. With Easter approaching, children discover Ukrainian spring traditions: pysanky, songs, stories. A space of joy and belonging.', local: 'Saguenay, March 28, 2026' },
+  [IMG+'meeting-members.jpg',IMG+'borsch-kiosk.jpg']
+);
+
+// April 2026
+addEvent('2026-04-12', 'culture',
+  { title: 'Pâques orthodoxe ukrainienne', desc: 'Pâques est l\'une des fêtes les plus importantes de la tradition ukrainienne. L\'Association prépare un atelier de pysanky (œufs peints symboliques), la bénédiction du panier pascal par un prêtre, un repas communautaire partagé, et une présentation des traditions pascales ukrainiennes à la communauté locale.', local: 'Saguenay, 12 avril 2026' },
+  { title: 'Православний Великдень', desc: 'Великдень — одне з найважливіших свят в українській традиції. Асоціація готує майстер-клас із писанкарства, освячення паски священником, спільний святковий обід та презентацію великодніх традицій для місцевої спільноти.', local: 'Saguenay, 12 квітня 2026' },
+  { title: 'Ukrainian Orthodox Easter', desc: 'Easter is one of the most important celebrations in Ukrainian tradition. The Association prepares a pysanka workshop, blessing of the Easter basket by a priest, a shared community meal, and a presentation of Ukrainian Easter traditions to the local community.', local: 'Saguenay, April 12, 2026' },
+  [IMG+'meeting-members.jpg',IMG+'borsch-kiosk.jpg']
+);
+addEvent('2026-04-25', 'internal',
+  { title: 'Cours de langue ukrainienne', desc: 'Rencontre mensuelle pour les enfants. Après Pâques — jeux traditionnels ukrainiens, comptines du printemps, partage des photos de famille des fêtes. La culture ukrainienne se transmet dans la joie.', local: 'Saguenay, 25 avril 2026' },
+  { title: 'Урок української мови', desc: 'Щомісячна зустріч для дітей. Після Великодня — традиційні українські ігри, весняні вірші, обмін сімейними фото зі свят. Українська культура передається в радості.', local: 'Saguenay, 25 квітня 2026' },
+  { title: 'Ukrainian language class', desc: 'Monthly gathering for children. After Easter — traditional Ukrainian games, spring rhymes, sharing family photos from the holidays. Ukrainian culture is passed on with joy.', local: 'Saguenay, April 25, 2026' },
+  [IMG+'meeting-members.jpg',IMG+'borsch-kiosk.jpg']
+);
+
+// May 2026
+addEvent('2026-05-21', 'culture',
+  { title: 'Journée mondiale de la Vyshyvanka', desc: 'Le 21 mai, le monde célèbre la Journée de la Vyshyvanka — la chemise brodée ukrainienne, symbole de continuité culturelle entre les générations. Portez votre vyshyvanka où que vous soyez, photographiez-vous et partagez avec le mot-clic #VyshyvankaUnites. Si vous avez de vieilles photos de famille en vyshyvanka, publiez-les aussi — montrez la transmission. Cette tradition unit les Ukrainiens du monde entier.', local: 'Partout dans le monde, 21 mai 2026' },
+  { title: 'Всесвітній день вишиванки', desc: '21 травня світ відзначає День вишиванки — символ культурної спадкоємності між поколіннями. Одягніть вишиванку де б ви не були, сфотографуйтеся та поділіться з хештегом #ВишиванкаЄднає. Якщо є старі сімейні фото у вишиванці — опублікуйте і їх: покажіть традицію. Ця традиція єднає українців по всьому світу.', local: 'По всьому світу, 21 травня 2026' },
+  { title: 'World Vyshyvanka Day', desc: 'On May 21, the world celebrates Vyshyvanka Day — the embroidered Ukrainian shirt, a symbol of cultural continuity between generations. Wear your vyshyvanka wherever you are, take a photo and share with #VyshyvankaUnites. If you have old family photos in vyshyvanka, share those too — show the tradition. This tradition unites Ukrainians around the world.', local: 'Worldwide, May 21, 2026' },
+  [IMG+'vyshyvanka-event.png',IMG+'vyshyvanka-walk.jpg',IMG+'vyshyvanka-group.jpg']
+);
+addEvent('2026-05-23', 'culture',
+  { title: 'Rencontre communautaire — Vyshyvanka', desc: 'Le 23 mai, l\'Association organise sa rencontre locale pour marquer la Journée de la Vyshyvanka. Chacun porte sa vyshyvanka, on partage des photos — nouvelles et anciennes. La broderie ukrainienne est bien plus qu\'un vêtement : elle est un symbole de résilience, d\'identité et de lien entre les générations.', local: 'Saguenay, 23 mai 2026' },
+  { title: 'Зустріч спільноти — Вишиванка', desc: '23 травня Асоціація організовує місцеву зустріч з нагоди Дня вишиванки. Всі одягають вишиванки, обмінюються фотографіями — новими та старими. Українська вишивка — більше, ніж одяг: це символ стійкості, ідентичності та зв\'язку між поколіннями.', local: 'Saguenay, 23 травня 2026' },
+  { title: 'Community gathering — Vyshyvanka', desc: 'On May 23, the Association holds its local gathering to mark Vyshyvanka Day. Everyone wears their vyshyvanka, sharing photos — new and old. Ukrainian embroidery is more than clothing: it is a symbol of resilience, identity and connection between generations.', local: 'Saguenay, May 23, 2026' },
+  [IMG+'vyshyvanka-event.png',IMG+'vyshyvanka-walk.jpg',IMG+'vyshyvanka-group.jpg']
+);
+
+// June 2026
+addEvent('2026-06-05', 'solidarity',
+  { title: 'Global Ukrainian Summit 2026 — Berne', desc: 'Du 5 au 7 juin 2026, à Berne, en Suisse, se tient le Global Ukrainian Summit 2026. L\'Association des Ukrainiens du Saguenay–Lac-Saint-Jean participe à cet événement international rassemblant les représentants des communautés ukrainiennes du monde entier. Une occasion de renforcer les liens avec le réseau mondial ukrainien et de porter la voix de notre communauté régionale sur la scène internationale.', local: 'Berne, Suisse, 5–7 juin 2026' },
+  { title: 'Глобальний саміт українців 2026 — Берн', desc: '5–7 червня 2026 року у Берні (Швейцарія) проходить Global Ukrainian Summit 2026. Асоціація українців Saguenay–Lac-Saint-Jean бере участь у цьому міжнародному заході, що об\'єднує представників українських громад з усього світу. Можливість зміцнити зв\'язки зі світовою українською мережею та донести голос нашої регіональної спільноти на міжнародну арену.', local: 'Берн, Швейцарія, 5–7 червня 2026' },
+  { title: 'Global Ukrainian Summit 2026 — Bern', desc: 'June 5–7, 2026, in Bern, Switzerland, the Global Ukrainian Summit 2026 takes place. The Association of Ukrainians of Saguenay–Lac-Saint-Jean participates in this international event bringing together representatives of Ukrainian communities from around the world. An opportunity to strengthen ties with the global Ukrainian network and bring our regional community\'s voice to the international stage.', local: 'Bern, Switzerland, June 5–7, 2026' },
+  [IMG+'summit-world.jpg',IMG+'ucc-member.jpg']
+);
+addEvent('2026-06-24', 'culture',
+  { title: 'Ivana Kupala — Kenogami', desc: 'La nuit d\'Ivana Kupala est l\'une des fêtes les plus poétiques de la tradition ukrainienne : les grands feux, les couronnes de fleurs lancées sur l\'eau, les chants et les danses. L\'Association prépare cette soirée estivale pour toute la communauté, à Kenogami.', local: 'Kenogami, 24 juin 2026' },
+  { title: 'Івана Купала — Кеногамі', desc: 'Ніч Івана Купала — одне з найпоетичніших свят в українській традиції: великі вогні, вінки, пущені на воду, пісні та танці. Асоціація готує цей літній вечір для всієї спільноти у Кеногамі.', local: 'Кеногамі, 24 червня 2026' },
+  { title: 'Ivana Kupala — Kenogami', desc: 'The night of Ivana Kupala is one of the most poetic celebrations in Ukrainian tradition: large bonfires, flower wreaths floated on the water, songs and dances. The Association prepares this summer evening for the whole community, in Kenogami.', local: 'Kenogami, June 24, 2026' },
+  [IMG+'vyshyvanka-walk.jpg',IMG+'vyshyvanka-group.jpg']
+);
+
+// July 2026
+addEvent('2026-07-03', 'culture',
+  { title: 'Randonnée — Sentier Le Fjord', desc: 'Du 3 au 6 juillet, l\'Association organise une randonnée en groupe sur le légendaire Sentier Le Fjord — l\'un des plus beaux sentiers de randonnée au Québec, avec ses vues spectaculaires sur le Saguenay. Une expérience qui aide les familles ukrainiennes à découvrir leur nouvelle région, à créer des liens forts, et à trouver la paix dans la nature.', local: 'Sentier Le Fjord, 3–6 juillet 2026' },
+  { title: 'Похід — Sentier Le Fjord', desc: '3–6 липня Асоціація організовує груповий похід по легендарному Sentier Le Fjord — одному з найкрасивіших туристичних маршрутів Квебеку з приголомшливими видами на Saguenay. Досвід, що допомагає українським сім\'ям відкрити свій новий регіон, зміцнити зв\'язки та знайти мир у природі.', local: 'Sentier Le Fjord, 3–6 липня 2026' },
+  { title: 'Hike — Sentier Le Fjord', desc: 'July 3–6, the Association organizes a group hike on the legendary Sentier Le Fjord — one of the most beautiful hiking trails in Québec, with spectacular views of the Saguenay. An experience that helps Ukrainian families discover their new region, build strong bonds, and find peace in nature.', local: 'Sentier Le Fjord, July 3–6, 2026' },
+  [IMG+'manif-crowd.jpg',IMG+'manif-flags.jpg',IMG+'vyshyvanka-group.jpg']
+);
+
+// August 2026
+addEvent('2026-08-23', 'solidarity',
+  { title: 'Journée du drapeau ukrainien', desc: 'Le 23 août est la Journée du drapeau ukrainien. Le bleu et le jaune représentent le ciel et les champs de blé — deux couleurs qui symbolisent la liberté, la beauté et la résilience du pays. L\'Association marque cette journée avec la communauté.', local: 'Saguenay, 23 août 2026' },
+  { title: 'День Державного Прапора України', desc: '23 серпня — День Державного Прапора України. Синій і жовтий символізують небо та пшеничні поля — два кольори, що уособлюють свободу, красу та стійкість країни. Асоціація відзначає цей день разом із громадою.', local: 'Saguenay, 23 серпня 2026' },
+  { title: 'Ukrainian Flag Day', desc: 'August 23 is Ukrainian Flag Day. Blue and yellow represent the sky and wheat fields — two colors symbolizing the freedom, beauty and resilience of the country. The Association marks this day with the community.', local: 'Saguenay, August 23, 2026' },
+  [IMG+'manif-flags.jpg',IMG+'manif-crowd.jpg',IMG+'vyshyvanka-group.jpg']
+);
+addEvent('2026-08-24', 'solidarity',
+  { title: 'Fête de l\'Indépendance de l\'Ukraine', desc: 'Le 24 août, l\'Ukraine célèbre son Indépendance. Ce jour a une résonance particulière depuis 2022 : c\'est aussi l\'anniversaire de l\'invasion à grande échelle de la Russie. L\'Association organise un rassemblement de la communauté — musique patriotique, photos, présentation culturelle, et un message commun à Saguenay : l\'Ukraine continue de se battre pour sa liberté.', local: 'Saguenay, 24 août 2026' },
+  { title: 'День Незалежності України', desc: '24 серпня Україна відзначає День Незалежності. Після 2022 року цей день набув особливого звучання: це також річниця широкомасштабного вторгнення Росії. Асоціація організовує збори громади — патріотична музика, фото, культурна презентація і спільне послання Saguenay: Україна продовжує боротися за свободу.', local: 'Saguenay, 24 серпня 2026' },
+  { title: 'Ukrainian Independence Day', desc: 'On August 24, Ukraine celebrates its Independence. This day carries special resonance since 2022: it is also the anniversary of Russia\'s large-scale invasion. The Association organizes a community gathering — patriotic music, photos, cultural presentation, and a shared message to Saguenay: Ukraine continues to fight for its freedom.', local: 'Saguenay, August 24, 2026' },
+  [IMG+'manif-flags.jpg',IMG+'manif-crowd.jpg',IMG+'vyshyvanka-group.jpg']
+);
+
+// November 2026
+addEvent('2026-11-28', 'solidarity',
+  { title: 'Journée du souvenir — Holodomor 2026', desc: 'Le quatrième samedi de novembre est la Journée nationale de commémoration du Holodomor. L\'Association se souvient des millions de victimes de la grande famine ukrainienne de 1932-1933, organisée par le régime soviétique. Des bougies sont allumées, des projections et discussions proposées à la communauté locale pour que cette page de l\'histoire ne soit pas oubliée.', local: 'Saguenay, 28 novembre 2026' },
+  { title: 'День пам\'яті жертв Голодомору 2026', desc: 'Четверта субота листопада — Національний день пам\'яті жертв Голодомору. Асоціація вшановує мільйони жертв великого українського голоду 1932-1933 років, організованого радянським режимом. Запалюються свічки, організовуються покази та дискусії для місцевої громади, щоб ця сторінка історії не була забута.', local: 'Saguenay, 28 листопада 2026' },
+  { title: 'Holodomor Remembrance Day 2026', desc: 'The fourth Saturday of November is the National Day of Remembrance for Victims of the Holodomor. The Association remembers the millions of victims of the great Ukrainian famine of 1932-1933, organized by the Soviet regime. Candles are lit, screenings and discussions offered to the local community so this page of history is not forgotten.', local: 'Saguenay, November 28, 2026' },
+  [IMG+'holodomor-candles.jpg',IMG+'holodomor-01.png',IMG+'holodomor-02.png',IMG+'holodomor-04.jpg']
+);
+
+// December 2026
+addEvent('2026-12-13', 'culture',
+  { title: 'Soirée Andreivsky — Assemblée annuelle', desc: 'Le 13 décembre, l\'Association tient sa soirée Andreivsky — une tradition ukrainienne festive — combinée à l\'Assemblée annuelle des membres. C\'est la fête de fin d\'année de la communauté : bilan de l\'année, élection du conseil, et la joie d\'être ensemble après une année de travail et de construction commune.', local: 'Saguenay, 13 décembre 2026' },
+  { title: 'Андріївські вечорниці — Річні збори', desc: '13 грудня Асоціація проводить Андріївські вечорниці — традиційне українське свято — разом з Річними зборами членів. Це кінцеве свято спільноти: підсумки року, вибори правління і радість бути разом після року роботи і спільного будівництва.', local: 'Saguenay, 13 грудня 2026' },
+  { title: 'Andreivsky Evening — Annual Assembly', desc: 'On December 13, the Association holds its Andreivsky Evening — a traditional Ukrainian celebration — combined with the Annual Members\' Assembly. This is the community\'s year-end celebration: annual review, council elections, and the joy of being together after a year of work and building together.', local: 'Saguenay, December 13, 2026' },
+  [IMG+'zbory-stage.jpg',IMG+'zbory-hall.jpg',IMG+'great-gathering.jpg']
+);
+addEvent('2026-12-27', 'culture',
+  { title: 'Koliada 2026', desc: 'La Koliada revient pour clore l\'année avec des chants traditionnels ukrainiens. Des groupes vont de maison en maison pour offrir leurs vœux, partager la joie des fêtes et maintenir vivante cette belle tradition de Noël. Les familles hôtes peuvent offrir des pâtisseries ukrainiennes ou une contribution à la communauté.', local: 'Saguenay, 27 décembre 2026' },
+  { title: 'Коляда 2026', desc: 'Коляда повертається, щоб завершити рік українськими традиційними піснями. Групи ходять від хати до хати, передаючи побажання, ділячись радістю свята і зберігаючи живою цю прекрасну різдвяну традицію. Сім\'ї-господарі можуть пригостити українськими пиріжками або зробити внесок до громади.', local: 'Saguenay, 27 грудня 2026' },
+  { title: 'Koliada 2026', desc: 'Koliada returns to close the year with traditional Ukrainian carols. Groups go from home to home to offer their wishes, share holiday joy and keep this beautiful Christmas tradition alive. Host families may offer Ukrainian pastries or a contribution to the community.', local: 'Saguenay, December 27, 2026' },
+  [IMG+'koliada-2026-a.jpg',IMG+'koliada-2026-b.jpg',IMG+'koliada-2026-c.jpg']
+);
+
+// ── Calendar render ──
+const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const MONTHS_UA = ['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень'];
+const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS_FR = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+const DAYS_UA = ['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
+const DAYS_EN = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+const TYPE_LABELS = {
+  fr: { solidarity: 'Solidarité', culture: 'Culture', internal: 'Organisation', education: 'Éducation' },
+  ua: { solidarity: 'Солідарність', culture: 'Культура', internal: 'Організація', education: 'Освіта' },
+  en: { solidarity: 'Solidarity', culture: 'Culture', internal: 'Organization', education: 'Education' }
+};
+
+let calYear = 2025, calMonth = 10; // start Nov 2025
+let currentEvent = null;
+
+function pad(n){ return String(n).padStart(2,'0'); }
+function dateKey(y,m,d){ return y+'-'+pad(m+1)+'-'+pad(d); }
+
+function renderCalendar() {
+  const lang = currentLang;
+  const months = lang==='ua' ? MONTHS_UA : lang==='en' ? MONTHS_EN : MONTHS_FR;
+  const days = lang==='ua' ? DAYS_UA : lang==='en' ? DAYS_EN : DAYS_FR;
+
+  document.getElementById('calMonthLabel').textContent = months[calMonth] + ' ' + calYear;
+
+  const wd = document.getElementById('calWeekdays');
+  wd.innerHTML = days.map(d=>'<span>'+d+'</span>').join('');
+
+  const daysEl = document.getElementById('calDays');
+  daysEl.innerHTML = '';
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const startOffset = (firstDay + 6) % 7;
+  const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+  const today = new Date();
+
+  for(let i=0;i<startOffset;i++){
+    const d=document.createElement('div');
+    d.className='day muted';
+    daysEl.appendChild(d);
+  }
+  for(let day=1;day<=daysInMonth;day++){
+    const key = dateKey(calYear,calMonth,day);
+    const evs = EVENTS[key];
+    const d=document.createElement('div');
+    d.className='day'+(evs?' has-event':'');
+    const isToday = today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===day;
+    if(isToday) d.classList.add('today');
+
+    const numEl=document.createElement('span');
+    numEl.className='day-num';
+    numEl.textContent=day;
+    d.appendChild(numEl);
+
+    if(evs){
+      evs.forEach(ev=>{
+        const chip=document.createElement('button');
+        chip.className='event-chip '+ev.type;
+        chip.textContent=ev[lang].title.length>22?ev[lang].title.slice(0,22)+'…':ev[lang].title;
+        chip.setAttribute('aria-label',ev[lang].title);
+        chip.onclick=()=>showEvent(ev, key);
+        d.appendChild(chip);
+      });
+    }
+    daysEl.appendChild(d);
+  }
+}
+
+function showEvent(ev, key) {
+  currentEvent = ev;
+  const lang = currentLang;
+  document.getElementById('epEmpty').style.display='none';
+  document.getElementById('epContent').style.display='block';
+
+  const photos = ev.photos||[];
+  const mainImg = document.getElementById('epMainImg');
+  mainImg.src = photos[0]||'';
+  mainImg.alt = ev[lang].title;
+
+  const thumbs = document.getElementById('epThumbs');
+  thumbs.innerHTML='';
+  photos.forEach((p,i)=>{
+    const t=document.createElement('img');
+    t.className='ep-thumb'+(i===0?' active':'');
+    t.src=p; t.alt='';
+    t.onclick=()=>{
+      mainImg.src=p;
+      mainImg.alt=ev[lang].title;
+      thumbs.querySelectorAll('.ep-thumb').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+    };
+    thumbs.appendChild(t);
+  });
+
+  document.getElementById('epType').textContent=(TYPE_LABELS[lang]||TYPE_LABELS.fr)[ev.type]||ev.type;
+  if(key){
+    const [y,m,d]=key.split('-');
+    const dateStr=lang==='fr'?d+' '+MONTHS_FR[parseInt(m)-1]+' '+y:lang==='ua'?d+' '+MONTHS_UA[parseInt(m)-1]+' '+y:MONTHS_EN[parseInt(m)-1]+' '+parseInt(d)+', '+y;
+    document.getElementById('epDate').textContent=dateStr;
+  }
+  document.getElementById('epTitle').textContent=ev[lang].title;
+  document.getElementById('epDesc').textContent=ev[lang].desc;
+  document.getElementById('epLocal').textContent=ev[lang].local||'';
+}
+
+function changeMonth(dir) {
+  calMonth += dir;
+  if(calMonth>11){calMonth=0;calYear++;}
+  if(calMonth<0){calMonth=11;calYear--;}
+  if(calYear<2025||(calYear===2025&&calMonth<10)) {calYear=2025;calMonth=10;}
+  if(calYear>2026||(calYear===2026&&calMonth>11)) {calYear=2026;calMonth=11;}
+  renderCalendar();
+}
+
+function initCalendar() {
+  renderCalendar();
+  const defEv = EVENTS['2026-02-28'];
+  if(defEv) showEvent(defEv[0],'2026-02-28');
+}
+initCalendar();
+
+// ── Entrance animations ──
+document.addEventListener('DOMContentLoaded', function() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.animate-in').forEach(el => io.observe(el));
+});
+</script>
+</body>
+</html>

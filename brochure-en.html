@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Association of Ukrainians of Saguenay–Lac-Saint-Jean — Fundraising Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* === DESIGN TOKENS === */
+:root {
+  --blue:       #155bb8;
+  --blue-deep:  #092f6f;
+  --blue-mid:   #1a4a9e;
+  --yellow:     #f1bd22;
+  --yellow-pale:#fdf3cc;
+  --paper:      #f7f3ea;
+  --cream:      #faf8f3;
+  --ink:        #1a1a2e;
+  --ink-mid:    #2c3e70;
+  --muted:      #6b7280;
+  --serif:      'Newsreader', Georgia, serif;
+  --sans:       'Instrument Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 10pt; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #e8e8e8;
+  line-height: 1.5;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 12mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+  page-break-after: always;
+}
+
+/* === COVER === */
+.cover {
+  background: var(--blue-deep);
+  display: flex;
+  flex-direction: column;
+  min-height: 297mm;
+}
+.cover-hero {
+  position: relative;
+  height: 148mm;
+  overflow: hidden;
+}
+.cover-hero img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: brightness(.72) saturate(1.15);
+}
+.cover-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(9,47,111,.3) 0%,
+    rgba(9,47,111,.05) 35%,
+    rgba(9,47,111,.7) 75%,
+    rgba(9,47,111,.95) 100%);
+}
+.cover-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 6mm 10mm;
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+.cover-logo-ring {
+  width: 10mm; height: 10mm;
+  background: var(--yellow);
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cover-logo-ring img { width: 100%; height: 100%; object-fit: contain; }
+.cover-org-name {
+  font-size: 7pt; font-weight: 600;
+  color: rgba(255,255,255,.9);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  line-height: 1.3;
+}
+.cover-text {
+  position: absolute;
+  bottom: 8mm; left: 10mm; right: 10mm;
+}
+.cover-kicker {
+  font-size: 7.5pt; font-weight: 700;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  margin-bottom: 3mm;
+}
+.cover-headline {
+  font-family: var(--serif);
+  font-size: 28pt; font-weight: 700;
+  color: #fff; line-height: 1.1;
+  margin-bottom: 4mm;
+}
+.cover-subline {
+  font-size: 10pt;
+  color: rgba(255,255,255,.8);
+  line-height: 1.5; max-width: 140mm;
+}
+.cover-body {
+  flex: 1;
+  background: var(--blue-deep);
+  padding: 10mm 12mm 8mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+.cover-pillars {
+  display: flex; gap: 5mm;
+}
+.pillar {
+  flex: 1;
+  background: rgba(241,189,34,.12);
+  border: 1px solid rgba(241,189,34,.3);
+  border-radius: 3mm;
+  padding: 5mm 4mm;
+  text-align: center;
+}
+.pillar-icon { font-size: 16pt; margin-bottom: 2mm; }
+.pillar-title {
+  font-family: var(--serif);
+  font-size: 11pt; font-weight: 600;
+  color: var(--yellow); margin-bottom: 1.5mm;
+}
+.pillar-text {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.75);
+  line-height: 1.45;
+}
+.cover-facts {
+  display: flex; gap: 4mm;
+}
+.fact-box { flex: 1; text-align: center; }
+.fact-num {
+  font-family: var(--serif);
+  font-size: 20pt; font-weight: 700;
+  color: var(--yellow); line-height: 1; margin-bottom: 1mm;
+}
+.fact-label {
+  font-size: 7pt;
+  color: rgba(255,255,255,.65);
+  text-transform: uppercase;
+  letter-spacing: .05em; line-height: 1.3;
+}
+.cover-footer {
+  background: rgba(0,0,0,.25);
+  padding: 4mm 12mm;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cover-footer-text { font-size: 7pt; color: rgba(255,255,255,.55); }
+.cuc-badge {
+  background: rgba(241,189,34,.2);
+  border: 1px solid rgba(241,189,34,.4);
+  border-radius: 2mm;
+  padding: 1mm 3mm;
+  font-size: 6.5pt; color: var(--yellow);
+  font-weight: 600; letter-spacing: .04em;
+}
+
+/* === STRIPE === */
+.stripe {
+  height: 2mm;
+  background: linear-gradient(to right, var(--blue) 50%, var(--yellow) 50%);
+}
+
+/* === INNER PAGES === */
+.page-inner { background: var(--cream); }
+.section-header { padding: 7mm 12mm 5mm; }
+.section-kicker {
+  font-size: 7pt; font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase; letter-spacing: .14em; margin-bottom: 2mm;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: 20pt; font-weight: 700;
+  color: var(--ink); line-height: 1.15;
+}
+.section-title em { color: var(--blue); font-style: normal; }
+.section-rule {
+  width: 20mm; height: .6mm;
+  background: linear-gradient(to right, var(--blue), var(--yellow));
+  margin-top: 3mm;
+}
+
+/* === PAGE 2 === */
+.about-grid {
+  padding: 0 12mm 8mm;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
+}
+.about-photo {
+  border-radius: 3mm; overflow: hidden; height: 55mm; position: relative;
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-photo-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(9,47,111,.8));
+  padding: 3mm 3mm 2mm;
+  font-size: 7pt; color: rgba(255,255,255,.85); font-style: italic;
+}
+.about-text-col {
+  display: flex; flex-direction: column; gap: 3mm;
+}
+.about-lead {
+  font-family: var(--serif);
+  font-size: 11pt; color: var(--ink-mid); line-height: 1.55; font-style: italic;
+}
+.about-body {
+  font-size: 8.5pt; color: var(--ink); line-height: 1.55;
+}
+.about-mission-block {
+  margin: 0 12mm 7mm;
+  background: var(--blue-deep);
+  border-radius: 3mm;
+  padding: 6mm 8mm;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; text-align: center;
+}
+.mission-item-title {
+  font-family: var(--serif); font-size: 12pt; font-weight: 700;
+  color: var(--yellow); margin-bottom: 1.5mm;
+}
+.mission-item-body {
+  font-size: 7.5pt; color: rgba(255,255,255,.75); line-height: 1.45;
+}
+.about-goals { margin: 0 12mm 7mm; }
+.goals-title {
+  font-family: var(--serif); font-size: 11pt; font-weight: 600;
+  color: var(--blue-deep); margin-bottom: 3mm;
+}
+.goals-list {
+  list-style: none;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 6mm;
+}
+.goals-list li {
+  font-size: 8pt; color: var(--ink); line-height: 1.45;
+  padding-left: 4mm; position: relative;
+}
+.goals-list li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--blue); font-size: 8pt;
+}
+
+/* === PAGE 3 === */
+.events-intro {
+  padding: 0 12mm 5mm;
+  font-size: 9pt; color: var(--ink); line-height: 1.55;
+}
+.events-grid {
+  padding: 0 12mm 7mm;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
+}
+.event-card {
+  border-radius: 3mm; overflow: hidden;
+  background: white; box-shadow: 0 1px 6px rgba(0,0,0,.08);
+}
+.event-card-photo { height: 40mm; overflow: hidden; position: relative; }
+.event-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+.event-card-badge {
+  position: absolute; top: 2.5mm; left: 2.5mm;
+  background: var(--yellow); color: var(--blue-deep);
+  font-size: 6.5pt; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em;
+  padding: 1mm 2.5mm; border-radius: 1.5mm;
+}
+.event-card-body { padding: 3.5mm 4mm 4mm; }
+.event-card-title {
+  font-family: var(--serif);
+  font-size: 10.5pt; font-weight: 700;
+  color: var(--blue-deep); line-height: 1.25; margin-bottom: 2mm;
+}
+.event-card-text { font-size: 7.5pt; color: var(--ink); line-height: 1.5; }
+.activities-bar {
+  margin: 0 12mm 7mm;
+  background: var(--yellow-pale);
+  border-left: 3mm solid var(--yellow);
+  border-radius: 0 2mm 2mm 0;
+  padding: 4mm 6mm;
+}
+.activities-bar-title {
+  font-family: var(--serif); font-size: 10pt; font-weight: 700;
+  color: var(--blue-deep); margin-bottom: 2mm;
+}
+.activities-chips { display: flex; flex-wrap: wrap; gap: 2mm; }
+.chip {
+  background: white;
+  border: 1px solid rgba(21,91,184,.25);
+  border-radius: 10mm; padding: 1mm 3.5mm;
+  font-size: 7.5pt; color: var(--blue-mid); font-weight: 500;
+}
+
+/* === PAGE 4 === */
+.donate-intro { padding: 0 12mm 5mm; font-size: 9pt; color: var(--ink); line-height: 1.55; }
+.donate-cards {
+  padding: 0 12mm 6mm;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;
+}
+.donate-card {
+  background: white; border-radius: 3mm;
+  border: 1px solid rgba(21,91,184,.12);
+  padding: 5mm; position: relative; overflow: hidden;
+}
+.donate-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 1mm; background: var(--blue);
+}
+.donate-card.gold::before { background: var(--yellow); }
+.donate-card.wine::before { background: #7d2c2c; }
+.donate-card.green::before { background: #2c6b3c; }
+.donate-card-icon { font-size: 18pt; margin-bottom: 2.5mm; }
+.donate-card-title {
+  font-family: var(--serif); font-size: 10.5pt; font-weight: 700;
+  color: var(--blue-deep); margin-bottom: 2mm; line-height: 1.2;
+}
+.donate-card-text { font-size: 7.5pt; color: var(--ink); line-height: 1.5; }
+.donate-card-amount {
+  margin-top: 3mm; font-size: 7pt; font-weight: 700;
+  color: var(--blue);
+  background: rgba(21,91,184,.08);
+  display: inline-block; padding: 1mm 3mm; border-radius: 1.5mm;
+}
+.quote-block {
+  margin: 0 12mm 7mm;
+  background: var(--blue-deep);
+  border-radius: 3mm; padding: 6mm 8mm; position: relative;
+}
+.quote-block::before {
+  content: '❝'; position: absolute; top: 3mm; left: 5mm;
+  font-size: 28pt; color: rgba(241,189,34,.3); line-height: 1;
+}
+.quote-text {
+  font-family: var(--serif); font-size: 10.5pt; font-style: italic;
+  color: rgba(255,255,255,.92); line-height: 1.55;
+  padding-left: 6mm; margin-bottom: 2mm;
+}
+.quote-attr {
+  font-size: 7.5pt; color: var(--yellow); font-weight: 600; padding-left: 6mm;
+}
+
+/* === BACK COVER === */
+.back-cover {
+  background: var(--blue-deep);
+  min-height: 297mm; display: flex; flex-direction: column;
+}
+.back-top { flex: 1; padding: 12mm 14mm 8mm; }
+.back-headline {
+  font-family: var(--serif); font-size: 22pt; font-weight: 700;
+  color: #fff; line-height: 1.15; margin-bottom: 5mm;
+}
+.back-headline em { color: var(--yellow); font-style: normal; }
+.back-subtext {
+  font-size: 9pt; color: rgba(255,255,255,.8);
+  line-height: 1.55; max-width: 150mm; margin-bottom: 8mm;
+}
+.how-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5mm; margin-bottom: 8mm;
+}
+.how-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 3mm; padding: 5mm;
+}
+.how-num {
+  font-family: var(--serif); font-size: 22pt; font-weight: 700;
+  color: var(--yellow); line-height: 1; margin-bottom: 2mm;
+}
+.how-title { font-size: 9pt; font-weight: 700; color: #fff; margin-bottom: 2mm; line-height: 1.25; }
+.how-text { font-size: 7.5pt; color: rgba(255,255,255,.7); line-height: 1.5; }
+.contact-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 5mm; margin-bottom: 8mm;
+}
+.contact-item {
+  background: rgba(241,189,34,.08);
+  border: 1px solid rgba(241,189,34,.25);
+  border-radius: 3mm; padding: 4mm;
+}
+.contact-label {
+  font-size: 6.5pt; font-weight: 700; color: var(--yellow);
+  text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1.5mm;
+}
+.contact-value { font-size: 8pt; color: rgba(255,255,255,.9); line-height: 1.4; word-break: break-all; }
+.solidarity-text {
+  font-family: var(--serif); font-size: 11pt; color: rgba(255,255,255,.7);
+  font-style: italic; line-height: 1.55;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 6mm; margin-bottom: 5mm;
+}
+.back-photos {
+  display: flex; gap: 3mm; margin-bottom: 6mm;
+}
+.back-photo-thumb {
+  flex: 1; height: 28mm; border-radius: 2mm; overflow: hidden;
+}
+.back-photo-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; filter: brightness(.85) saturate(.9);
+}
+.back-footer {
+  background: rgba(0,0,0,.3);
+  padding: 5mm 14mm;
+  display: flex; align-items: center; justify-content: space-between; gap: 5mm;
+}
+.back-footer-logo {
+  display: flex; align-items: center; gap: 3mm;
+}
+.back-footer-logo-img {
+  width: 8mm; height: 8mm; border-radius: 50%;
+  background: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex-shrink: 0;
+}
+.back-footer-logo-img img { width: 100%; height: 100%; object-fit: contain; }
+.back-footer-name { font-size: 7pt; color: rgba(255,255,255,.7); line-height: 1.35; }
+.back-footer-legal {
+  font-size: 6.5pt; color: rgba(255,255,255,.4);
+  text-align: right; line-height: 1.4; max-width: 90mm;
+}
+.page-num {
+  position: absolute; bottom: 5mm; right: 8mm;
+  font-size: 7pt; color: var(--muted);
+}
+
+@media print {
+  body { background: white; }
+  .page {
+    margin: 0; box-shadow: none;
+    page-break-after: always;
+    width: 210mm; min-height: 297mm;
+  }
+  @page { size: A4; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1: COVER ===================== -->
+<div class="page cover">
+  <div class="cover-hero">
+    <img src="assets/img/vyshyvanka-group.jpg" alt="Members of the Ukrainian Association in vyshyvanky with the official banner">
+    <div class="cover-hero-overlay"></div>
+    <div class="cover-topbar">
+      <div class="cover-logo-ring">
+        <img src="assets/img/logo-square.webp" alt="Logo">
+      </div>
+      <div class="cover-org-name">Association of Ukrainians<br>of Saguenay–Lac-Saint-Jean</div>
+    </div>
+    <div class="cover-text">
+      <div class="cover-kicker">Fundraising Brochure · 2026</div>
+      <h1 class="cover-headline">Your support<br>makes a difference</h1>
+      <p class="cover-subline">We are building a space of culture, belonging and integration for the Ukrainian community of Saguenay–Lac-Saint-Jean. With your help, we can go even further.</p>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-title">Unite</div>
+        <div class="pillar-text">Create bonds between Ukrainian families and the local community of Saguenay–Lac-Saint-Jean.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌻</div>
+        <div class="pillar-title">Present</div>
+        <div class="pillar-text">Share Ukrainian culture, traditions and values with our Québécois neighbours.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💛</div>
+        <div class="pillar-title">Help</div>
+        <div class="pillar-text">Support newcomers, defend their rights and contribute to Ukraine's reconstruction.</div>
+      </div>
+    </div>
+
+    <div class="cover-facts">
+      <div class="fact-box">
+        <div class="fact-num">2026</div>
+        <div class="fact-label">Founded &amp;<br>registered</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">UCC</div>
+        <div class="fact-label">Member of the Ukrainian<br>Canadian Congress</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">6</div>
+        <div class="fact-label">Directions<br>of activity</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">2</div>
+        <div class="fact-label">Regions<br>served</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-text">ukrainienssaguenay@gmail.com · 418-376-1569</div>
+      <div class="cuc-badge">UCC Member</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 2: WHO WE ARE ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">About us</div>
+    <h2 class="section-title">A <em>living</em> community<br>at the heart of Saguenay–Lac-Saint-Jean</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="assets/img/great-gathering.jpg" alt="Large gathering of the Ukrainian community">
+      <div class="about-photo-cap">Community gathering — Saguenay, 2025</div>
+    </div>
+    <div class="about-text-col">
+      <p class="about-lead">"We are not just an organization — we are a circle of people who support each other, grow together, and create a Ukrainian life in Saguenay and Lac-Saint-Jean."</p>
+      <p class="about-body">Founded and registered on January 12, 2026, the Association of Ukrainians of Saguenay–Lac-Saint-Jean is a non-profit legal entity incorporated under the laws of Québec. We are a member of the Ukrainian Canadian Congress (UCC), which brings together all Ukrainian organizations across Canada.</p>
+      <p class="about-body">In a short time, we have become a recognized presence in the region, representing the Ukrainian community with elected officials, institutions and the general public.</p>
+    </div>
+  </div>
+
+  <div class="about-mission-block">
+    <div>
+      <div class="mission-item-title">Unite</div>
+      <div class="mission-item-body">Provide a space for meeting, support and solidarity for all Ukrainian families in the region, whether long-established or newly arrived.</div>
+    </div>
+    <div>
+      <div class="mission-item-title">Present</div>
+      <div class="mission-item-body">Showcase Ukrainian culture — language, gastronomy, music, traditions — to our Québécois neighbours and in public spaces across the region.</div>
+    </div>
+    <div>
+      <div class="mission-item-title">Help</div>
+      <div class="mission-item-body">Support Ukrainians in their integration, advocate for their rights with government bodies and contribute to humanitarian efforts in Ukraine.</div>
+    </div>
+  </div>
+
+  <div class="about-goals">
+    <div class="goals-title">Our objectives under the Association's bylaws</div>
+    <ul class="goals-list">
+      <li>Meet the social, cultural and educational needs of members</li>
+      <li>Support members in adapting to life in the SLSJ region</li>
+      <li>Foster integration into the cultural and social life of the region</li>
+      <li>Present and promote Ukrainian culture and traditions</li>
+      <li>Collaborate with Ukrainian, Québécois and international organizations</li>
+      <li>Represent the Ukrainian community before decision-makers</li>
+    </ul>
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+
+<!-- ===================== PAGE 3: OUR ACTIVITIES ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">Our activities in 2025–2026</div>
+    <h2 class="section-title"><em>Concrete</em> actions,<br>moments that leave a mark</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="events-intro">Since our founding, we have organized events that bring people together, educate and move hearts. Here are some highlights from our first year of activity.</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/borsch-hall.jpg" alt="Merci Borsch event — banquet hall">
+        <div class="event-card-badge">Feb. 28, 2026</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Merci Borsch — Thank You Saguenay</div>
+        <p class="event-card-text">A gratitude event open to all, where we offered free traditional Ukrainian borsch — recognized by UNESCO as intangible cultural heritage. Between 100 and 200 people gathered around a meal and a message: thank you for welcoming us.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/holodomor-candles.jpg" alt="Holodomor commemoration — candles">
+        <div class="event-card-badge">Nov. 2025</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Holodomor Memorial Ceremony</div>
+        <p class="event-card-text">A commemorative ceremony for victims of the Holodomor, the Ukrainian genocide of 1932–33. Candle lighting, a moment of silence and a historical presentation to raise local community awareness of this little-known chapter of history.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/vyshyvanka-walk.jpg" alt="Vyshyvanka Day — procession">
+        <div class="event-card-badge">May 21, 2026</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Vyshyvanka Day</div>
+        <p class="event-card-text">The vyshyvanka, traditional Ukrainian embroidered garment, is worn worldwide on the third Thursday of May. We organized a gathering in vyshyvanky through the streets of Saguenay — a living symbol of cultural continuity across generations.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/borsch-kiosk.jpg" alt="Cultural kiosks — Ukrainian symbols and traditions">
+        <div class="event-card-badge">Dec. 2025</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Founding Great Assembly</div>
+        <p class="event-card-text">The first large gathering of the Ukrainian community of the region, held in December 2025 even before official registration. A founding moment that brought together dozens of families to build the foundations of our Association together.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="activities-bar">
+    <div class="activities-bar-title">Our regular activities throughout the year</div>
+    <div class="activities-chips">
+      <span class="chip">Ukrainian lessons for children</span>
+      <span class="chip">French conversation clubs</span>
+      <span class="chip">Board meetings</span>
+      <span class="chip">Koliada (Ukrainian Christmas carols)</span>
+      <span class="chip">Ukrainian Easter</span>
+      <span class="chip">Nature hikes and kayaking</span>
+      <span class="chip">Support for newcomers</span>
+      <span class="chip">Political representation</span>
+    </div>
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ===================== PAGE 4: WHY DONATE ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">Why your contribution matters</div>
+    <h2 class="section-title">Your donation <em>funds</em><br>specific, measurable actions</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="donate-intro">All contributions received are used exclusively for the Association's activities. No profit can be distributed to members. Here is how your support translates into concrete actions for the community.</p>
+
+  <div class="donate-cards">
+    <div class="donate-card">
+      <div class="donate-card-icon">📚</div>
+      <div class="donate-card-title">Education and language programs</div>
+      <p class="donate-card-text">Fund Ukrainian lessons for children and French conversation clubs for adults. Preserving the mother tongue while facilitating integration — two essential priorities for our families.</p>
+      <div class="donate-card-amount">From $25 · Helps 1 child attend a course</div>
+    </div>
+    <div class="donate-card gold">
+      <div class="donate-card-icon">🌻</div>
+      <div class="donate-card-title">Public cultural events</div>
+      <p class="donate-card-text">Organize free events for the entire population of Saguenay–Lac-Saint-Jean — borsch, vyshyvanka, Koliada, Ukrainian Easter. These moments of encounter build lasting bridges between communities.</p>
+      <div class="donate-card-amount">From $50 · Covers hall rental for a workshop</div>
+    </div>
+    <div class="donate-card wine">
+      <div class="donate-card-icon">🕯️</div>
+      <div class="donate-card-title">Direct humanitarian aid in Ukraine</div>
+      <p class="donate-card-text">At Merci Borsch, we supported Dereck Blouin-Perry, a Québécois volunteer working on the front lines in Ukraine. His urgent need: $2,000 for video laryngoscopes. Donations like yours save lives.</p>
+      <div class="donate-card-amount">From $100 · Contributes to emergency medical equipment</div>
+    </div>
+    <div class="donate-card green">
+      <div class="donate-card-icon">🏛️</div>
+      <div class="donate-card-title">Rights advocacy and representation</div>
+      <p class="donate-card-text">We actively work to obtain pathways to permanent residency for Ukrainians who arrived under the CUAET program. This representation work with elected officials requires travel and resources.</p>
+      <div class="donate-card-amount">From $200 · Funds an outreach with an elected official</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Today, as one hundred years ago, culture plays an essential role in the struggle for hearts and minds. By supporting our Association, you are defending not only a community, but the values of freedom, dignity and resilience."</p>
+    <div class="quote-attr">— Association of Ukrainians of Saguenay–Lac-Saint-Jean</div>
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ===================== PAGE 5: BACK COVER — HOW TO GIVE ===================== -->
+<div class="page back-cover">
+  <div class="back-top">
+    <h2 class="back-headline">How to<br><em>support us</em></h2>
+    <p class="back-subtext">Your contribution, whatever its form, directly sustains our community's activities. Together, we are building a strong Ukrainian future in Saguenay–Lac-Saint-Jean.</p>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <div class="how-title">Financial donation</div>
+        <div class="how-text">Bank transfer or cheque payable to "Association des Ukrainiens du Saguenay–Lac-Saint-Jean." Contact us for banking details.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <div class="how-title">Become a member</div>
+        <div class="how-text">The annual membership fee directly supports the Association's activities. Any person who shares our objectives is welcome to become a member.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <div class="how-title">Volunteer</div>
+        <div class="how-text">Offer your time, skills or network. Helping organize an event, teaching French, sharing your expertise — every hour counts.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <div class="how-title">Partnership</div>
+        <div class="how-text">Businesses, organizations and institutions: explore how a collaboration can benefit both our communities. Contact us to discuss possibilities.</div>
+      </div>
+    </div>
+
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">ukrainienssaguenay@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">418-376-1569</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Address</div>
+        <div class="contact-value">2439 Ch De La Réserve<br>Chicoutimi (QC) G7J 0E2</div>
+      </div>
+    </div>
+
+    <p class="solidarity-text">Supporting Ukraine and Ukrainians is not a political choice. It is defending peace, international law and the protection of civilians. Security is never granted — it is built together.</p>
+
+    <div class="back-photos">
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-desserts.jpg" alt="Ukrainian pastries — fundraising">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-speaker.jpg" alt="Public address at community event">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-ingredients.jpg" alt="Traditional Ukrainian ingredients">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/ucc-member.jpg" alt="Ukrainian Canadian Congress membership">
+      </div>
+    </div>
+  </div>
+
+  <div class="back-footer">
+    <div class="back-footer-logo">
+      <div class="back-footer-logo-img">
+        <img src="assets/img/logo-square.webp" alt="Logo">
+      </div>
+      <div class="back-footer-name">Association of Ukrainians<br>of Saguenay–Lac-Saint-Jean</div>
+    </div>
+    <div class="back-footer-legal">
+      Non-profit organization incorporated under the laws of Québec. Registered January 12, 2026. Member of the Ukrainian Canadian Congress. All revenues are used exclusively for the purposes of the Association.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

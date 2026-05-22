@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Association des Ukrainiens du Saguenay–Lac-Saint-Jean — Brochure de financement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* === DESIGN TOKENS === */
+:root {
+  --blue:       #155bb8;
+  --blue-deep:  #092f6f;
+  --blue-mid:   #1a4a9e;
+  --yellow:     #f1bd22;
+  --yellow-pale:#fdf3cc;
+  --paper:      #f7f3ea;
+  --cream:      #faf8f3;
+  --ink:        #1a1a2e;
+  --ink-mid:    #2c3e70;
+  --muted:      #6b7280;
+  --serif:      'Newsreader', Georgia, serif;
+  --sans:       'Instrument Sans', system-ui, sans-serif;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 10pt; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #e8e8e8;
+  line-height: 1.5;
+}
+
+/* === PAGE LAYOUT === */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 12mm auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+  page-break-after: always;
+}
+
+/* === COVER PAGE === */
+.cover {
+  background: var(--blue-deep);
+  display: flex;
+  flex-direction: column;
+  min-height: 297mm;
+}
+
+.cover-hero {
+  position: relative;
+  height: 148mm;
+  overflow: hidden;
+}
+.cover-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  filter: brightness(.75) saturate(1.1);
+}
+.cover-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(9,47,111,.35) 0%,
+    rgba(9,47,111,.1) 40%,
+    rgba(9,47,111,.75) 80%,
+    rgba(9,47,111,.95) 100%);
+}
+
+.cover-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 6mm 10mm;
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+.cover-logo-ring {
+  width: 10mm; height: 10mm;
+  background: var(--yellow);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 6pt;
+  color: var(--blue-deep);
+  font-weight: 700;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.cover-logo-ring img { width: 100%; height: 100%; object-fit: contain; }
+.cover-org-name {
+  font-family: var(--sans);
+  font-size: 7pt;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  line-height: 1.3;
+}
+
+.cover-text {
+  position: absolute;
+  bottom: 8mm; left: 10mm; right: 10mm;
+}
+.cover-kicker {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  margin-bottom: 3mm;
+}
+.cover-headline {
+  font-family: var(--serif);
+  font-size: 28pt;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 4mm;
+}
+.cover-subline {
+  font-size: 10pt;
+  color: rgba(255,255,255,.8);
+  line-height: 1.5;
+  max-width: 140mm;
+}
+
+.cover-body {
+  flex: 1;
+  background: var(--blue-deep);
+  padding: 10mm 12mm 8mm;
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+.cover-pillars {
+  display: flex;
+  gap: 5mm;
+}
+.pillar {
+  flex: 1;
+  background: rgba(241,189,34,.12);
+  border: 1px solid rgba(241,189,34,.3);
+  border-radius: 3mm;
+  padding: 5mm 4mm;
+  text-align: center;
+}
+.pillar-icon {
+  font-size: 16pt;
+  margin-bottom: 2mm;
+}
+.pillar-title {
+  font-family: var(--serif);
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--yellow);
+  margin-bottom: 1.5mm;
+}
+.pillar-text {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.75);
+  line-height: 1.45;
+}
+
+.cover-facts {
+  display: flex;
+  gap: 4mm;
+}
+.fact-box {
+  flex: 1;
+  text-align: center;
+}
+.fact-num {
+  font-family: var(--serif);
+  font-size: 20pt;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 1mm;
+}
+.fact-label {
+  font-size: 7pt;
+  color: rgba(255,255,255,.65);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  line-height: 1.3;
+}
+
+.cover-footer {
+  background: rgba(0,0,0,.25);
+  padding: 4mm 12mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cover-footer-text {
+  font-size: 7pt;
+  color: rgba(255,255,255,.55);
+}
+.cover-footer-cuc {
+  font-size: 7pt;
+  color: rgba(255,255,255,.55);
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+.cuc-badge {
+  background: rgba(241,189,34,.2);
+  border: 1px solid rgba(241,189,34,.4);
+  border-radius: 2mm;
+  padding: 1mm 3mm;
+  font-size: 6.5pt;
+  color: var(--yellow);
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+/* === DECORATIVE STRIPE === */
+.stripe {
+  height: 2mm;
+  background: linear-gradient(to right, var(--blue) 50%, var(--yellow) 50%);
+}
+
+/* === INNER PAGES === */
+.page-inner {
+  background: var(--cream);
+}
+
+/* === SECTION HEADERS === */
+.section-header {
+  padding: 7mm 12mm 5mm;
+}
+.section-kicker {
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin-bottom: 2mm;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: 20pt;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.section-title em {
+  color: var(--blue);
+  font-style: normal;
+}
+.section-rule {
+  width: 20mm;
+  height: .6mm;
+  background: linear-gradient(to right, var(--blue), var(--yellow));
+  margin-top: 3mm;
+}
+
+/* === PAGE 2 – WHO WE ARE === */
+.about-grid {
+  padding: 0 12mm 8mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+}
+.about-photo {
+  border-radius: 3mm;
+  overflow: hidden;
+  height: 55mm;
+  position: relative;
+}
+.about-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.about-photo-cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(9,47,111,.8));
+  padding: 3mm 3mm 2mm;
+  font-size: 7pt;
+  color: rgba(255,255,255,.85);
+  font-style: italic;
+}
+
+.about-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.about-lead {
+  font-family: var(--serif);
+  font-size: 11pt;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  font-style: italic;
+}
+.about-body {
+  font-size: 8.5pt;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.about-mission-block {
+  margin: 0 12mm 7mm;
+  background: var(--blue-deep);
+  border-radius: 3mm;
+  padding: 6mm 8mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4mm;
+  text-align: center;
+}
+.mission-item-title {
+  font-family: var(--serif);
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 1.5mm;
+}
+.mission-item-body {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.75);
+  line-height: 1.45;
+}
+
+.about-goals {
+  margin: 0 12mm 7mm;
+}
+.goals-title {
+  font-family: var(--serif);
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin-bottom: 3mm;
+}
+.goals-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 6mm;
+}
+.goals-list li {
+  font-size: 8pt;
+  color: var(--ink);
+  line-height: 1.45;
+  padding-left: 4mm;
+  position: relative;
+}
+.goals-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 8pt;
+}
+
+/* === PAGE 3 – OUR ACTIVITIES === */
+.events-intro {
+  padding: 0 12mm 5mm;
+  font-size: 9pt;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.events-grid {
+  padding: 0 12mm 7mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+}
+.event-card {
+  border-radius: 3mm;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
+}
+.event-card-photo {
+  height: 40mm;
+  overflow: hidden;
+  position: relative;
+}
+.event-card-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.event-card-badge {
+  position: absolute;
+  top: 2.5mm; left: 2.5mm;
+  background: var(--yellow);
+  color: var(--blue-deep);
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 1mm 2.5mm;
+  border-radius: 1.5mm;
+}
+.event-card-body {
+  padding: 3.5mm 4mm 4mm;
+}
+.event-card-title {
+  font-family: var(--serif);
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--blue-deep);
+  line-height: 1.25;
+  margin-bottom: 2mm;
+}
+.event-card-text {
+  font-size: 7.5pt;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.activities-bar {
+  margin: 0 12mm 7mm;
+  background: var(--yellow-pale);
+  border-left: 3mm solid var(--yellow);
+  border-radius: 0 2mm 2mm 0;
+  padding: 4mm 6mm;
+}
+.activities-bar-title {
+  font-family: var(--serif);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--blue-deep);
+  margin-bottom: 2mm;
+}
+.activities-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm;
+}
+.chip {
+  background: white;
+  border: 1px solid rgba(21,91,184,.25);
+  border-radius: 10mm;
+  padding: 1mm 3.5mm;
+  font-size: 7.5pt;
+  color: var(--blue-mid);
+  font-weight: 500;
+}
+
+/* === PAGE 4 – WHY DONATE === */
+.donate-intro {
+  padding: 0 12mm 5mm;
+  font-size: 9pt;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.donate-cards {
+  padding: 0 12mm 6mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+}
+.donate-card {
+  background: white;
+  border-radius: 3mm;
+  border: 1px solid rgba(21,91,184,.12);
+  padding: 5mm;
+  position: relative;
+  overflow: hidden;
+}
+.donate-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1mm;
+  background: var(--blue);
+}
+.donate-card.gold::before { background: var(--yellow); }
+.donate-card.wine::before { background: #7d2c2c; }
+.donate-card.green::before { background: #2c6b3c; }
+.donate-card-icon {
+  font-size: 18pt;
+  margin-bottom: 2.5mm;
+}
+.donate-card-title {
+  font-family: var(--serif);
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--blue-deep);
+  margin-bottom: 2mm;
+  line-height: 1.2;
+}
+.donate-card-text {
+  font-size: 7.5pt;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.donate-card-amount {
+  margin-top: 3mm;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(21,91,184,.08);
+  display: inline-block;
+  padding: 1mm 3mm;
+  border-radius: 1.5mm;
+}
+
+.quote-block {
+  margin: 0 12mm 7mm;
+  background: var(--blue-deep);
+  border-radius: 3mm;
+  padding: 6mm 8mm;
+  position: relative;
+}
+.quote-block::before {
+  content: '❝';
+  position: absolute;
+  top: 3mm; left: 5mm;
+  font-size: 28pt;
+  color: rgba(241,189,34,.3);
+  line-height: 1;
+}
+.quote-text {
+  font-family: var(--serif);
+  font-size: 10.5pt;
+  font-style: italic;
+  color: rgba(255,255,255,.92);
+  line-height: 1.55;
+  padding-left: 6mm;
+  margin-bottom: 2mm;
+}
+.quote-attr {
+  font-size: 7.5pt;
+  color: var(--yellow);
+  font-weight: 600;
+  padding-left: 6mm;
+}
+
+/* === PAGE 5 – HOW TO GIVE / BACK COVER === */
+.back-cover {
+  background: var(--blue-deep);
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+}
+.back-top {
+  flex: 1;
+  padding: 12mm 14mm 8mm;
+}
+.back-headline {
+  font-family: var(--serif);
+  font-size: 22pt;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 5mm;
+}
+.back-headline em {
+  color: var(--yellow);
+  font-style: normal;
+}
+.back-subtext {
+  font-size: 9pt;
+  color: rgba(255,255,255,.8);
+  line-height: 1.55;
+  max-width: 150mm;
+  margin-bottom: 8mm;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  margin-bottom: 8mm;
+}
+.how-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 3mm;
+  padding: 5mm;
+}
+.how-num {
+  font-family: var(--serif);
+  font-size: 22pt;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 2mm;
+}
+.how-title {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2mm;
+  line-height: 1.25;
+}
+.how-text {
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.7);
+  line-height: 1.5;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5mm;
+  margin-bottom: 8mm;
+}
+.contact-item {
+  background: rgba(241,189,34,.08);
+  border: 1px solid rgba(241,189,34,.25);
+  border-radius: 3mm;
+  padding: 4mm;
+}
+.contact-label {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1.5mm;
+}
+.contact-value {
+  font-size: 8pt;
+  color: rgba(255,255,255,.9);
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.solidarity-text {
+  font-family: var(--serif);
+  font-size: 11pt;
+  color: rgba(255,255,255,.7);
+  font-style: italic;
+  line-height: 1.55;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 6mm;
+  margin-bottom: 5mm;
+}
+
+.back-photos {
+  display: flex;
+  gap: 3mm;
+  margin-bottom: 6mm;
+}
+.back-photo-thumb {
+  flex: 1;
+  height: 28mm;
+  border-radius: 2mm;
+  overflow: hidden;
+}
+.back-photo-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(.85) saturate(.9);
+}
+
+.back-footer {
+  background: rgba(0,0,0,.3);
+  padding: 5mm 14mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5mm;
+}
+.back-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.back-footer-logo-img {
+  width: 8mm; height: 8mm;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.back-footer-logo-img img { width: 100%; height: 100%; object-fit: contain; }
+.back-footer-name {
+  font-size: 7pt;
+  color: rgba(255,255,255,.7);
+  line-height: 1.35;
+}
+.back-footer-legal {
+  font-size: 6.5pt;
+  color: rgba(255,255,255,.4);
+  text-align: right;
+  line-height: 1.4;
+  max-width: 90mm;
+}
+
+/* === PAGE NUMBERS === */
+.page-num {
+  position: absolute;
+  bottom: 5mm;
+  right: 8mm;
+  font-size: 7pt;
+  color: var(--muted);
+}
+
+/* === PRINT === */
+@media print {
+  body { background: white; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    width: 210mm;
+    min-height: 297mm;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1: COVER ===================== -->
+<div class="page cover">
+  <div class="cover-hero">
+    <img src="assets/img/great-gathering.jpg" alt="Rassemblement de la communauté ukrainienne à Saguenay">
+    <div class="cover-hero-overlay"></div>
+    <div class="cover-topbar">
+      <div class="cover-logo-ring">
+        <img src="assets/img/logo-square.webp" alt="Logo">
+      </div>
+      <div class="cover-org-name">Association des Ukrainiens<br>du Saguenay–Lac-Saint-Jean</div>
+    </div>
+    <div class="cover-text">
+      <div class="cover-kicker">Brochure de financement · 2026</div>
+      <h1 class="cover-headline">Votre soutien<br>fait la différence</h1>
+      <p class="cover-subline">Nous bâtissons un espace de culture, d'appartenance et d'intégration pour la communauté ukrainienne du Saguenay–Lac-Saint-Jean. Avec votre aide, nous allons encore plus loin.</p>
+    </div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-title">Unir</div>
+        <div class="pillar-text">Créer des liens entre les familles ukrainiennes et la communauté locale du Saguenay–Lac-Saint-Jean.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌻</div>
+        <div class="pillar-title">Présenter</div>
+        <div class="pillar-text">Faire connaître la culture, les traditions et les valeurs ukrainiennes à nos voisins québécois.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💛</div>
+        <div class="pillar-title">Aider</div>
+        <div class="pillar-text">Accompagner les nouveaux arrivants, défendre leurs droits et soutenir la reconstruction de l'Ukraine.</div>
+      </div>
+    </div>
+
+    <div class="cover-facts">
+      <div class="fact-box">
+        <div class="fact-num">2026</div>
+        <div class="fact-label">Fondée et<br>enregistrée</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">CUC</div>
+        <div class="fact-label">Membre du Congrès<br>ukrainien du Canada</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">6</div>
+        <div class="fact-label">Directions<br>d'activité</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-num">2</div>
+        <div class="fact-label">Régions<br>desservies</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-text">ukrainienssaguenay@gmail.com · 418-376-1569</div>
+      <div class="cuc-badge">Membre du CUC</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 2: QUI NOUS SOMMES ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">À propos de nous</div>
+    <h2 class="section-title">Une communauté <em>vivante</em><br>au cœur du Saguenay–Lac-Saint-Jean</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="assets/img/vyshyvanka-group.jpg" alt="Membres de l'Association en vyshyvanky avec la bannière officielle">
+      <div class="about-photo-cap">Membres de l'Association lors d'un événement culturel</div>
+    </div>
+    <div class="about-text-col">
+      <p class="about-lead">« Nous ne sommes pas qu'une organisation — c'est un cercle de personnes qui se soutiennent mutuellement, qui grandissent ensemble et qui créent une vie ukrainienne à Saguenay et au Lac-Saint-Jean. »</p>
+      <p class="about-body">Fondée le 12 janvier 2026, l'Association des Ukrainiens du Saguenay–Lac-Saint-Jean est une personne morale sans but lucratif constituée conformément aux lois du Québec. Elle est membre du Congrès ukrainien du Canada (CUC), qui regroupe l'ensemble des organisations ukrainiennes au pays.</p>
+      <p class="about-body">En peu de temps, nous sommes devenus un acteur reconnu dans la région, représentant la communauté ukrainienne auprès des élus, des organismes et du grand public.</p>
+    </div>
+  </div>
+
+  <div class="about-mission-block">
+    <div>
+      <div class="mission-item-title">Unir</div>
+      <div class="mission-item-body">Offrir un espace de rencontre, de soutien et de solidarité à toutes les familles ukrainiennes de la région, qu'elles soient établies depuis longtemps ou nouvellement arrivées.</div>
+    </div>
+    <div>
+      <div class="mission-item-title">Présenter</div>
+      <div class="mission-item-body">Faire rayonner la culture ukrainienne — langue, gastronomie, musique, traditions — auprès de nos voisins québécois et dans les espaces publics de la région.</div>
+    </div>
+    <div>
+      <div class="mission-item-title">Aider</div>
+      <div class="mission-item-body">Accompagner les Ukrainiens dans leur intégration, défendre leurs droits auprès des instances gouvernementales et contribuer aux efforts humanitaires en Ukraine.</div>
+    </div>
+  </div>
+
+  <div class="about-goals">
+    <div class="goals-title">Nos objectifs selon les statuts de l'Association</div>
+    <ul class="goals-list">
+      <li>Répondre aux besoins sociaux, culturels et éducatifs des membres</li>
+      <li>Soutenir les membres dans leur adaptation à la vie en région</li>
+      <li>Favoriser l'intégration à la vie culturelle et sociale du SLSJ</li>
+      <li>Présenter et promouvoir la culture et les traditions ukrainiennes</li>
+      <li>Collaborer avec des organismes ukrainiens, québécois et internationaux</li>
+      <li>Représenter la communauté ukrainienne auprès des décideurs</li>
+    </ul>
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+
+<!-- ===================== PAGE 3: NOS ACTIVITÉS ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">Nos activités en 2025–2026</div>
+    <h2 class="section-title">Des actions <em>concrètes</em>,<br>des moments qui marquent</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="events-intro">Depuis notre fondation, nous avons organisé des événements qui rassemblent, qui instruisent et qui touchent. Voici quelques temps forts de notre première année d'activité.</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/borsch-hall.jpg" alt="Événement Merci Borsch — salle de banquet">
+        <div class="event-card-badge">28 fév. 2026</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Merci Borsch — Merci Saguenay</div>
+        <p class="event-card-text">Un événement de gratitude ouvert à toute la population, où nous avons offert gratuitement du borsch traditionnel ukrainien — reconnu par l'UNESCO comme patrimoine culturel immatériel. Entre 100 et 200 personnes réunies autour d'un plat et d'un message : merci pour votre accueil.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/holodomor-candles.jpg" alt="Commémoration du Holodomor — bougies">
+        <div class="event-card-badge">Nov. 2025</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Cérémonie du Holodomor</div>
+        <p class="event-card-text">Cérémonie commémorative des victimes du Holodomor, génocide ukrainien de 1932–33. Allumage de bougies, minute de silence et présentation historique pour sensibiliser la communauté locale à ce chapitre méconnu de l'histoire.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/vyshyvanka-walk.jpg" alt="Jour de la vyshyvanka — défilé">
+        <div class="event-card-badge">21 mai 2026</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Journée de la Vyshyvanka</div>
+        <p class="event-card-text">La vyshyvanka, broderie traditionnelle ukrainienne, est portée partout dans le monde le 3e jeudi de mai. Nous avons organisé un rassemblement en vyshyvanky dans les rues de Saguenay, symbole vivant de continuité culturelle entre les générations.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-card-photo">
+        <img src="assets/img/meeting-members.jpg" alt="Grande assemblée des Ukrainiens">
+        <div class="event-card-badge">Déc. 2025</div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-card-title">Grande assemblée des Ukrainiens</div>
+        <p class="event-card-text">Première grande rencontre de la communauté ukrainienne de la région, tenue en décembre 2025 avant même l'enregistrement officiel. Un moment fondateur qui a réuni des dizaines de familles pour bâtir ensemble les bases de notre association.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="activities-bar">
+    <div class="activities-bar-title">Nos activités régulières tout au long de l'année</div>
+    <div class="activities-chips">
+      <span class="chip">Cours d'ukrainien pour enfants</span>
+      <span class="chip">Clubs de conversation en français</span>
+      <span class="chip">Réunions du conseil d'administration</span>
+      <span class="chip">Koliada (chants de Noël ukrainiens)</span>
+      <span class="chip">Pâques ukrainienne</span>
+      <span class="chip">Sorties en nature et kayak</span>
+      <span class="chip">Soutien aux nouveaux arrivants</span>
+      <span class="chip">Représentation politique</span>
+    </div>
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ===================== PAGE 4: POURQUOI FAIRE UN DON ===================== -->
+<div class="page page-inner">
+  <div class="stripe"></div>
+  <div class="section-header">
+    <div class="section-kicker">Pourquoi votre contribution compte</div>
+    <h2 class="section-title">Votre don <em>finance</em><br>des actions précises et mesurables</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="donate-intro">Toutes les contributions reçues sont utilisées exclusivement pour les activités de l'Association. Aucun profit ne peut être distribué aux membres. Voici comment votre soutien se traduit en actions concrètes pour la communauté.</p>
+
+  <div class="donate-cards">
+    <div class="donate-card">
+      <div class="donate-card-icon">📚</div>
+      <div class="donate-card-title">Éducation et cours de langue</div>
+      <p class="donate-card-text">Financer les cours d'ukrainien pour les enfants et les clubs de conversation en français pour les adultes. Préserver la langue maternelle tout en facilitant l'intégration — deux priorités essentielles pour nos familles.</p>
+      <div class="donate-card-amount">Dès 25 $ · Aide 1 enfant à suivre un cours</div>
+    </div>
+    <div class="donate-card gold">
+      <div class="donate-card-icon">🌻</div>
+      <div class="donate-card-title">Événements culturels ouverts au public</div>
+      <p class="donate-card-text">Organiser des événements gratuits pour toute la population du Saguenay–Lac-Saint-Jean — borsch, vyshyvanka, Koliada, Pâques ukrainienne. Ces moments de rencontre construisent des ponts durables entre communautés.</p>
+      <div class="donate-card-amount">Dès 50 $ · Couvre la location de salle pour un atelier</div>
+    </div>
+    <div class="donate-card wine">
+      <div class="donate-card-icon">🕯️</div>
+      <div class="donate-card-title">Aide humanitaire directe en Ukraine</div>
+      <p class="donate-card-text">Lors du Merci Borsch, nous avons soutenu Dereck Blouin-Perry, bénévole québécois qui travaille sur les lignes de front en Ukraine. Son besoin urgent : 2 000 $ pour des laryngoscopes vidéo. Des dons comme le vôtre sauvent des vies.</p>
+      <div class="donate-card-amount">Dès 100 $ · Contribue à l'équipement médical d'urgence</div>
+    </div>
+    <div class="donate-card green">
+      <div class="donate-card-icon">🏛️</div>
+      <div class="donate-card-title">Représentation et défense des droits</div>
+      <p class="donate-card-text">Nous travaillons activement pour obtenir des voies d'accès à la résidence permanente pour les Ukrainiens arrivés sous le programme CUAET. Ce travail de représentation auprès des élus nécessite des déplacements et des ressources.</p>
+      <div class="donate-card-amount">Dès 200 $ · Finance une démarche auprès d'un élu</div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">« Aujourd'hui, comme il y a cent ans, la culture joue un rôle essentiel dans la lutte pour les cœurs et les esprits. En soutenant notre Association, vous défendez non seulement une communauté, mais les valeurs de liberté, de dignité et de résilience. »</p>
+    <div class="quote-attr">— Association des Ukrainiens du Saguenay–Lac-Saint-Jean</div>
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ===================== PAGE 5: BACK COVER — COMMENT DONNER ===================== -->
+<div class="page back-cover">
+  <div class="back-top">
+    <h2 class="back-headline">Comment<br>nous <em>soutenir</em></h2>
+    <p class="back-subtext">Votre contribution, quelle que soit sa forme, nourrit directement les activités de notre communauté. Ensemble, nous construisons un avenir ukrainien solide au Saguenay–Lac-Saint-Jean.</p>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <div class="how-title">Don financier</div>
+        <div class="how-text">Virement bancaire ou chèque à l'ordre de « Association des Ukrainiens du Saguenay–Lac-Saint-Jean ». Communiquez avec nous pour les coordonnées bancaires.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <div class="how-title">Devenir membre</div>
+        <div class="how-text">La cotisation annuelle soutient directement les activités de l'Association. Toute personne qui partage nos objectifs peut en devenir membre.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <div class="how-title">Bénévolat</div>
+        <div class="how-text">Offrez votre temps, vos compétences ou votre réseau. Organiser un événement, enseigner le français, partager votre expertise — chaque heure compte.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <div class="how-title">Partenariat</div>
+        <div class="how-text">Entreprises, organismes et institutions : explorez comment une collaboration peut profiter à nos deux communautés. Contactez-nous pour discuter.</div>
+      </div>
+    </div>
+
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="contact-label">Courriel</div>
+        <div class="contact-value">ukrainienssaguenay@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Téléphone</div>
+        <div class="contact-value">418-376-1569</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Adresse</div>
+        <div class="contact-value">2439 Ch De La Réserve<br>Chicoutimi (QC) G7J 0E2</div>
+      </div>
+    </div>
+
+    <p class="solidarity-text">Soutenir l'Ukraine et les Ukrainiens, ce n'est pas un choix politique. C'est défendre la paix, le droit international et la protection des civils. La sécurité n'est jamais acquise — elle se construit ensemble.</p>
+
+    <div class="back-photos">
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-stage.jpg" alt="Merci Borsch — scène">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-kiosk.jpg" alt="Kiosques culturels ukrainiens">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/borsch-speaker.jpg" alt="Prise de parole publique">
+      </div>
+      <div class="back-photo-thumb">
+        <img src="assets/img/ucc-member.jpg" alt="Adhésion au Congrès ukrainien du Canada">
+      </div>
+    </div>
+  </div>
+
+  <div class="back-footer">
+    <div class="back-footer-logo">
+      <div class="back-footer-logo-img">
+        <img src="assets/img/logo-square.webp" alt="Logo">
+      </div>
+      <div class="back-footer-name">Association des Ukrainiens<br>du Saguenay–Lac-Saint-Jean</div>
+    </div>
+    <div class="back-footer-legal">
+      Organisme sans but lucratif constitué conformément aux lois du Québec. Enregistré le 12 janvier 2026. Membre du Congrès ukrainien du Canada. Tous les revenus sont utilisés exclusivement pour les fins de l'Association.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
